@@ -33,7 +33,8 @@ sudo chsh -s $(which zsh) $USER
 
 # bundle zsh plugins
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-
+# install minpac
+git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 # install neovim plugins
 nvim --headless +PackUpdate +qall
 

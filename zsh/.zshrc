@@ -12,9 +12,10 @@ export PATH=${HOME}/bin:${PATH}
 # Note: This must be exported before the plugin is bundled
 export NVM_DIR=${HOME}/.nvm
 export NVM_COMPLETION=true
+
 export LANGUAGE=zh_CN:zh
-export LC_ALL=zh_CN.UTF-8
 export LANG=zh_CN.UTF-8
+export LC_ALL=C
 
 source ${HOME}/.zsh_plugins.sh
 HISTFILE="$HOME/.zsh_history"
