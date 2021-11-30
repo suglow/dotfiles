@@ -1,3 +1,5 @@
+robbyrussell/oh-my-zsh
+
 lukechilds/zsh-nvm
 
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages

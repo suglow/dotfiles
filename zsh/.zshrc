@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Supports a bin directory inside home directory
-export PATH=${HOME}/bin:${PATH}
+# export PATH=${HOME}/bin:${PATH}
 
 # Export nvm completion settings for lukechilds/zsh-nvm plugin
 # Note: This must be exported before the plugin is bundled
@@ -17,12 +17,15 @@ export LANGUAGE=zh_CN:zh
 export LANG=zh_CN.UTF-8
 export LC_ALL=C
 
+export DISABLE_AUTO_UPDATE=true
+
+export ZSH="${HOME}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 source ${HOME}/.zsh_plugins.sh
 HISTFILE="$HOME/.zsh_history"
 # Bundle zsh plugins via antibody
 alias update-antibody='antibody bundle < $HOME/.zsh_plugins.txt > $HOME/.zsh_plugins.sh'
 # Colored 'ls' MacOS
-alias ls='ls -al'
+alias ls='ls -a --color'
 # Homebrew alias for daily management (MacOS)
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 # List out all globally installed npm packages

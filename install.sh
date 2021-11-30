@@ -1,5 +1,10 @@
 # install nx
-curl -L https://nixos.org/nix/install | sh
+cat <<EOF >~/.config/nix/nix.conf
+substituters = https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/
+EOF
+
+#curl -L https://nixos.org/nix/install | sh
+curl -L https://mirrors.tuna.tsinghua.edu.cn/nix/latest/install | sh
 
 # source nix
 . ~/.nix-profile/etc/profile.d/nix.sh
