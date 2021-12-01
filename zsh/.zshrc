@@ -65,9 +65,10 @@ bindkey -s ^p "tmux-sessionizer\n"
 # installed via homebrew
 # used because of flexshopper/payment-plugin-3
 # https://flexshopper.atlassian.net/wiki/spaces/DEV/pages/1377697814/Getting+Started+pp3
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+typeset -g OWERLEVEL9K_INSTANT_PROMPT=quiet
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export BAT_THEME="gruvbox-dark"
@@ -77,3 +78,7 @@ cdd() { builtin cd "$@" && ls; }
 
 # nix
 if [ -e /home/suglow/.nix-profile/etc/profile.d/nix.sh ]; then . /home/suglow/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
