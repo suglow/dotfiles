@@ -15,6 +15,7 @@ nix-env -iA \
 	nixpkgs.antibody \
 	nixpkgs.git \
 	nixpkgs.neovim \
+	nixpkgs.vim \
 	nixpkgs.tmux \
 	nixpkgs.stow \
 	nixpkgs.yarn \
@@ -23,7 +24,10 @@ nix-env -iA \
 	nixpkgs.bat \
 	nixpkgs.gnumake \
 	nixpkgs.gcc \
-	nixpkgs.direnv
+	nixpkgs.direnv \
+	nixpkgs.delta \
+        nixpkgs.powerline-fonts
+
 
 stow git
 stow vim

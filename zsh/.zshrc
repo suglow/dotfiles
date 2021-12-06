@@ -43,7 +43,8 @@ alias gcob='git branch | fzf | xargs git checkout'
 alias vimrc='vim ${HOME}/.config/nvim/init.vim'
 # cat -> bat
 alias cat='bat'
-
+# utf-8 tmux
+alias tmux='tmux -u'
 # DIRCOLORS (MacOS)
 export CLICOLOR=1
 export LSCOLORS=FxFhcxdxbxegedabagacad
