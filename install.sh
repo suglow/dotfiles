@@ -1,4 +1,6 @@
 # install nx
+NIX_CONFIG=~/.config/nix/nix.conf
+mkdir -p "$(dirname "$NIX_CONFIG")" && touch "$NIX_CONFIG"
 cat <<EOF >~/.config/nix/nix.conf
 substituters = https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/
 EOF
