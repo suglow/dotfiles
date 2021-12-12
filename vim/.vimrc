@@ -38,6 +38,8 @@ call minpac#add('liuchengxu/vista.vim')
 call minpac#add('ervandew/supertab')
 call minpac#add('puremourning/vimspector')
 call minpac#add('ojroques/vim-oscyank')
+call minpac#add('christoomey/vim-tmux-navigator')
+
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -58,6 +60,12 @@ let g:airline_right_alt_sep = ''
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if exists('$TMUX')
+" Colors in tmux
+let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+endif
+set t_ut=
 set langmenu=zh_CN.UTF-8
 set helplang=cn
 set termencoding=utf-8
@@ -220,7 +228,6 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
@@ -380,5 +387,5 @@ nmap <space>e <Cmd>CocCommand explorer<CR>
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 nmap <Leader>tg :Vista coc<CR>
 nmap <Leader>tc :Vista!!<CR>
-vnoremap <leader>c :OSCYank<CR>
+vnoremap <leader>y :OSCYank<CR>
 nmap <leader>y <Plug>OSCYank
