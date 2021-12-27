@@ -22,9 +22,11 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 # 补全
-zinit ce lucid wait='0'
+zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
-
+# Alias
+zinit ice lucid wait='0'
+zinit light djui/aias-tipsl
 # 加载 OMZ 框架及部分插件
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
@@ -50,6 +52,10 @@ zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # 加载主题
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
+
+# Alias
+alias ls="ls --color"
+alias ll="ls -lh --color"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
