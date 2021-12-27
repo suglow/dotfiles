@@ -23,12 +23,22 @@ if [ `so` = "linux" ]; then
     elif [ -x "$(command -v apt)" ]; then
         xargs sudo apt-get install < "$DOTFILES_FOLDER/apt.pkglist"
     fi
-
-    if [ -x "$(command -v snap)" ]; then
-        xargs -0 -n 1 sudo snap install < <(tr \\n \\0 <"$DOTFILES_FOLDER/snap.pkglist")
-    fi
+# todo snap
+#    if [ -x "$(command -v snap)" ]; then
+#        xargs -0 -n 1 sudo snap install < <(tr \\n \\0 <"$DOTFILES_FOLDER/snap.pkglist")
+#    fi
 elif [ `so` = "mac" ]; then
     xargs brew install < "$DOTFILES_FOLDER/brew.pkglist"
 fi
 
+#
+# Install shell configuration
+# ==============================================================================================================================
+#
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#~/.fzf/install
+
+stow zinit
 
