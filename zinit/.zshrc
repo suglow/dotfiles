@@ -7,7 +7,7 @@ fi
 
 if [[ ! -f ~/.zinit/bin/zinit.zsh ]]; then
 	mkdir ~/.zinit
-	git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
+	git clone https://gitee.com/suglow006/zinit.git ~/.zinit/bin
 fi
 
 # load zinit
