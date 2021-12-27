@@ -1,54 +1,34 @@
-# install nx
-NIX_CONFIG=~/.config/nix/nix.conf
-mkdir -p "$(dirname "$NIX_CONFIG")" && touch "$NIX_CONFIG"
-cat <<EOF >~/.config/nix/nix.conf
-substituters = https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/
-EOF
+#!/bin/bash
 
-#curl -L https://nixos.org/nix/install | sh
-curl -L https://mirrors.tuna.tsinghua.edu.cn/nix/latest/install | sh
+DOTFILES_FOLDER=$(dirname $(readlink -f "$0"))
 
-# source nix
-. ~/.nix-profile/etc/profile.d/nix.sh
+so() {
+    unameOut="$(uname -s)"
+    case "${unameOut}" in
+        Linux*)     MACHINE=linux;;
+        Darwin*)    MACHINE=mac;;
+        *)          MACHINE="UNKNOWN:${unameOut}"
+    esac
 
-# install packages
-nix-env -iA \
-	nixpkgs.zsh \
-	nixpkgs.antibody \
-	nixpkgs.git \
-	nixpkgs.neovim \
-	nixpkgs.vim \
-	nixpkgs.tmux \
-	nixpkgs.stow \
-	nixpkgs.yarn \
-	nixpkgs.fzf \
-	nixpkgs.ripgrep \
-	nixpkgs.bat \
-	nixpkgs.gnumake \
-	nixpkgs.gcc \
-	nixpkgs.direnv \
-	nixpkgs.delta \
-        nixpkgs.powerline-fonts
+    echo "$MACHINE"
+}
+
+#
+# Install packages
+# ==============================================================================================================================
+#
+if [ `so` = "linux" ]; then
+    if [ -x "$(command -v pacman)" ]; then
+        xargs -0 -n 1 sudo pacman -Syu --noconfirm < <(tr \\n \\0 <"$DOTFILES_FOLDER/pacman.pkglist")
+    elif [ -x "$(command -v apt)" ]; then
+        xargs sudo apt-get install < "$DOTFILES_FOLDER/apt.pkglist"
+    fi
+
+    if [ -x "$(command -v snap)" ]; then
+        xargs -0 -n 1 sudo snap install < <(tr \\n \\0 <"$DOTFILES_FOLDER/snap.pkglist")
+    fi
+elif [ `so` = "mac" ]; then
+    xargs brew install < "$DOTFILES_FOLDER/brew.pkglist"
+fi
 
 
-stow git
-stow vim
-stow tmux
-stow zsh
-
-# add zsh as a login shell
-command -v zsh | sudo tee -a /etc/shells
-
-# use zsh as default shell
-sudo chsh -s $(which zsh) $USER
-
-# bundle zsh plugins
-antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# install minpac
-git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
-# install neovim plugins
-nvim --headless +PackUpdate +qall
-
-# Use kitty terminal on MacOS
-[ `uname -s` = 'Darwin' ] && stow kitty
