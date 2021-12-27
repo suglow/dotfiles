@@ -21,7 +21,7 @@ if [ `so` = "linux" ]; then
     if [ -x "$(command -v pacman)" ]; then
         xargs -0 -n 1 sudo pacman -Syu --noconfirm < <(tr \\n \\0 <"$DOTFILES_FOLDER/pacman.pkglist")
     elif [ -x "$(command -v apt)" ]; then
-        xargs sudo apt-get install < "$DOTFILES_FOLDER/apt.pkglist"
+        xargs sudo apt-get -y install < "$DOTFILES_FOLDER/apt.pkglist"
     fi
 # todo snap
 #    if [ -x "$(command -v snap)" ]; then
