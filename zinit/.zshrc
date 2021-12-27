@@ -24,9 +24,6 @@ zinit light zsh-users/zsh-autosuggestions
 # 补全
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
-# Alias
-zinit ice lucid wait='0'
-zinit light djui/aias-tipsl
 # 加载 OMZ 框架及部分插件
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
