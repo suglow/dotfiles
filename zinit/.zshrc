@@ -12,7 +12,7 @@ fi
 
 export NVM_DIR=${HOME}/.nvm
 export NVM_COMPLETION=true
-
+export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
 # load zinit
 source ~/.zinit/bin/zinit.zsh
 # 快速目录跳转
@@ -71,4 +71,5 @@ if [ ! -x "$(command -v node)" ]; then
     nvm install v16.13.1
     nvm use v16.13.1
     nvm alias default v16.13.1
+    npm config set registry http://registry.npm.taobao.org
 fi
