@@ -45,6 +45,8 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 # Gitignore plugin – commands gii and gi
 zinit ice wait"2" lucid
 zinit load voronkovich/gitignore.plugin.zsh
+
+zinit load lukechilds/zsh-nvm
 # vi模式
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # 加载主题
@@ -52,8 +54,6 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 # Alias
-alias ls="ls --color"
-alias ll="ls -lh --color"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
