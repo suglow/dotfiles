@@ -38,8 +38,15 @@ fi
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 stow zinit
-
+stow vim
 if [[ ! -d ~/.fzf ]]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
+fi
+
+# install minpac
+if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
+git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
+# install neovim plugins
+nvim --headless +PackUpdate +qall
 fi
