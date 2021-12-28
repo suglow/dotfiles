@@ -60,3 +60,8 @@ zinit light romkatv/powerlevel10k
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ ! -x "$(command -v node)" ]; then
+    nvm install v16.13.1
+    nvm use v16.13.1
+    nvm alias default v16.13.1
+fi
