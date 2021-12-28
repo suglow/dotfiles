@@ -10,6 +10,9 @@ if [[ ! -f ~/.zinit/bin/zinit.zsh ]]; then
 	git clone https://gitee.com/suglow006/zinit.git ~/.zinit/bin
 fi
 
+export NVM_DIR=${HOME}/.nvm
+export NVM_COMPLETION=true
+
 # load zinit
 source ~/.zinit/bin/zinit.zsh
 # 快速目录跳转
