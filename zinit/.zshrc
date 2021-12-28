@@ -57,6 +57,13 @@ zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
 # Alias
+# use neovim instead of vim
+alias vim='nvim'
+# utf-8 tmux
+alias tmux='tmux -u'
+# cat -> bat
+alias cat='bat'
+export BAT_THEME="gruvbox-dark"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
