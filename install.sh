@@ -24,6 +24,8 @@ if [ `so` = "linux" ]; then
         sudo add-apt-repository ppa:neovim-ppa/unstable
         sudo apt-get update
         xargs sudo apt-get -y install < "$DOTFILES_FOLDER/apt.pkglist"
+    elif [ -x "$(command -v zypper)" ]; then
+        xargs sudo zypper -n install < "$DOTFILES_FOLDER/zypper.pkglist"
     fi
 # todo snap
 #    if [ -x "$(command -v snap)" ]; then
