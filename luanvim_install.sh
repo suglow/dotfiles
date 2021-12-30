@@ -52,8 +52,9 @@ if [[ ! -d ~/.fzf ]]; then
 fi
 
 # install minpac
-if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
-git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
+#if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
+#git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 # install neovim plugins
-nvim --headless +PackUpdate +qall
-fi
+#nvim --headless +PackUpdate +qall
+#fi
+nvim --headless +PackerUpdate +qall
