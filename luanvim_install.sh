@@ -51,6 +51,9 @@ if [[ ! -d ~/.fzf ]]; then
     ~/.fzf/install --all
 fi
 
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 # install minpac
 if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
 git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
