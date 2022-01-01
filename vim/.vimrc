@@ -179,7 +179,8 @@ xmap <Space>w <Plug>(easymotion-overwin-w)
 omap <Space>w <Plug>(easymotion-overwin-w)
 
 " NERD Tree
-nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
+" nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
+nmap <space>e  :NERDTreeToggle<RETURN>
 " 替换光标下单词的键映射
 nnoremap <Leader>v viw"0p
 vnoremap <Leader>v    "0p
@@ -359,7 +360,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>x  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
@@ -383,7 +384,7 @@ nnoremap <Leader>lh <C-w>_
 nnoremap <Leader>=  <C-w>=
 nnoremap <Leader>lv <C-w><Bar>
 
-nmap <space>e <Cmd>CocCommand explorer<CR>
+"nmap <space>e <Cmd>CocCommand explorer<CR>
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 nmap <Leader>tg :Vista coc<CR>
 nmap <Leader>tc :Vista!!<CR>
