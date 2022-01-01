@@ -73,3 +73,6 @@ if [ ! -x "$(command -v node)" ]; then
     nvm alias default v16.13.1
     npm config set registry http://registry.npm.taobao.org
 fi
+
+[[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env
+[[ ! -d $HOME/.local/bin ]] || export PATH=$HOME/.local/bin:$PATH
