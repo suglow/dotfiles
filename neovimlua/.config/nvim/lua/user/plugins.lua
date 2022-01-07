@@ -96,6 +96,17 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
 
+  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use {
+    "tpope/vim-surround",
+    keys = {"c", "d", "y"}
+  }
+  use {
+    "tpope/vim-unimpaired",
+    keys = { "[", "]", "y" }
+  }
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
