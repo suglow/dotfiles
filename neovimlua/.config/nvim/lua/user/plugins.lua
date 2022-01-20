@@ -92,7 +92,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-
+  use "ojroques/vim-oscyank"
   -- Git
   use "lewis6991/gitsigns.nvim"
 
