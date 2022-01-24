@@ -23,9 +23,10 @@ if [ `so` = "linux" ]; then
     elif [ -x "$(command -v apt)" ]; then
         # sudo add-apt-repository ppa:neovim-ppa/stable
         sudo apt-get update
-        xargs sudo apt-get -y install < "$DOTFILES_FOLDER/apt.pkglist"
+	xargs -i sh -c "sudo apt-get -y install {} || true" < "$DOTFILES_FOLDER/apt.pkglist"
         # install neovim 0.6.1
         wget https://github.com/neovim/neovim/releases/download/v0.6.1/nvim-linux64.tar.gz -O ~/.local/nvim-linux64.tar.gz
+        mkdir -p ~/.local
         tar -xvf ~/.local/nvim-linux64.tar.gz -C ~/.local
         sudo ln -s ~/.local/nvim-linux64/bin/nvim /usr/bin/nvim
     elif [ -x "$(command -v zypper)" ]; then
