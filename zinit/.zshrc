@@ -59,6 +59,9 @@ zinit load "zsh-users/zsh-history-substring-search"
 # Configuration
 ##
 HISTFILE="$HOME/.zsh_history"
+if [ ! -z ${HISTFILEPATH} ];then
+  HISTFILE="${HISTFILEPATH}"
+else
 HISTSIZE=10000000
 SAVEHIST=10000000
 
