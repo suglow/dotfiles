@@ -62,7 +62,7 @@ HISTFILE="$HOME/.zsh_history"
 if [ ! -z ${HISTFILEPATH} ];then
   HISTFILE="${HISTFILEPATH}"
 fi
-HISTORY_BASE="$(dirname ${HISTFILE})"
+HISTORY_BASE="$(dirname ${HISTFILE}/.directory_history)"
 HISTSIZE=10000000
 SAVEHIST=10000000
 
