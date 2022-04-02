@@ -103,6 +103,7 @@ local mappings = {
     s = { "<cmd>PackerSync<cr>", "Sync" },
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
+    y = { "<cmd>let @a = expand('%:p') | OSCYankReg a<cr>", "copy path" },
   },
 
   g = {
