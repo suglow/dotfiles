@@ -26,7 +26,7 @@ if [ `so` = "linux" ]; then
         xargs -i sh -c "sudo apt-get -y install {} || true" < "$DOTFILES_FOLDER/apt.pkglist"
         mkdir -p ~/.local
         # install neovim 0.6.1
-        wget --no-check-certificate https://github.com/neovim/neovim/releases/download/v0.6.1/nvim-linux64.tar.gz -O ~/.local/nvim-linux64.tar.gz
+        wget --no-check-certificate https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz -O ~/.local/nvim-linux64.tar.gz
         tar -xvf ~/.local/nvim-linux64.tar.gz -C ~/.local
         sudo ln -s ~/.local/nvim-linux64/bin/nvim /usr/bin/nvim
     elif [ -x "$(command -v zypper)" ]; then
