@@ -48,10 +48,10 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
+  use {"akinsho/toggleterm.nvim", branch = 'main'}
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -84,7 +84,12 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+        { 'nvim-telescope/telescope-live-grep-raw.nvim' }
+    }
+  }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- Treesitter
   use {
