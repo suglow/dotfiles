@@ -58,7 +58,12 @@ zinit load "zsh-users/zsh-history-substring-search"
 ##
 # Configuration
 ##
-HISTFILE="$HOME/.zsh_history"
+if [ ! -z ${WORKSPACE} ];then
+  HISTFILE="${WORKSPACE}/.zsh_history"
+else
+  HISTFILE="$HOME/.zsh_history"
+fi
+
 if [ ! -z ${HISTFILEPATH} ];then
   HISTFILE="${HISTFILEPATH}"
 fi
