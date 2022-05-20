@@ -83,6 +83,7 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "simrat39/symbols-outline.nvim" -- for outline
 
   use 'simrat39/rust-tools.nvim'
   -- Telescope
@@ -116,6 +117,21 @@ return packer.startup(function(use)
   use {
     "tom-anders/telescope-vim-bookmarks.nvim"
   }
+	-- Wilder Cmdline
+	use("gelguy/wilder.nvim")
+
+  -- Multi Virtual Cursor
+  use("mg979/vim-visual-multi")
+  -- hop
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' , multi_windows = true}
+    end
+  }
+  
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
