@@ -44,6 +44,10 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set showbreak=↪"
 vim.cmd "set listchars=tab:→\\ ,eol:↲,nbsp:␣,space:•"
+vim.cmd "set foldmethod=expr"
+vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
+vim.cmd "set foldlevel=1"
+vim.cmd "set nofoldenable"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
