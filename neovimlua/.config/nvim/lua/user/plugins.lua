@@ -58,7 +58,14 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
-  use "mfussenegger/nvim-dap"
+  -- DAP
+  use("mfussenegger/nvim-dap")
+  use("theHamsta/nvim-dap-virtual-text")
+  use("rcarriga/nvim-dap-ui")
+  use("HiPhish/debugpy.nvim")
+
+  use("nvim-telescope/telescope-dap.nvim") 
+
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -107,18 +114,24 @@ return packer.startup(function(use)
   use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
   use {
     "tpope/vim-surround",
-    keys = {"c", "d", "y"}
+    keys = {"c", "d", "y", "S"}
   }
+  -- use {
+  --   "ur4ltz/surround.nvim",
+  --   config = function()
+  --     require"surround".setup {mappings_style = "surround"}
+  --   end
+  -- }
   use {
     "tpope/vim-unimpaired",
-    keys = { "[", "]", "y" }
+    keys = {"y"}
   }
   use "MattesGroeger/vim-bookmarks"
   use {
     "tom-anders/telescope-vim-bookmarks.nvim"
   }
 	-- Wilder Cmdline
-	use("gelguy/wilder.nvim")
+  use("gelguy/wilder.nvim")
 
   -- Multi Virtual Cursor
   use("mg979/vim-visual-multi")

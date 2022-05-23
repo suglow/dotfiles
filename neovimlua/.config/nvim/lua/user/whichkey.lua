@@ -89,6 +89,7 @@ local mappings = {
   ["x"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["j"] = { "<cmd>HopChar1<CR>", "Hop Word" },
+  ["y"] = { "<cmd>OSCYankReg \"<CR>", "Yank System Reg" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
@@ -99,6 +100,18 @@ local mappings = {
   ["W"] = { "<cmd>Telescope grep_string<cr>", "Find word" },
   ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
   ["m"] = { "<cmd>Telescope vim_bookmarks all<cr>", "Show bookmarks" },
+  d = {
+    name = "Debug",
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    s = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
+    n = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+    O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
+    l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
+    u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+    x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+  },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
