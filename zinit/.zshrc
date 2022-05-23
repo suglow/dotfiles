@@ -40,7 +40,7 @@ zinit snippet OMZ::plugins/mvn/mvn.plugin.zsh
 zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
 zinit snippet OMZ::plugins/tmuxinator/tmuxinator.plugin.zsh
 zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
-zinit snippet OMZ::plugins/pip/pip.plugin.zsh
+# zinit snippet OMZ::plugins/pip/pip.plugin.zsh
 
 ##
 # Plugins
