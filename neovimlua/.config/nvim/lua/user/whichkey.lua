@@ -91,7 +91,7 @@ local mappings = {
   ["j"] = { "<cmd>HopChar1<CR>", "Hop Word" },
   ["y"] = { "<cmd>OSCYankReg \"<CR>", "Yank System Reg" },
   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
@@ -175,6 +175,7 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
+    o = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
   },
   s = {
     name = "Search",
