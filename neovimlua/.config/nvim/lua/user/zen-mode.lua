@@ -1,40 +1,74 @@
-local status_ok, zen_mode = pcall(require, "zen-mode")
+local status_ok, true_zen = pcall(require, "true_zen")
 if not status_ok then
 	return
 end
 
-zen_mode.setup({
-	window = {
-		backdrop = 1,
-		height = 0.9, -- height of the Zen window
-		width = 0.85,
-		options = {
-			signcolumn = "no", -- disable signcolumn
-			number = false, -- disable number column
-			relativenumber = false, -- disable relative numbers
-			-- cursorline = false, -- disable cursorline
-			-- cursorcolumn = false, -- disable cursor column
-			-- foldcolumn = "0", -- disable fold column
-			-- list = false, -- disable whitespace characters
+
+true_zen.setup({
+	ui = {
+		bottom = {
+			laststatus = 0,
+			ruler = false,
+			showmode = false,
+			showcmd = false,
+			cmdheight = 1,
+		},
+		top = {
+			showtabline = 0,
+		},
+		left = {
+			number = false,
+			relativenumber = false,
+			signcolumn = "no",
 		},
 	},
-	plugins = {
-		gitsigns = { enabled = false }, -- disables git signs
-		tmux = { enabled = false },
-		twilight = { enabled = true },
+	modes = {
+		ataraxis = {
+			left_padding = 32,
+			right_padding = 32,
+			top_padding = 1,
+			bottom_padding = 1,
+			ideal_writing_area_width = {0},
+			auto_padding = true,
+			keep_default_fold_fillchars = true,
+			custom_bg = {"none", ""},
+			bg_configuration = true,
+			quit = "untoggle",
+			ignore_floating_windows = true,
+			affected_higroups = {
+				NonText = true,
+				FoldColumn = true,
+				ColorColumn = true,
+				VertSplit = true,
+				StatusLine = true,
+				StatusLineNC = true,
+				SignColumn = true,
+			},
+		},
+		focus = {
+			margin_of_error = 5,
+			focus_method = "experimental"
+		},
 	},
-	-- on_open = function()
-	--   vim.lsp.diagnostic.disable()
-	--   vim.cmd [[
-	--       set foldlevel=10
-	--       IndentBlanklineDisable
-	--       ]]
-	-- end,
-	-- on_close = function()
-	--   vim.lsp.diagnostic.enable()
-	--   vim.cmd [[
-	--       set foldlevel=5
-	--       IndentBlanklineEnable
-	--       ]]
-	-- end,
+	integrations = {
+		vim_gitgutter = false,
+		galaxyline = false,
+		tmux = false,
+		gitsigns = false,
+		nvim_bufferline = false,
+		limelight = false,
+		twilight = false,
+		vim_airline = false,
+		vim_powerline = false,
+		vim_signify = false,
+		express_line = false,
+		lualine = false,
+		lightline = false,
+		feline = false
+	},
+	misc = {
+		on_off_commands = false,
+		ui_elements_commands = false,
+		cursor_by_mode = false,
+	}
 })
