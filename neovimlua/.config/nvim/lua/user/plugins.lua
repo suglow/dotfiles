@@ -91,7 +91,7 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "simrat39/symbols-outline.nvim" -- for outline
-
+  use {'nvim-telescope/telescope-ui-select.nvim' }
   use 'simrat39/rust-tools.nvim'
   -- Telescope
   use {
@@ -110,6 +110,9 @@ return packer.startup(function(use)
   use "ojroques/vim-oscyank"
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "f-person/git-blame.nvim"
+  use "ruifm/gitlinker.nvim"
+  use "https://github.com/rhysd/conflict-marker.vim"
 
   use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
   use {
@@ -144,7 +147,9 @@ return packer.startup(function(use)
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' , multi_windows = true}
     end
   }
-  
+  use { "p00f/nvim-ts-rainbow" } 
+  use "windwp/nvim-ts-autotag"
+
   use "Pocco81/TrueZen.nvim"
   -- use "folke/zen-mode.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
