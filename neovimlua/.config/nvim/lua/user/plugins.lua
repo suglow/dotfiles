@@ -114,7 +114,6 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "https://github.com/rhysd/conflict-marker.vim"
 
-  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
   use {
     "tpope/vim-surround",
     keys = {"c", "d", "y", "S"}
@@ -151,6 +150,7 @@ return packer.startup(function(use)
   use "windwp/nvim-ts-autotag"
 
   use "Pocco81/TrueZen.nvim"
+  use {"sakhnik/nvim-gdb", run = './install.sh'}
   -- use "folke/zen-mode.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

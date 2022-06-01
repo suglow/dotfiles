@@ -9,6 +9,7 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.nvimgdb_disable_start_keymaps = true
 
 -- Modes
 --   normal_mode = "n",
