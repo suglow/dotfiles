@@ -58,7 +58,7 @@ if workspace ~= nil then
 end
 
 vim.g.windowswap_map_keys = 0
-vim.g.nvimgdb_termwin_command = "belowright vnew"
-vim.g.nvimgdb_codewin_command = "vnew"
+-- vim.g.nvimgdb_termwin_command = "belowright vnew"
+-- vim.g.nvimgdb_codewin_command = "vnew"
 vim.g.nvimgdb_use_find_executables = 0
 vim.g.nvimgdb_use_cmake_to_find_executables = 0
