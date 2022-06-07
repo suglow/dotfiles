@@ -9,7 +9,7 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.g.nvimgdb_disable_start_keymaps = true
+-- vim.g.nvimgdb_disable_start_keymaps = true
 
 -- Modes
 --   normal_mode = "n",
@@ -63,6 +63,7 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- zen mode -- 
 keymap("n", "<A-z>", "<cmd>TZFocus<cr>", opts)
+keymap("n", "<A-w>", ":call WindowSwap#EasyWindowSwap()<cr>", opts)
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)

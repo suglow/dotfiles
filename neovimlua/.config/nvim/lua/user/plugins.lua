@@ -151,6 +151,7 @@ return packer.startup(function(use)
 
   use "Pocco81/TrueZen.nvim"
   use {"sakhnik/nvim-gdb", run = './install.sh'}
+  use "wesQ3/vim-windowswap"
   -- use "folke/zen-mode.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
