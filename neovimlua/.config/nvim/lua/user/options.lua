@@ -57,3 +57,7 @@ if workspace ~= nil then
   vim.g.bookmark_auto_save_file = workspace .. "/.vim-bookmarks"
 end
 
+vim.g.windowswap_map_keys = 0
+vim.g.nvimgdb_termwin_command = "belowright vnew"
+vim.g.nvimgdb_codewin_command = "vnew"
+
