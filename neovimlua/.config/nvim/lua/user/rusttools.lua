@@ -11,7 +11,9 @@ local opts = {
 		-- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
 		-- default: true
 		hover_with_actions = true,
-
+    runnables = {
+      use_telescope = true,
+    },
 		-- how to execute terminal commands
 		-- options right now: termopen / quickfix
 		executor = require("rust-tools/executors").termopen,
@@ -35,7 +37,7 @@ local opts = {
 
 			-- whether to show parameter hints with the inlay hints or not
 			-- default: true
-			show_parameter_hints = true,
+			show_parameter_hints = false,
 
 			-- whether to show variable name before type hints with the inlay hints or not
 			-- default: false
@@ -169,7 +171,13 @@ local opts = {
 	server = {
 		-- standalone file support
 		-- setting it to false may improve startup time
-		standalone = true,
+		-- standalone = true,
+      ["rust-analyzer"] = {
+          -- enable clippy on save
+          checkOnSave = {
+              command = "clippy"
+          },
+      }
 	}, -- rust-analyer options
 
 	-- debugging stuff
