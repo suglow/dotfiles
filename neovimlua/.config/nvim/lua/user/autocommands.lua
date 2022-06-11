@@ -34,6 +34,11 @@ vim.cmd [[
     autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
   augroup end
 
+  augroup _hold_cursor
+    autocmd!
+    autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+  augroup end
+
 ]]
 
 -- Autoformat
