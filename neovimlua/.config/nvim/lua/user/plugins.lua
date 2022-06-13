@@ -86,8 +86,18 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use {
+    {
+        "williamboman/nvim-lsp-installer",
+        config = function ()
+            require("nvim-lsp-installer").setup {}
+        end
+    },
+    {
+        "neovim/nvim-lspconfig",
+        after = "nvim-lsp-installer"
+    }
+  }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "simrat39/symbols-outline.nvim" -- for outline
