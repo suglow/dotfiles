@@ -13,6 +13,7 @@ fi
 export NVM_DIR=${HOME}/.nvm
 export NVM_COMPLETION=true
 export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+export EDITOR=nvim
 # load zinit
 source ~/.zinit/bin/zinit.zsh
 # 快速目录跳转

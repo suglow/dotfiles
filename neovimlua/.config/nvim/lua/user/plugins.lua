@@ -126,7 +126,7 @@ return packer.startup(function(use)
   -- }
   use {
     "tpope/vim-unimpaired",
-    keys = {"y"}
+    keys = {"yo"}
   }
   use "MattesGroeger/vim-bookmarks"
   use {
@@ -153,6 +153,7 @@ return packer.startup(function(use)
   use {"sakhnik/nvim-gdb", run = './install.sh'}
   use "wesQ3/vim-windowswap"
   -- use "folke/zen-mode.nvim"
+  use "hkupty/iron.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
