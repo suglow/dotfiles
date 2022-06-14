@@ -26,9 +26,15 @@ if [ `so` = "linux" ]; then
         xargs -i sh -c "sudo apt-get -y install {} || true" < "$DOTFILES_FOLDER/apt.pkglist"
         mkdir -p ~/.local
         # install neovim 0.6.1
-        wget --no-check-certificate https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz -O ~/.local/nvim-linux64.tar.gz
-        tar -xvf ~/.local/nvim-linux64.tar.gz -C ~/.local
+        wget --no-check-certificate -q https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz -O ~/.local/nvim-linux64.tar.gz
+        tar -xf ~/.local/nvim-linux64.tar.gz -C ~/.local
         sudo ln -s ~/.local/nvim-linux64/bin/nvim /usr/bin/nvim
+        # rust-analyzer
+        if [[ -f  ~/.local/bin/rust-analyzer ]]; then
+          mkdir -p ~/.local/bin
+          wget --no-check-certificate -c -qO- https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz  | gunzip -c - > ~/.local/bin/rust-analyzer
+          chmod +x ~/.local/bin/rust-analyzer
+        fi
     elif [ -x "$(command -v zypper)" ]; then
         xargs sudo zypper -n install < "$DOTFILES_FOLDER/zypper.pkglist"
     fi
