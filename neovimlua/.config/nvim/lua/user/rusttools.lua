@@ -7,6 +7,51 @@ local status_ok, handlers = pcall(require, "user.lsp.handlers")
 if not status_ok then
 	return
 end
+
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- -- snippets
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+--
+-- -- send actions with hover request
+-- capabilities.experimental = {
+--   hoverActions = true,
+--   hoverRange = true,
+--   serverStatusNotification = true,
+--   snippetTextEdit = true,
+--   codeActionGroup = true,
+--   ssr = true,
+-- }
+--
+-- -- enable auto-import
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+--   properties = { "documentation", "detail", "additionalTextEdits" },
+-- }
+--
+-- -- rust analyzer goodies
+-- capabilities.experimental.commands = {
+--   commands = {
+--     "rust-analyzer.runSingle",
+--     "rust-analyzer.debugSingle",
+--     "rust-analyzer.showReferences",
+--     "rust-analyzer.gotoLocation",
+--     "editor.action.triggerParameterHints",
+--   },
+-- }
+--
+local capabilities =  {
+  textDocument = {
+    completion = {
+      completionItem ={}
+    }
+  }
+}
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_ok then
+  return
+end
+
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
 local opts = {
 	server = {
 		-- standalone file support
@@ -18,8 +63,8 @@ local opts = {
             command = "clippy"
         }
     },
-    on_attach = handlers.on_attach;
-
+    on_attach = handlers.on_attach,
+    capabilities = capabilities  
 	} -- rust-analyer options
 }
 
