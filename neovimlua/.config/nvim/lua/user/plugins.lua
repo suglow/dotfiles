@@ -90,7 +90,42 @@ return packer.startup(function(use)
     {
       "williamboman/nvim-lsp-installer",
       config = function ()
-        require("nvim-lsp-installer").setup {}
+        local servers = {
+          "sumneko_lua",
+          "pyright",
+          "yamlls",
+          "bashls",
+          "clangd",
+        }
+        local settings = {
+          ensure_installed = servers,
+          -- automatic_installation = false,
+          ui = {
+            icons = {
+              -- server_installed = "◍",
+              -- server_pending = "◍",
+              -- server_uninstalled = "◍",
+              -- server_installed = "✓",
+              -- server_pending = "➜",
+              -- server_uninstalled = "✗",
+            },
+            keymaps = {
+              toggle_server_expand = "<CR>",
+              install_server = "i",
+              update_server = "u",
+              check_server_version = "c",
+              update_all_servers = "U",
+              check_outdated_servers = "C",
+              uninstall_server = "X",
+            },
+          },
+
+          log_level = vim.log.levels.INFO,
+          -- max_concurrent_installers = 4,
+          -- install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" },
+        }
+
+        require("nvim-lsp-installer").setup(settings)
       end
     },
     {
