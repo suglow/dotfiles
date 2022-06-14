@@ -30,7 +30,7 @@ if [ `so` = "linux" ]; then
         tar -xf ~/.local/nvim-linux64.tar.gz -C ~/.local
         sudo ln -s ~/.local/nvim-linux64/bin/nvim /usr/bin/nvim
         # rust-analyzer
-        if [[ -f  ~/.local/bin/rust-analyzer ]]; then
+        if [[ ! -e  ~/.local/bin/rust-analyzer ]]; then
           mkdir -p ~/.local/bin
           wget --no-check-certificate -c -qO- https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz  | gunzip -c - > ~/.local/bin/rust-analyzer
           chmod +x ~/.local/bin/rust-analyzer
