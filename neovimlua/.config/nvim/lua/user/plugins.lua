@@ -88,14 +88,11 @@ return packer.startup(function(use)
   -- LSP
   use {
     {
-        "williamboman/nvim-lsp-installer",
-        config = function ()
-            require("nvim-lsp-installer").setup {}
-        end
+      "williamboman/nvim-lsp-installer",
     },
     {
-        "neovim/nvim-lspconfig",
-        after = "nvim-lsp-installer"
+      "neovim/nvim-lspconfig",
+      after = "nvim-lsp-installer"
     }
   }
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
