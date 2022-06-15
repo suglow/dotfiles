@@ -93,9 +93,9 @@ return packer.startup(function(use)
         local servers = {
           "sumneko_lua",
           "pyright",
-          "yamlls",
+          -- "yamlls",
           "bashls",
-          "clangd",
+          -- "clangd",
         }
         local settings = {
           ensure_installed = servers,
