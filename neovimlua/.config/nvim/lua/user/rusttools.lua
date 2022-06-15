@@ -53,7 +53,7 @@ end
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 
-local extension_path = "/home/suglow/.local/bin/codelldb/extension/" 
+local extension_path = os.getenv( "HOME" ) .. "/.local/bin/codelldb/extension/" 
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
