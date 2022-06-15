@@ -37,7 +37,8 @@ if [ `so` = "linux" ]; then
         fi
         if [[ ! -d ~/.local/bin/codelldb ]]; then
           mkdir -p ~/.local/bin/codelldb
-          wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/latest/download/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix 
+          # wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/latest/download/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix 
+          wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/download/v1.6.10/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix
           unzip -d ~/.local/bin/codelldb  ~/.local/bin/codelldb-x86_64-linux.vsix
           rm -rf ~/.local/bin/codelldb-x86_64-linux.vsix
         fi
