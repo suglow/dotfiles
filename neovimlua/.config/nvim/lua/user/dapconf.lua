@@ -86,7 +86,7 @@ end
 adapter_lldb = require("user.dap.cpprust").adapters
 adapter_codelldb = require("user.dap.codelldb").adapters
 config_lldb = require("user.dap.cpprust").configurations
-config_codelldb = require("user.dap.cpprust").configurations
+config_codelldb = require("user.dap.codelldb").configurations
 dap.adapters.lldb = adapter_lldb
 dap.adapters.codelldb = adapter_codelldb
 dap.configurations.rust = config_codelldb 
