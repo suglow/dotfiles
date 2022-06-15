@@ -81,3 +81,11 @@ for dap_name, dap_options in pairs(dap_config) do
     dap.adapters[dap_name] = dap_options.adapters
     dap.configurations[dap_name] = dap_options.configurations
 end
+
+adapter_lldb = require("user.dap.cpprust").adapters
+config_lldb = require("user.dap.cpprust").configurations
+dap.adapters.lldb = adapter_lldb
+dap.configurations.rust = config_lldb
+dap.configurations.c = config_lldb
+dap.configurations.cpp = config_lldb
+

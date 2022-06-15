@@ -111,6 +111,10 @@ local mappings = {
     l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
     u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
     x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+    d = {
+      name = "termdebug",
+      b = { "<cmd>Break<cr>", "Breakpoint" },
+    }
   },
   p = {
     name = "Packer",
