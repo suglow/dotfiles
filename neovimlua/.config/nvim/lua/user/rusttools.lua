@@ -52,6 +52,11 @@ end
 
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
+
+local extension_path = "/home/suglow/.local/bin/codelldb/extension/" 
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
 local opts = {
 	server = {
 		-- standalone file support
@@ -63,9 +68,13 @@ local opts = {
             command = "clippy"
         }
     },
+    capabilities = capabilities,
     on_attach = handlers.on_attach,
-    capabilities = capabilities  
-	} -- rust-analyer options
+	}, -- rust-analyer options
+  dap = {
+      adapter = require('rust-tools.dap').get_codelldb_adapter(
+          codelldb_path, liblldb_path),
+  }
 }
 
 rusttools.setup(opts)
