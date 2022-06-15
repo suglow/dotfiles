@@ -35,6 +35,13 @@ if [ `so` = "linux" ]; then
           wget --no-check-certificate -c -qO- https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz  | gunzip -c - > ~/.local/bin/rust-analyzer
           chmod +x ~/.local/bin/rust-analyzer
         fi
+        if [[ ! -d ~/.local/bin/codelldb ]]; then
+          mkdir -p ~/.local/bin/codelldb
+          wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/latest/download/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix 
+          unzip -d ~/.local/bin/codelldb  ~/.local/bin/codelldb-x86_64-linux.vsix
+          rm -rf ~/.local/bin/codelldb-x86_64-linux.vsix
+        fi
+        
     elif [ -x "$(command -v zypper)" ]; then
         xargs sudo zypper -n install < "$DOTFILES_FOLDER/zypper.pkglist"
     fi
