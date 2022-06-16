@@ -87,53 +87,7 @@ return packer.startup(function(use)
   
   -- LSP
   use  "neovim/nvim-lspconfig"
-  use {
-    {
-      "williamboman/nvim-lsp-installer",
-      config = function ()
-        local servers = {
-          "sumneko_lua",
-          "pyright",
-          "yamlls",
-          "bashls",
-          "clangd",
-        }
-        local settings = {
-          ensure_installed = servers,
-          -- automatic_installation = false,
-          ui = {
-            icons = {
-              -- server_installed = "◍",
-              -- server_pending = "◍",
-              -- server_uninstalled = "◍",
-              -- server_installed = "✓",
-              -- server_pending = "➜",
-              -- server_uninstalled = "✗",
-            },
-            keymaps = {
-              toggle_server_expand = "<CR>",
-              install_server = "i",
-              update_server = "u",
-              check_server_version = "c",
-              update_all_servers = "U",
-              check_outdated_servers = "C",
-              uninstall_server = "X",
-            },
-          },
-
-          log_level = vim.log.levels.INFO,
-          -- max_concurrent_installers = 4,
-          -- install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" },
-        }
-
-        require("nvim-lsp-installer").setup(settings)
-      end
-    },
-    {
-      "neovim/nvim-lspconfig",
-      after = "nvim-lsp-installer"
-    }
-  }
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "simrat39/symbols-outline.nvim" -- for outline
