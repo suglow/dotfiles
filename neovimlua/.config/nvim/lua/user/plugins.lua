@@ -154,6 +154,10 @@ return packer.startup(function(use)
   use "wesQ3/vim-windowswap"
   -- use "folke/zen-mode.nvim"
   use "hkupty/iron.nvim"
+  use {
+      "SmiteshP/nvim-navic",
+      requires = "neovim/nvim-lspconfig"
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
