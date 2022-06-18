@@ -50,11 +50,11 @@ vim.cmd "set foldlevel=1"
 vim.cmd "set nofoldenable"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-vim.cmd [[ 
-let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<C-d>'           
-let g:VM_maps['Find Subword Under'] = '<C-d>'          
-]]
+-- vim.cmd [[ 
+-- let g:VM_maps = {}
+-- let g:VM_maps['Find Under']         = '<C-d>'
+-- let g:VM_maps['Find Subword Under'] = '<C-d>'
+-- ]]
 
 vim.g.bookmark_auto_save = 1
 local workspace = os.getenv("WORKSPACE")

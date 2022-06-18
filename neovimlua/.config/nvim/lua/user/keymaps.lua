@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -36,6 +36,7 @@ keymap("n", "<A-l>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>r", '"_diwP', opts)
+keymap("n", "gE", 'g_', opts)
 keymap("v", "<leader>r", '"_dP', opts)
 -- Move text up and down
 -- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -64,7 +65,7 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
--- zen mode -- 
+-- zen mode --
 keymap("n", "<A-z>", "<cmd>TZFocus<cr>", opts)
 keymap("n", "<A-w>", ":call WindowSwap#EasyWindowSwap()<cr>", opts)
 -- Terminal --

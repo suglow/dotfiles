@@ -14,7 +14,7 @@ local servers = {
   "sumneko_lua",
   -- "tflint",
   -- "tsserver",
-  -- "pyright",
+  "pyright",
   "yamlls",
   "bashls",
   "clangd",
@@ -63,21 +63,21 @@ for _, server in pairs(servers) do
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
- -- if server == "jsonls" then
- --   local jsonls_opts = require "user.lsp.settings.jsonls"
- --   opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
- -- end
+if server == "jsonls" then
+  local jsonls_opts = require "user.lsp.settings.jsonls"
+  opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+end
 
- -- if server == "sumneko_lua" then
- --   local sumneko_opts = require "user.lsp.settings.sumneko_lua"
- --   opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
- -- end
+if server == "sumneko_lua" then
+  local sumneko_opts = require "user.lsp.settings.sumneko_lua"
+  opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+end
 
-  -- if server == "pyright" then
-  --   local pyright_opts = require "user.lsp.settings.pyright"
-  --   opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  -- end
-  --
+if server == "pyright" then
+  local pyright_opts = require "user.lsp.settings.pyright"
+  opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+end
+
   -- if server == "solang" then
   --   local solang_opts = require "user.lsp.settings.solang"
   --   opts = vim.tbl_deep_extend("force", solang_opts, opts)
