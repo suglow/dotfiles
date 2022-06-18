@@ -58,13 +58,14 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+  -- use { "axkirillov/telescope-changed-files" }
   -- DAP
   use("mfussenegger/nvim-dap")
   use("theHamsta/nvim-dap-virtual-text")
   use("rcarriga/nvim-dap-ui")
   use("HiPhish/debugpy.nvim")
 
-  use("nvim-telescope/telescope-dap.nvim") 
+  use("nvim-telescope/telescope-dap.nvim")
 
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
   -- Colorschemes
@@ -84,7 +85,7 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  
+
   -- LSP
   use  "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
@@ -146,7 +147,7 @@ return packer.startup(function(use)
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' , multi_windows = true}
     end
   }
-  use { "p00f/nvim-ts-rainbow" } 
+  use { "p00f/nvim-ts-rainbow" }
   use "windwp/nvim-ts-autotag"
 
   use "Pocco81/TrueZen.nvim"
@@ -158,6 +159,8 @@ return packer.startup(function(use)
       "SmiteshP/nvim-navic",
       requires = "neovim/nvim-lspconfig"
   }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim','sindrets/diffview.nvim'} }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

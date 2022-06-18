@@ -85,7 +85,6 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
   end
@@ -94,6 +93,13 @@ M.on_attach = function(client, bufnr)
 
   local status_ok, navic = pcall(require, "nvim-navic")
   if not status_ok then
+    return
+  end
+
+  if client.name == "sumneko_lua" then
+    return
+  end
+  if client.name == "bashls" then
     return
   end
   navic.attach(client,bufnr)

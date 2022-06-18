@@ -3,6 +3,12 @@ if not status_ok then
   return
 end
 
+_G.telescope_live_grep_in_path = function(path)
+ local _path = path or vim.fn.input("Dir: ", "", "dir")
+ require("telescope.builtin").live_grep({search_dirs = {_path}})
+end
+
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -78,28 +84,74 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
+local opts_v = {
+  mode = "v", -- VISUAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+-- local opts_slash = {
+--   mode = "n", -- NORMAL mode
+--   prefix = "\\",
+--   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true, -- use `silent` when creating keymaps
+--   noremap = true, -- use `noremap` when creating keymaps
+--   nowait = true, -- use `nowait` when creating keymaps
+-- }
+-- local opts_dubole_leader = {
+--   mode = "n", -- NORMAL mode
+--   prefix = "<leader><leader>",
+--   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true, -- use `silent` when creating keymaps
+--   noremap = true, -- use `noremap` when creating keymaps
+--   nowait = true, -- use `nowait` when creating keymaps
+-- }
+
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["b"] = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
   },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["<tab>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["x"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["j"] = { "<cmd>HopChar1<CR>", "Hop Word" },
-  ["y"] = { "<cmd>OSCYankReg \"<CR>", "Yank System Reg" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  -- ["F"] = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Text" },
   ["S"] = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Find raw grep" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["W"] = { "<cmd>Telescope grep_string<cr>", "Find word" },
-  ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
-  ["m"] = { "<cmd>Telescope vim_bookmarks all<cr>", "Show bookmarks" },
+  ["E"] = { "g_", "Go to line end" },
+  -- ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
+  e = {
+    name = "edit",
+    d = {
+      name = "rmv",
+      e = {"<cmd>.s/\\s\\+$//e<cr>", "rmv end space"},
+      a = {"<cmd>%s/\\s\\+$//e<cr>", "rmv all end white space"},
+    }
+  },
+  f = {
+    name = "find",
+    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>", "Find files"},
+    l = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+    d = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Dir" },
+    g = { "<cmd>lua telescope_live_grep_in_path(vim.fn.systemlist('git rev-parse --show-toplevel')[1])<cr>", "live grep in git proj" },
+  },
+  m = {
+    name = "mark",
+    b = {"<cmd>Telescope vim_bookmarks all<cr>", "Show bookmarks" },
+    m = {"<cmd>Telescope marks<cr>", "Show marks"},
+  },
+  y = {
+    name = "Yank",
+    y = {"<cmd>OSCYankReg \"<CR>", 'yank \" to OSC'},
+    p = {"<cmd>let @\" = expand('%:p') | let @* = expand('%:p') | OSCYankReg \"<CR>", 'yank full path'},
+  },
   d = {
     name = "Debug",
     b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
@@ -202,8 +254,16 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    l = { "<cmd>ToggleTermSendCurrentLine<cr>", "send line" },
   },
 }
-
+local mappings_v = {
+  t = {
+    name = "Terminal",
+    l = { "<cmd>'<,'>ToggleTermSendVisualLines<cr>", "send select line" },
+  }
+}
 which_key.setup(setup)
 which_key.register(mappings, opts)
+which_key.register(mappings_v, opts_v)
+-- which_key.register(mappings, opts2)
