@@ -3,6 +3,12 @@ if not status_ok then
   return
 end
 
+_G.telescope_live_grep_in_path = function(path)
+ local _path = path or vim.fn.input("Dir: ", "", "dir")
+ require("telescope.builtin").live_grep({search_dirs = {_path}})
+end
+
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -89,17 +95,28 @@ local mappings = {
   ["x"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["j"] = { "<cmd>HopChar1<CR>", "Hop Word" },
-  ["y"] = { "<cmd>OSCYankReg \"<CR>", "Yank System Reg" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  -- ["F"] = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Text" },
   ["S"] = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Find raw grep" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["W"] = { "<cmd>Telescope grep_string<cr>", "Find word" },
-  ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
-  ["m"] = { "<cmd>Telescope vim_bookmarks all<cr>", "Show bookmarks" },
+  -- ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
+  f = {
+    name = "find",
+    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>", "Find files"},
+    g = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+    d = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Dir" },
+  },
+  m = {
+    name = "mark",
+    b = {"<cmd>Telescope vim_bookmarks all<cr>", "Show bookmarks" },
+    m = {"<cmd>Telescope marks<cr>", "Show marks"},
+  },
+  y = {
+    name = "Yank",
+    y = {"<cmd>OSCYankReg \"<CR>", 'yank \" to OSC'},
+    p = {"<cmd>let @\" = expand('%:p') | let @* = expand('%:p') | OSCYankReg \"<CR>", 'yank full path'},
+  },
   d = {
     name = "Debug",
     b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },

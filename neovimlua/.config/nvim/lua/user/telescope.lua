@@ -11,7 +11,24 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--hidden"
+    },
+    file_ignore_patterns = {
+        "node_modules",
+        ".work/.*",
+        ".cache/.*",
+        ".idea/.*",
+        "dist/.*",
+        ".git/.*"
+    },
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -86,8 +103,8 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
     find_files = {
-      -- hidden = true,
-      no_ignore = true
+      hidden = true,
+      no_ignore = false
     }
   },
   extensions = {
