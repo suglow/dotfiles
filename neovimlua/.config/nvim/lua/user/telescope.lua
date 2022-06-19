@@ -125,3 +125,4 @@ telescope.setup {
 
 telescope.load_extension('dap')
 -- telescope.load_extension('changed_files')
+telescope.load_extension('neoclip')
