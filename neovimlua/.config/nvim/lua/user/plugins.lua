@@ -161,7 +161,6 @@ return packer.startup(function(use)
   }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim','sindrets/diffview.nvim'} }
-  use {'will133/vim-dirdiff'}
   use 'tami5/sqlite.lua'
   use {
     "AckslD/nvim-neoclip.lua",
@@ -175,6 +174,7 @@ return packer.startup(function(use)
       })
     end,
   }
+  use 'ZSaberLv0/ZFVimDirDiff'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

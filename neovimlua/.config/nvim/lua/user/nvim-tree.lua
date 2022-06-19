@@ -25,6 +25,10 @@ nvim_tree.setup {
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
+  hijack_directories = {
+    enable = true,
+    auto_open = false,
+  },
   diagnostics = {
     enable = true,
     icons = {
