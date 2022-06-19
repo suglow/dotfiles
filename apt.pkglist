@@ -12,3 +12,4 @@ powerline
 fonts-powerline
 gawk
 unzip
+libsqlite3-dev

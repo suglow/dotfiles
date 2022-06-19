@@ -161,6 +161,20 @@ return packer.startup(function(use)
   }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim','sindrets/diffview.nvim'} }
+  use {'will133/vim-dirdiff'}
+  use 'tami5/sqlite.lua'
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      {'tami5/sqlite.lua', module = 'sqlite'},
+      {'nvim-telescope/telescope.nvim'},
+    },
+    config = function()
+      require('neoclip').setup({
+        enable_persistent_history = true,
+      })
+    end,
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

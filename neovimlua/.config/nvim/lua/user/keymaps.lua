@@ -36,7 +36,10 @@ keymap("n", "<A-l>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>r", '"_diwP', opts)
-keymap("n", "gE", 'g_', opts)
+keymap("n", "gE", 'g_', opts) -- go end
+keymap("n", "gB", '_', opts) -- go begin
+keymap("v", "gE", 'g_', opts) -- go end
+keymap("v", "gB", '_', opts) -- go begin
 keymap("v", "<leader>r", '"_dP', opts)
 -- Move text up and down
 -- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
