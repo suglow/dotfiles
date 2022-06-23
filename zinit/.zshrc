@@ -145,4 +145,4 @@ fi
 
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 [ -d $HOME/.local/bin ] && export PATH=$HOME/.local/bin:$PATH
-[ -f $HOME/.gvm/scripts/gvm ] && source $HOME/.cargo/env
+[ -f $HOME/.gvm/scripts/gvm ] && source $HOME/.gvm/scripts/gvm 
