@@ -117,7 +117,6 @@ local mappings = {
   },
   ["<tab>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["x"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["j"] = { "<cmd>HopChar1<CR>", "Hop Word" },
   -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
@@ -127,6 +126,11 @@ local mappings = {
   ["W"] = { "<cmd>Telescope grep_string<cr>", "Find word" },
   ["E"] = { "g_", "Go to line end" },
   -- ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
+  x = {
+    name = "Exit",
+    x = {"<cmd>q<CR>", "Quit" },
+    f = {"<cmd>q!<CR>", "Quit" },
+  },
   e = {
     name = "edit",
     d = {
