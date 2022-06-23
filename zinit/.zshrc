@@ -134,7 +134,7 @@ alias tmux='tmux -u'
 alias cat='bat'
 export BAT_THEME="gruvbox-dark"
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ ! -x "$(command -v node)" ]; then
     nvm install v16.13.1
@@ -143,5 +143,6 @@ if [ ! -x "$(command -v node)" ]; then
     npm config set registry http://registry.npm.taobao.org
 fi
 
-[[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env
-[[ ! -d $HOME/.local/bin ]] || export PATH=$HOME/.local/bin:$PATH
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
+[ -d $HOME/.local/bin ] && export PATH=$HOME/.local/bin:$PATH
+[ -f $HOME/.gvm/scripts/gvm ] && source $HOME/.cargo/env
