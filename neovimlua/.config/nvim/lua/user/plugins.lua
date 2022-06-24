@@ -154,7 +154,7 @@ return packer.startup(function(use)
   use {"sakhnik/nvim-gdb", run = './install.sh'}
   use "wesQ3/vim-windowswap"
   -- use "folke/zen-mode.nvim"
-  use "hkupty/iron.nvim"
+  -- use "hkupty/iron.nvim"
   use {
       "SmiteshP/nvim-navic",
       requires = "neovim/nvim-lspconfig"
@@ -175,6 +175,9 @@ return packer.startup(function(use)
     end,
   }
   use 'ZSaberLv0/ZFVimDirDiff'
+  use { 'anuvyklack/hydra.nvim', 
+    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
