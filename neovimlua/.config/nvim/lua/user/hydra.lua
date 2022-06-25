@@ -1,5 +1,11 @@
-local Hydra = require('hydra')
-local gitsigns = require('gitsigns')
+local status_ok, Hydra = pcall(require, "hydra")
+if not status_ok then
+  return
+end
+local git_status_ok, gitsigns = pcall(require, "gitsigns")
+if not git_status_ok then
+  return
+end
 
 local hint = [[
  _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line

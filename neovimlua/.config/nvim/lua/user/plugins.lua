@@ -175,7 +175,7 @@ return packer.startup(function(use)
     end,
   }
   use 'ZSaberLv0/ZFVimDirDiff'
-  use { 'anuvyklack/hydra.nvim', 
+  use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
   -- Automatically set up your configuration after cloning packer.nvim
