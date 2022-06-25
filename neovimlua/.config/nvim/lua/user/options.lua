@@ -49,8 +49,10 @@ vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 vim.cmd "set foldlevel=1"
 vim.cmd "set nofoldenable"
 vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
--- vim.cmd [[ 
+vim.cmd [[set formatoptions-=cro]]
+
+-- TODO: this doesn't seem to work
+-- vim.cmd [[
 -- let g:VM_maps = {}
 -- let g:VM_maps['Find Under']         = '<C-d>'
 -- let g:VM_maps['Find Subword Under'] = '<C-d>'
