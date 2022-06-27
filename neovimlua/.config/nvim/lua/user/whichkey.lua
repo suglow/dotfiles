@@ -121,7 +121,6 @@ local mappings = {
   ["j"] = { "<cmd>HopChar1<CR>", "Hop Word" },
   -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   -- ["F"] = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Text" },
-  ["S"] = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Find raw grep" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["W"] = { "<cmd>Telescope grep_string<cr>", "Find word" },
   ["E"] = { "g_", "Go to line end" },
@@ -145,6 +144,7 @@ local mappings = {
     l = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     d = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Dir" },
     g = { "<cmd>lua telescope_live_grep_in_path(vim.fn.systemlist('git rev-parse --show-toplevel')[1])<cr>", "live grep in git proj" },
+    r = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Find raw grep" },
   },
   m = {
     name = "mark",
