@@ -42,7 +42,14 @@ if [ `so` = "linux" ]; then
           unzip -d ~/.local/bin/codelldb  ~/.local/bin/codelldb-x86_64-linux.vsix
           rm -rf ~/.local/bin/codelldb-x86_64-linux.vsix
         fi
-        
+        if [[ ! -e  ~/.local/bin/lazygit ]]; then
+          mkdir -p ~/.local/bin
+          pushd ~/.local/bin
+          LAZYGIT_VERSION=$(wget -qO- "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
+          wget --no-check-certificate -c -qO- https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz | tar -xzf - lazygit
+          chmod +x ~/.local/bin/lazygit
+          popd
+        fi
     elif [ -x "$(command -v zypper)" ]; then
         xargs sudo zypper -n install < "$DOTFILES_FOLDER/zypper.pkglist"
     fi
