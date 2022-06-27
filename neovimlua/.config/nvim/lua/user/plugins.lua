@@ -167,12 +167,7 @@ return packer.startup(function(use)
     requires = {
       {'tami5/sqlite.lua', module = 'sqlite'},
       {'nvim-telescope/telescope.nvim'},
-    },
-    config = function()
-      require('neoclip').setup({
-        enable_persistent_history = true,
-      })
-    end,
+    }
   }
   use 'ZSaberLv0/ZFVimDirDiff'
   use { 'anuvyklack/hydra.nvim',

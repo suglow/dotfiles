@@ -154,7 +154,8 @@ local mappings = {
   y = {
     name = "Yank",
     y = {"<cmd>OSCYankReg \"<CR>", 'yank \" to OSC'},
-    p = {"<cmd>let @\" = expand('%:p') | let @* = expand('%:p') | OSCYankReg \"<CR>", 'yank full path'},
+    p = {"<cmd>let @\" = expand('%:p') | let @* = @\" | OSCYankReg \"<CR>", 'yank full path'},
+    l = {"<cmd>let @\" = expand('%:p')..':'..line('.') | let @* = @\" | OSCYankReg \"<CR>", 'yank path line'},
     s = {"<cmd>let @x=@\" | let @\"=@a | let @a=@b | let @b=@c | let @c=@x | reg \"abc<cr>", "swap reg"}
   },
   d = {
