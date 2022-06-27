@@ -134,6 +134,10 @@ alias tmux='tmux -u'
 alias cat='bat'
 export BAT_THEME="gruvbox-dark"
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ ! -x "$(command -v node)" ]; then

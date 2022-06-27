@@ -71,6 +71,7 @@ stow zinit
 stow neovimlua
 stow git
 stow tmux
+stow lazygitconf
 
 if [[ ! -d ~/.fzf ]]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -84,6 +85,6 @@ fi
 if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
 git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 # install neovim plugins
-#nvim --headless +PackUpdate +qall
+# nvim --headless +PackUpdate +qall
 fi
-nvim --headless +PackerUpdate +qall
+# nvim --headless +PackerUpdate +qall
