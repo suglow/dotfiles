@@ -42,6 +42,13 @@ if [ `so` = "linux" ]; then
           unzip -d ~/.local/bin/codelldb  ~/.local/bin/codelldb-x86_64-linux.vsix
           rm -rf ~/.local/bin/codelldb-x86_64-linux.vsix
         fi
+        if [[ ! -d ~/.local/bin/cpptools ]]; then
+          mkdir -p ~/.local/bin/cpptools
+          wget --no-check-certificate -q https://github.com/microsoft/vscode-cpptools/releases/latest/download/cpptools-linux.vsix -O ~/.local/bin/cpptools-linux.vsix
+          unzip -d ~/.local/bin/cpptools  ~/.local/bin/cpptools-linux.vsix
+          rm -rf ~/.local/bin/cpptools-linux.vsix
+        fi
+
         if [[ ! -e  ~/.local/bin/lazygit ]]; then
           mkdir -p ~/.local/bin
           pushd ~/.local/bin
