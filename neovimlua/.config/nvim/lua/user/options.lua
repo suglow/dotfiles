@@ -71,3 +71,4 @@ vim.g.nvimgdb_use_find_executables = 0
 vim.g.nvimgdb_use_cmake_to_find_executables = 0
 vim.g.nvimgdb_disable_start_keymaps = 1
 -- vim.lsp.set_log_level("debug")
+vim.g.termdebug_wide = 1

@@ -80,7 +80,7 @@ Hydra({
    },
    name = 'nvim-gdb debug',
    mode = {'n','x'},
-   body = '\\d',
+   body = '\\dd',
    heads = {
       { 'r', ':GdbStart gdb -q ', { desc = 'start gdb'} },
       { 'b', ':GdbBreakpointToggle<CR>', { desc = 'break'} },
@@ -92,6 +92,40 @@ Hydra({
       { 'B', ':GdbLopenBreakpoints<CR>', { desc = 'break points' } },
       { 'u', ':GdbFrameUp<CR>', { desc = 'frame up' } },
       { 'd', ':GdbFrameDown<CR>', { desc = 'frame down' } },
+      { 'q', nil, { exit = true, nowait = true } },
+   }
+})
+
+Hydra({
+   config = {
+      -- color = 'teal',
+      color = 'pink',
+      -- color = 'amaranth',
+      invoke_on_body = true,
+      hint = {
+         position = 'top',
+         -- border = 'rounded'
+      },
+      on_enter = function()
+         -- vim.bo.modifiable = false
+      end,
+      on_exit = function()
+         vim.cmd 'echo' -- clear the echo area
+      end
+   },
+   name = 'nvim-gdb debug',
+   mode = {'n','x'},
+   body = '\\dt',
+   heads = {
+      { 'a', ':packadd termdebug<cr>', { desc = 'set termdebug',nowait = true,exit = true} },
+      { 'r', ':TermdebugCommand ', { desc = 'term command',nowait = true,exit = true} },
+      { 'b', ':Break<CR>', { desc = 'break',nowait = true} },
+      { 'n', ':Over<CR>', { desc = 'next',nowait = true} },
+      { 's', ':Step<CR>', { desc = 'step',nowait = true} },
+      { 'f', ':Finish<CR>', { desc = 'finish',nowait = true} },
+      { 'c', ':Continue<CR>', { desc = 'continue',nowait = true} },
+      { 'x', ':Stop<CR>', { desc = 'Stop',nowait = true} },
+      { 'u', ':clear<CR>', { desc = 'clear break',nowait = true} },
       { 'q', nil, { exit = true, nowait = true } },
    }
 })
