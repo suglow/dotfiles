@@ -61,3 +61,37 @@ Hydra({
       { 'q', nil, { exit = true, nowait = true } },
    }
 })
+
+Hydra({
+   config = {
+      color = 'teal',
+      -- color = 'pink',
+      invoke_on_body = true,
+      hint = {
+         position = 'top',
+         -- border = 'rounded'
+      },
+      on_enter = function()
+         -- vim.bo.modifiable = false
+      end,
+      on_exit = function()
+         vim.cmd 'echo' -- clear the echo area
+      end
+   },
+   name = 'nvim-gdb debug',
+   mode = {'n','x'},
+   body = '\\d',
+   heads = {
+      { 'r', ':GdbStart gdb -q ', { desc = 'start gdb'} },
+      { 'b', ':GdbBreakpointToggle<CR>', { desc = 'break'} },
+      { 'c', ':GdbContinue<CR>', { desc = 'continue'} },
+      { 'n', ':GdbNext<CR>', { desc = 'next'} },
+      { 's', ':GdbStep<CR>', { desc = 'step'} },
+      { 'f', ':GdbFinish<CR>', { desc = 'finish',} },
+      { 'L', ':GdbLopenBacktrace<CR>', { desc = 'back trace' } },
+      { 'B', ':GdbLopenBreakpoints<CR>', { desc = 'break points' } },
+      { 'u', ':GdbFrameUp<CR>', { desc = 'frame up' } },
+      { 'd', ':GdbFrameDown<CR>', { desc = 'frame down' } },
+      { 'q', nil, { exit = true, nowait = true } },
+   }
+})
