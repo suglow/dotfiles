@@ -83,13 +83,17 @@ for dap_name, dap_options in pairs(dap_config) do
     dap.configurations[dap_name] = dap_options.configurations
 end
 
-local adapter_lldb = require("user.dap.cpprust").adapters
+local adapter_lldb     = require("user.dap.cpprust").adapters
 local adapter_codelldb = require("user.dap.codelldb").adapters
-local config_lldb = require("user.dap.cpprust").configurations
-local config_codelldb = require("user.dap.codelldb").configurations
-dap.adapters.lldb = adapter_lldb
-dap.adapters.codelldb = adapter_codelldb
+local adapter_cpptools = require("user.dap.cpptools").adapters
+-- local config_lldb      = require("user.dap.cpprust").configurations
+local config_codelldb  = require("user.dap.codelldb").configurations
+local config_cpptools  = require("user.dap.cpptools").configurations
+
+dap.adapters.lldb       = adapter_lldb
+dap.adapters.codelldb   = adapter_codelldb
+dap.adapters.cppdbg     = adapter_cpptools
 dap.configurations.rust = config_codelldb
-dap.configurations.c = config_lldb
-dap.configurations.cpp = config_lldb
+dap.configurations.c    = config_cpptools
+dap.configurations.cpp  = config_cpptools
 

@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 _G.telescope_live_grep_in_path = function(path)
- local _path = path or vim.fn.input("Dir: ", "", "dir")
+ local _path = path or vim.fn.input("Dir: ", vim.fn.getcwd() .. '/', "dir")
  require("telescope.builtin").live_grep({search_dirs = {_path}})
 end
 
