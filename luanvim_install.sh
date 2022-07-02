@@ -47,6 +47,7 @@ if [ `so` = "linux" ]; then
           wget --no-check-certificate -q https://github.com/microsoft/vscode-cpptools/releases/latest/download/cpptools-linux.vsix -O ~/.local/bin/cpptools-linux.vsix
           unzip -d ~/.local/bin/cpptools  ~/.local/bin/cpptools-linux.vsix
           rm -rf ~/.local/bin/cpptools-linux.vsix
+          sudo chmod +x  ~/.local/bin/cpptools/extension/debugAdapters/bin/OpenDebugAD7
         fi
 
         if [[ ! -e  ~/.local/bin/lazygit ]]; then
