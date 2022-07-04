@@ -28,6 +28,8 @@ zinit light zsh-users/zsh-autosuggestions
 # 补全
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 # 加载 OMZ 框架及部分插件
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
@@ -73,7 +75,7 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 
 HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd..:zh"
-
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 # Treat the '!' character specially during expansion.
 setopt BANG_HIST
 
@@ -120,11 +122,10 @@ zinit load voronkovich/gitignore.plugin.zsh
 
 zinit load lukechilds/zsh-nvm
 # vi模式
-zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+# zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # 加载主题
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
-
 # Alias
 # use neovim instead of vim
 alias vim='nvim'
