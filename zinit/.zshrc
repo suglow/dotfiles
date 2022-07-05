@@ -39,7 +39,7 @@ zinit snippet OMZ::lib/theme-and-appearance.zsh
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 # zinit snippet OMZ::plugins/git-flow/git-flow.plugin.zsh
-zinit snippet OMZ::plugins/mvn/mvn.plugin.zsh
+# zinit snippet OMZ::plugins/mvn/mvn.plugin.zsh
 zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
 zinit snippet OMZ::plugins/tmuxinator/tmuxinator.plugin.zsh
 zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
@@ -76,6 +76,8 @@ SAVEHIST=10000000
 
 HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd..:zh"
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+ZVM_VI_VISUAL_ESCAPE_BINDKEY=jk
+ZVM_VI_OPPEND_ESCAPE_BINDKEY=jk
 # Treat the '!' character specially during expansion.
 setopt BANG_HIST
 
@@ -135,12 +137,12 @@ alias tmux='tmux -u'
 alias cat='bat'
 export BAT_THEME="gruvbox-dark"
 
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey "^X^E" edit-command-line
+# autoload -z edit-command-line
+# zle -N edit-command-line
+# bindkey "^X^E" edit-command-line
 
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ ! -x "$(command -v node)" ]; then
     nvm install v16.13.1
     nvm use v16.13.1
@@ -148,6 +150,14 @@ if [ ! -x "$(command -v node)" ]; then
     npm config set registry http://registry.npm.taobao.org
 fi
 
+
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+function zvm_after_lazy_keybindings() {
+  zvm_bindkey vicmd 'j' up-line
+  zvm_bindkey vicmd 'k' down-line
+  zvm_bindkey vicmd '^R' fzf-history-widget
+  zvm_bindkey viins '^R' fzf-history-widget
+}
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 [ -d $HOME/.local/bin ] && export PATH=$HOME/.local/bin:$PATH
 [ -f $HOME/.gvm/scripts/gvm ] && source $HOME/.gvm/scripts/gvm 
