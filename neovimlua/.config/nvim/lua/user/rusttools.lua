@@ -38,20 +38,6 @@ end
 --   },
 -- }
 --
-local capabilities =  {
-  textDocument = {
-    completion = {
-      completionItem ={}
-    }
-  }
-}
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-  return
-end
-
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
 
 local extension_path = os.getenv( "HOME" ) .. "/.local/bin/codelldb/extension/" 
 local codelldb_path = extension_path .. 'adapter/codelldb'
@@ -68,7 +54,7 @@ local opts = {
             command = "clippy"
         }
     },
-    capabilities = capabilities,
+    capabilities = handlers.capabilities,
     on_attach = handlers.on_attach,
 	}, -- rust-analyer options
   dap = {
