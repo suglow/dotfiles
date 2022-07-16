@@ -29,6 +29,7 @@ local servers = {
   -- "solc",
   "rust-analyzer",
   "sumneko_lua",
+  "gopls",
   -- "tflint",
   -- "tsserver",
   "pyright",
@@ -118,7 +119,18 @@ for _, server in pairs(servers) do
     goto continue
   end
 
-
+  if server == "gopls" then
+    local path = require 'nvim-lsp-installer.core.path'
+    local install_root_dir = path.concat { vim.fn.stdpath 'data', 'lsp_servers' }
+    require 'go'.setup({
+      gopls_cmd = { install_root_dir .. '/gopls/gopls' },
+      fillstruct = 'gopls',
+      lsp_cfg = true,
+      dap_debug = true,
+      dap_debug_gui = true
+    })
+    goto continue
+  end
   -- if server == "solang" then
   --   local solang_opts = require "user.lsp.settings.solang"
   --   opts = vim.tbl_deep_extend("force", solang_opts, opts)
