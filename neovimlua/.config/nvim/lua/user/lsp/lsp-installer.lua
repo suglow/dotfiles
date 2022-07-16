@@ -27,7 +27,7 @@ local servers = {
   -- "jdtls",
   --  "jsonls",
   -- "solc",
-  "rust-analyzer",
+  "rust_analyzer",
   "sumneko_lua",
   "gopls",
   -- "tflint",
