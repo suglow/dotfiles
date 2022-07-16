@@ -48,10 +48,10 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
+  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons' }
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use {"akinsho/toggleterm.nvim", branch = 'main'}
+  use { "akinsho/toggleterm.nvim", branch = 'main' }
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -67,12 +67,12 @@ return packer.startup(function(use)
 
   use("nvim-telescope/telescope-dap.nvim")
 
-  use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
   use {
-    "ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}
+    "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" }
   }
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -87,12 +87,12 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use  "neovim/nvim-lspconfig"
+  use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "simrat39/symbols-outline.nvim" -- for outline
-  use {'nvim-telescope/telescope-ui-select.nvim' }
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
   use 'simrat39/rust-tools.nvim'
   -- Telescope
   use {
@@ -101,7 +101,7 @@ return packer.startup(function(use)
       { "nvim-telescope/telescope-live-grep-args.nvim" }
     }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -117,7 +117,7 @@ return packer.startup(function(use)
 
   use {
     "tpope/vim-surround",
-    keys = {"c", "d", "y", "S"}
+    keys = { "c", "d", "y", "S" }
   }
   -- use {
   --   "ur4ltz/surround.nvim",
@@ -127,13 +127,13 @@ return packer.startup(function(use)
   -- }
   use {
     "tpope/vim-unimpaired",
-    keys = {"yo"}
+    keys = { "yo" }
   }
   use "MattesGroeger/vim-bookmarks"
   use {
     "tom-anders/telescope-vim-bookmarks.nvim"
   }
-	-- Wilder Cmdline
+  -- Wilder Cmdline
   use("gelguy/wilder.nvim")
 
   -- Multi Virtual Cursor
@@ -144,35 +144,37 @@ return packer.startup(function(use)
     branch = 'v1', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' , multi_windows = true}
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran', multi_windows = true }
     end
   }
   use { "p00f/nvim-ts-rainbow" }
   use "windwp/nvim-ts-autotag"
 
   use "Pocco81/TrueZen.nvim"
-  use {"sakhnik/nvim-gdb", run = './install.sh'}
+  use { "sakhnik/nvim-gdb", run = './install.sh' }
   use "wesQ3/vim-windowswap"
   -- use "folke/zen-mode.nvim"
   -- use "hkupty/iron.nvim"
   use {
-      "SmiteshP/nvim-navic",
-      requires = "neovim/nvim-lspconfig"
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
   }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim','sindrets/diffview.nvim'} }
+  use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
   use 'tami5/sqlite.lua'
   use {
     "AckslD/nvim-neoclip.lua",
     requires = {
-      {'tami5/sqlite.lua', module = 'sqlite'},
-      {'nvim-telescope/telescope.nvim'},
+      { 'tami5/sqlite.lua', module = 'sqlite' },
+      { 'nvim-telescope/telescope.nvim' },
     }
   }
   use 'ZSaberLv0/ZFVimDirDiff'
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
+  use { 'ray-x/go.nvim'}
+  use 'ray-x/guihua.lua'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
