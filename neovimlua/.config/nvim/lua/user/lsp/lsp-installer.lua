@@ -125,7 +125,13 @@ for _, server in pairs(servers) do
     require 'go'.setup({
       gopls_cmd = { install_root_dir .. '/gopls/gopls' },
       fillstruct = 'gopls',
-      lsp_cfg = true,
+      lsp_cfg = {
+        capabilities = handlers.capabilities,
+      },
+      lsp_gofumpt = true,
+      lsp_keymaps = false,
+      lsp_on_attach = handlers.on_attach,
+
       dap_debug = true,
       dap_debug_gui = true
     })
