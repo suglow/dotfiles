@@ -127,13 +127,29 @@ for _, server in pairs(servers) do
       fillstruct = 'gopls',
       lsp_cfg = {
         capabilities = handlers.capabilities,
+        analyses = { unusedparams = true, unreachable = false },
+        codelenses = {
+          generate = true, -- show the `go generate` lens.
+          gc_details = true, --  // Show a code lens toggling the display of gc's choices.
+          test = true,
+          tidy = true,
+        },
+        usePlaceholders = true,
+        completeUnimported = true,
+        staticcheck = true,
+        matcher = 'fuzzy',
+        diagnosticsDelay = '500ms',
+        experimentalWatchedFileDelay = '1000ms',
+        symbolMatcher = 'fuzzy',
       },
       lsp_gofumpt = true,
-      lsp_keymaps = false,
-      lsp_on_attach = handlers.on_attach,
+      lsp_keymaps = handlers.lsp_keymaps,
+      -- lsp_on_attach = handlers.on_attach,
 
       dap_debug = true,
-      dap_debug_gui = true
+      dap_debug_gui = true,
+      luasnip = true
+
     })
     goto continue
   end

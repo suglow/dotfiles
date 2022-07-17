@@ -113,5 +113,5 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
+M.lsp_keymaps = lsp_keymaps
 return M
