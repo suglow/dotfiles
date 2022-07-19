@@ -221,6 +221,10 @@ local mappings = {
       "<cmd>lua require 'lsp_lines'.toggle()<cr>",
       "Toggle lsp_lines",
     },
+    w = {
+      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+      "Workspace Diagnostics",
+    },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
