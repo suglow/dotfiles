@@ -68,31 +68,6 @@ local settings = {
 
 lsp_installer.setup(settings)
 
-
-local extension_path = os.getenv("HOME") .. "/.local/bin/codelldb/extension/"
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-
-local opts_rust = {
-  server = {
-    -- standalone file support
-    -- setting it to false may improve startup time
-    -- standalone = true,
-    ["rust-analyzer"] = {
-      -- enable clippy on save
-      checkOnSave = {
-        command = "clippy"
-      }
-    },
-    capabilities = handlers.capabilities,
-    on_attach = handlers.on_attach,
-  }, -- rust-analyzer options
-  dap = {
-    adapter = require('rust-tools.dap').get_codelldb_adapter(
-      codelldb_path, liblldb_path),
-  }
-}
-
 for _, server in pairs(servers) do
   local opts = {
     on_attach = handlers.on_attach,
@@ -115,7 +90,8 @@ for _, server in pairs(servers) do
   end
 
   if server == "rust-analyzer" then
-    rusttools.setup(opts_rust)
+    local rust_opts = require "user.lsp.settings.rust"
+    rusttools.setup(rust_opts)
     goto continue
   end
 
