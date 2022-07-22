@@ -20,7 +20,7 @@ end
 
 
 local servers = {
-  "rust_analyzer",
+  "rust_analyzer@nightly",
   "sumneko_lua",
   "gopls",
   "pyright",
@@ -55,6 +55,7 @@ for _, server in pairs(servers) do
     on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
   }
+  server = vim.split(server, "@")[1]
 
   if server == "jsonls" then
     local jsonls_opts = require "user.lsp.settings.jsonls"
