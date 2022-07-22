@@ -20,18 +20,9 @@ end
 
 
 local servers = {
-  -- "cssls",
-  -- "cssmodules_ls",
-  -- "emmet_ls",
-  -- "html",
-  -- "jdtls",
-  --  "jsonls",
-  -- "solc",
   "rust_analyzer",
   "sumneko_lua",
   "gopls",
-  -- "tflint",
-  -- "tsserver",
   "pyright",
   "yamlls",
   "bashls",
@@ -42,14 +33,7 @@ local settings = {
   ensure_installed = servers,
   -- automatic_installation = false,
   ui = {
-    icons = {
-      -- server_installed = "◍",
-      -- server_pending = "◍",
-      -- server_uninstalled = "◍",
-      -- server_installed = "✓",
-      -- server_pending = "➜",
-      -- server_uninstalled = "✗",
-    },
+    icons = {},
     keymaps = {
       toggle_server_expand = "<CR>",
       install_server = "i",
@@ -62,8 +46,6 @@ local settings = {
   },
 
   log_level = vim.log.levels.INFO,
-  -- max_concurrent_installers = 4,
-  -- install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" },
 }
 
 lsp_installer.setup(settings)
@@ -80,8 +62,24 @@ for _, server in pairs(servers) do
   end
 
   if server == "sumneko_lua" then
+    local l_status_ok, lua_dev = pcall(require, "lua-dev")
+    if not l_status_ok then
+      return
+    end
     local sumneko_opts = require "user.lsp.settings.sumneko_lua"
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+    -- opts = vim.tbl_deep_extend("force", require("lua-dev").setup(), opts)
+    local luadev = lua_dev.setup {
+      --   -- add any options here, or leave empty to use the default settings
+      -- lspconfig = opts,
+      lspconfig = {
+        on_attach = opts.on_attach,
+        capabilities = opts.capabilities,
+        --   -- settings = opts.settings,
+      },
+    }
+    lspconfig.sumneko_lua.setup(luadev)
+    goto continue
   end
 
   if server == "pyright" then
@@ -89,7 +87,7 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
-  if server == "rust-analyzer" then
+  if server == "rust_analyzer" then
     local rust_opts = require "user.lsp.settings.rust"
     rusttools.setup(rust_opts)
     goto continue
