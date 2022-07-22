@@ -128,13 +128,6 @@ zinit load lukechilds/zsh-nvm
 # 加载主题
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
-# Alias
-# use neovim instead of vim
-alias vim='nvim'
-# utf-8 tmux
-alias tmux='tmux -u'
-# cat -> bat
-alias cat='bat'
 export BAT_THEME="gruvbox-dark"
 
 # autoload -z edit-command-line
@@ -161,3 +154,11 @@ function zvm_after_lazy_keybindings() {
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 [ -d $HOME/.local/bin ] && export PATH=$HOME/.local/bin:$PATH
 [ -f $HOME/.gvm/scripts/gvm ] && source $HOME/.gvm/scripts/gvm 
+
+# Alias
+# use neovim instead of vim
+alias vim='nvim'
+# utf-8 tmux
+alias tmux='tmux -u'
+# cat -> bat
+alias cat='bat'
