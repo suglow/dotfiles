@@ -89,11 +89,19 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  use "nvim-lua/lsp_extensions.nvim"
+  use { "christianchiarulli/lsp-inlayhints.nvim", branch = "user-config" }
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "simrat39/symbols-outline.nvim" -- for outline
+  use "ray-x/lsp_signature.nvim"
   use { 'nvim-telescope/telescope-ui-select.nvim' }
-  use 'simrat39/rust-tools.nvim'
+  -- rust
+  use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
+  use "Saecki/crates.nvim"
+  -- use 'simrat39/rust-tools.nvim'
+  -- Lua
+  use "folke/lua-dev.nvim"
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
