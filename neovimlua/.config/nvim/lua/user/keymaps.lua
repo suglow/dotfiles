@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
--- local term_opts = { silent = true }
+local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -72,6 +72,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<A-z>", "<cmd>TZFocus<cr>", opts)
 keymap("n", "<A-w>", ":call WindowSwap#EasyWindowSwap()<cr>", opts)
 -- Terminal --
+keymap('t', '<Esc>', '<C-\\><C-n>', term_opts)
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)

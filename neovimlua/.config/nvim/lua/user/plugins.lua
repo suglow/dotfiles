@@ -74,6 +74,9 @@ return packer.startup(function(use)
   use {
     "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" }
   }
+  -- UI
+  use "stevearc/dressing.nvim"
+  use "ghillb/cybu.nvim"
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -122,7 +125,7 @@ return packer.startup(function(use)
   use "f-person/git-blame.nvim"
   use "ruifm/gitlinker.nvim"
   use "https://github.com/rhysd/conflict-marker.vim"
-
+  use "RRethy/vim-illuminate"
   use {
     "tpope/vim-surround",
     keys = { "c", "d", "y", "S" }

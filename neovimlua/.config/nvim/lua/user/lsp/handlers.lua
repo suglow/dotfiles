@@ -92,12 +92,14 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
-  end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
   attach_navic(client, bufnr)
+  -- for tsserver
+  if client.name == "tsserver" then
+    require("lsp-inlayhints").setup_autocmd(bufnr, "typescript/inlayHints")
+  end
+
   if client.name == "pyright" then
     if client.server_capabilities.inlayHintProvider then
       require("lsp-inlayhints").setup_autocmd(bufnr)
