@@ -123,7 +123,6 @@ local mappings = {
   -- ["F"] = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["W"] = { "<cmd>Telescope grep_string<cr>", "Find word" },
-  ["E"] = { "g_", "Go to line end" },
   -- ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
   x = {
     name = "Exit",
