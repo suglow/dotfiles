@@ -13,6 +13,10 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+local function custom_callback(callback_name)
+    return string.format(":lua require('user.treeutils').%s()<CR>", callback_name)
+end
+
 nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
@@ -91,6 +95,8 @@ nvim_tree.setup {
         { key = { "<CR>", "o" }, cb = tree_cb "edit" },
         -- { key = "h", cb = tree_cb "close_node" },
         { key = "v", cb = tree_cb "vsplit" },
+        { key = "<c-f>", cb = custom_callback "launch_find_files" },
+        { key = "<c-g>", cb = custom_callback "launch_live_grep" },
       },
     },
     number = false,
