@@ -75,6 +75,7 @@ return packer.startup(function(use)
     "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" }
   }
   -- UI
+  use "rcarriga/nvim-notify"
   use "stevearc/dressing.nvim"
   use "ghillb/cybu.nvim"
   -- cmp plugins
