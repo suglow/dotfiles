@@ -46,11 +46,15 @@ function M.launch_telescope(func_name, opts)
 end
 
 function M.toggle_term()
-  -- toggleterm = require("toggleterm")
-  local term_status_ok, toggleterm = pcall(require, "toggleterm")
-  if not term_status_ok then
+  local terminal_ok, terminal = pcall(require, "toggleterm.terminal")
+  if not terminal_ok then
     return
   end
+  -- toggleterm = require("toggleterm")
+  -- local term_status_ok, toggleterm = pcall(require, "toggleterm")
+  -- if not term_status_ok then
+  --   return
+  -- end
   local node = lib.get_node_at_cursor()
   local is_folder = node.fs_stat and node.fs_stat.type == 'directory' or false
   local basedir = is_folder and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ":h")
@@ -59,7 +63,10 @@ function M.toggle_term()
   end
   -- print(basedir)
   -- terminal.Terminal:new():toggle(10, "horizontal")
-  toggleterm.exec_command('cmd="cd '.. basedir ..'"')
+  -- toggleterm.exec_command('cmd="cd '.. basedir ..'"')
+  local term, created = terminal.get_or_create_term(terminal.get_toggled_id(), basedir, "horizontal")
+  if not term:is_open() then term:open(15, "horizontal" ,created) end
+  if not created  then term:change_dir(basedir) end
 end
 
 return M
