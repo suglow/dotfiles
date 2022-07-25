@@ -42,6 +42,7 @@ function M.launch_telescope(func_name, opts)
   -- opts.attach_mappings = view_selection
   opts.hiden = true
   opts.no_ignore = true
+  vim.notify('basedir is '..basedir)
   return require("telescope.builtin")[func_name](opts)
 end
 
