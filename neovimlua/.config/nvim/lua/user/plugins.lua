@@ -101,9 +101,9 @@ return packer.startup(function(use)
   use "ray-x/lsp_signature.nvim"
   use { 'nvim-telescope/telescope-ui-select.nvim' }
   -- rust
-  use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
+  -- use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
   use "Saecki/crates.nvim"
-  -- use 'simrat39/rust-tools.nvim'
+  use 'simrat39/rust-tools.nvim'
   -- Lua
   use "folke/lua-dev.nvim"
   -- Telescope
