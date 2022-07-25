@@ -30,15 +30,15 @@ if [ `so` = "linux" ]; then
         tar -xf ~/.local/nvim-linux64.tar.gz -C ~/.local
         sudo ln -s ~/.local/nvim-linux64/bin/nvim /usr/bin/nvim
         # rust-analyzer
-        if [[ ! -e  ~/.local/bin/rust-analyzer ]]; then
-          mkdir -p ~/.local/bin
-          wget --no-check-certificate -c -qO- https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz  | gunzip -c - > ~/.local/bin/rust-analyzer
-          chmod +x ~/.local/bin/rust-analyzer
-        fi
+        # if [[ ! -e  ~/.local/bin/rust-analyzer ]]; then
+        #   mkdir -p ~/.local/bin
+        #   wget --no-check-certificate -c -qO- https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz  | gunzip -c - > ~/.local/bin/rust-analyzer
+        #   chmod +x ~/.local/bin/rust-analyzer
+        # fi
         if [[ ! -d ~/.local/bin/codelldb ]]; then
           mkdir -p ~/.local/bin/codelldb
-          # wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/latest/download/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix 
-          wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/download/v1.6.10/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix
+          wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/latest/download/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix 
+          # wget --no-check-certificate -q https://github.com/vadimcn/vscode-lldb/releases/download/v1.6.10/codelldb-x86_64-linux.vsix -O ~/.local/bin/codelldb-x86_64-linux.vsix
           unzip -d ~/.local/bin/codelldb  ~/.local/bin/codelldb-x86_64-linux.vsix
           rm -rf ~/.local/bin/codelldb-x86_64-linux.vsix
         fi
