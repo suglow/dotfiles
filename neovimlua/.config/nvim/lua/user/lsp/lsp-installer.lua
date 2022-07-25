@@ -73,6 +73,14 @@ for _, server in pairs(servers) do
     local luadev = lua_dev.setup {
       --   -- add any options here, or leave empty to use the default settings
       -- lspconfig = opts,
+      library = {
+        vimruntime = true, -- runtime path
+        types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
+        plugins = true, -- installed opt or start plugins in packpath
+        -- you can also specify the list of plugins to make available as a workspace library
+        -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+      },
+      runtime_path = false, -- enable this to get completion in require strings. Slow!
       lspconfig = {
         on_attach = opts.on_attach,
         capabilities = opts.capabilities,
