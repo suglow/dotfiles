@@ -27,7 +27,7 @@ nvim_tree.setup {
     "alpha",
   },
   open_on_tab = false,
-  hijack_cursor = false,
+  hijack_cursor = true,
   update_cwd = true,
   hijack_directories = {
     enable = true,
@@ -44,7 +44,7 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = false,
     ignore_list = {},
   },
   system_open = {
@@ -115,8 +115,8 @@ nvim_tree.setup {
       restrict_above_cwd = false,
     },
     open_file = {
-      quit_on_open = false,
-      resize_window = false,
+      quit_on_open = true,
+      resize_window = true,
       window_picker = {
         enable = true,
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
