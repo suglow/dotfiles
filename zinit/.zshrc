@@ -150,6 +150,8 @@ function zvm_after_lazy_keybindings() {
   zvm_bindkey vicmd 'k' down-line
   zvm_bindkey vicmd '^R' fzf-history-widget
   zvm_bindkey viins '^R' fzf-history-widget
+  zvm_bindkey viins '^b' vi-first-non-blank 
+  zvm_bindkey viins '^e' vi-end-of-line 
 }
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 [ -d $HOME/.local/bin ] && export PATH=$HOME/.local/bin:$PATH

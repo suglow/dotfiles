@@ -48,7 +48,8 @@ keymap("v", "gB", '_', opts) -- go begin
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-keymap("v", "jk", "<ESC>", opts)
+keymap("i", "<C-b>", "<ESC>^i", opts)
+keymap("i", "<C-e>", "<ESC>g_a", opts)
 keymap("c", "jk", "<C-C>", opts)
 
 -- Visual --
