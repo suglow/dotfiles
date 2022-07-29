@@ -118,6 +118,8 @@ local mappings = {
   ["<tab>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  -- ["r"] = { "<cmd>Normal ciw<C-r>0<ESC>", "Close Buffer" },
+  ["R"] = { "<cmd>Telescope oldfiles<CR>", "resent files" },
   ["j"] = { "<cmd>HopChar1<CR>", "Hop Word" },
   -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   -- ["F"] = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Text" },
