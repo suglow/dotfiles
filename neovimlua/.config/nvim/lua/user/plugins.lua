@@ -101,11 +101,15 @@ return packer.startup(function(use)
   use "simrat39/symbols-outline.nvim" -- for outline
   use "ray-x/lsp_signature.nvim"
   use { 'nvim-telescope/telescope-ui-select.nvim' }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
   -- rust
   -- use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
   use "Saecki/crates.nvim"
-  -- use {'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" }
-  use {'christianchiarulli/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" }
+  use {'simrat39/rust-tools.nvim'}
+  -- use {'christianchiarulli/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" }
   -- Lua
   use "folke/lua-dev.nvim"
   -- Telescope
@@ -169,10 +173,6 @@ return packer.startup(function(use)
   use "wesQ3/vim-windowswap"
   -- use "folke/zen-mode.nvim"
   -- use "hkupty/iron.nvim"
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-  }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
   use 'tami5/sqlite.lua'
