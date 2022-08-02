@@ -97,7 +97,7 @@ nvim_tree.setup {
         { key = "v", cb = tree_cb "vsplit" },
         { key = "<c-f>", cb = custom_callback "launch_find_files" },
         { key = "<c-g>", cb = custom_callback "launch_live_grep" },
-        { key = "<c-l>", cb = custom_callback "launch_live_grep_args" },
+        { key = "<c-d", cb = custom_callback "launch_live_grep_args" },
         { key = "T", cb = custom_callback "toggle_term" },
       },
     },
