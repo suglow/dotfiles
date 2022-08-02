@@ -85,7 +85,12 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-
+  use {"j-hui/fidget.nvim",
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require 'fidget'.setup {}
+    end
+  }
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
