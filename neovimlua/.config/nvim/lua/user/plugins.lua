@@ -168,7 +168,7 @@ return packer.startup(function(use)
   use { "p00f/nvim-ts-rainbow" }
   use "windwp/nvim-ts-autotag"
 
-  use "Pocco81/TrueZen.nvim"
+  use "Pocco81/true-zen.nvim"
   use { "sakhnik/nvim-gdb", run = './install.sh' }
   use "wesQ3/vim-windowswap"
   -- use "folke/zen-mode.nvim"
