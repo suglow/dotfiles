@@ -139,15 +139,11 @@ return packer.startup(function(use)
   use "https://github.com/rhysd/conflict-marker.vim"
   use "RRethy/vim-illuminate"
   use {
-    "tpope/vim-surround",
-    keys = { "c", "d", "y", "S" }
+    "ur4ltz/surround.nvim",
+    config = function()
+      require"surround".setup {mappings_style = "surround"}
+    end
   }
-  -- use {
-  --   "ur4ltz/surround.nvim",
-  --   config = function()
-  --     require"surround".setup {mappings_style = "surround"}
-  --   end
-  -- }
   use {
     "tpope/vim-unimpaired",
     keys = { "yo" }
