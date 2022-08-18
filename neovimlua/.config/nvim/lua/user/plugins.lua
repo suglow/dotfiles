@@ -100,11 +100,17 @@ return packer.startup(function(use)
   use"williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig"
   use "nvim-lua/lsp_extensions.nvim"
-  use { "christianchiarulli/lsp-inlayhints.nvim", branch = "user-config" }
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "b0o/SchemaStore.nvim"
   use "simrat39/symbols-outline.nvim" -- for outline
   use "ray-x/lsp_signature.nvim"
+  use "lvimuser/lsp-inlayhints.nvim"
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
   use { 'nvim-telescope/telescope-ui-select.nvim' }
   use {
     "SmiteshP/nvim-navic",
