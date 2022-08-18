@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 _G.telescope_live_grep_in_path = function(path)
- local _path = path or vim.fn.input("Dir: ", vim.fn.getcwd() .. '/', "dir")
- require("telescope.builtin").live_grep({search_dirs = {_path}})
+  local _path = path or vim.fn.input("Dir: ", vim.fn.getcwd() .. '/', "dir")
+  require("telescope.builtin").live_grep({ search_dirs = { _path } })
 end
 
 
@@ -128,36 +128,37 @@ local mappings = {
   -- ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
   x = {
     name = "Exit",
-    x = {"<cmd>q<CR>", "Quit" },
-    f = {"<cmd>q!<CR>", "Quit" },
+    x = { "<cmd>q<CR>", "Quit" },
+    f = { "<cmd>q!<CR>", "Quit" },
   },
   e = {
     name = "edit",
     d = {
       name = "rmv",
-      e = {"<cmd>.s/\\s\\+$//e<cr>", "rmv end space"},
-      a = {"<cmd>%s/\\s\\+$//e<cr>", "rmv all end white space"},
+      e = { "<cmd>.s/\\s\\+$//e<cr>", "rmv end space" },
+      a = { "<cmd>%s/\\s\\+$//e<cr>", "rmv all end white space" },
     }
   },
   f = {
     name = "find",
-    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>", "Find files"},
+    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>", "Find files" },
     l = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     d = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Dir" },
-    g = { "<cmd>lua telescope_live_grep_in_path(vim.fn.systemlist('git rev-parse --show-toplevel')[1])<cr>", "live grep in git proj" },
+    g = { "<cmd>lua telescope_live_grep_in_path(vim.fn.systemlist('git rev-parse --show-toplevel')[1])<cr>",
+      "live grep in git proj" },
     r = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Find raw grep" },
   },
   m = {
     name = "mark",
-    b = {"<cmd>Telescope vim_bookmarks all<cr>", "Show bookmarks" },
-    m = {"<cmd>Telescope marks<cr>", "Show marks"},
+    b = { "<cmd>Telescope vim_bookmarks all<cr>", "Show bookmarks" },
+    m = { "<cmd>Telescope marks<cr>", "Show marks" },
   },
   y = {
     name = "Yank",
-    y = {"<cmd>OSCYankReg \"<CR>", 'yank \" to OSC'},
-    p = {"<cmd>let @\" = expand('%:p') | let @* = @\" | OSCYankReg \"<CR>", 'yank full path'},
-    l = {"<cmd>let @\" = expand('%:p')..':'..line('.') | let @* = @\" | OSCYankReg \"<CR>", 'yank path line'},
-    s = {"<cmd>let @x=@\" | let @\"=@a | let @a=@b | let @b=@c | let @c=@x | reg \"abc<cr>", "swap reg"}
+    y = { "<cmd>OSCYankReg \"<CR>", 'yank \" to OSC' },
+    p = { "<cmd>let @\" = expand('%:p') | let @* = @\" | OSCYankReg \"<CR>", 'yank full path' },
+    l = { "<cmd>let @\" = expand('%:p')..':'..line('.') | let @* = @\" | OSCYankReg \"<CR>", 'yank path line' },
+    s = { "<cmd>let @x=@\" | let @\"=@a | let @a=@b | let @b=@c | let @c=@x | reg \"abc<cr>", "swap reg" }
   },
   d = {
     name = "Debug",
@@ -215,6 +216,10 @@ local mappings = {
       "<cmd>Telescope diagnostics bufnr=0<cr>",
       "Document Diagnostics",
     },
+    D = {
+      "<cmd>lua require 'lsp_lines'.toggle()<cr>",
+      "Toggle lsp_lines",
+    },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -229,7 +234,7 @@ local mappings = {
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    r = { "<cmd>Telescope lsp_incoming_calls<cr>", "ref"},
+    r = { "<cmd>Telescope lsp_incoming_calls<cr>", "ref" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
