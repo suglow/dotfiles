@@ -103,6 +103,7 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
     find_files = {
+      find_command = {"fd", "--type", "f"},
       hidden = true,
       no_ignore = false
     }
@@ -122,7 +123,7 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
-
+telescope.load_extension('fzf')
 telescope.load_extension('dap')
 -- telescope.load_extension('changed_files')
 telescope.load_extension('neoclip')
