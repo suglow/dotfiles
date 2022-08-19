@@ -141,7 +141,7 @@ local mappings = {
   },
   f = {
     name = "find",
-    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false})<cr>", "Find files" },
+    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden = true, no_ignore = true})<cr>", "Find files" },
     l = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     d = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Dir" },
     g = { "<cmd>lua telescope_live_grep_in_path(vim.fn.systemlist('git rev-parse --show-toplevel')[1])<cr>",
