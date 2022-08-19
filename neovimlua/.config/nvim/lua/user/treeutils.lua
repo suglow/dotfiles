@@ -34,7 +34,7 @@ function M.launch_live_grep_args()
   local is_folder = node.fs_stat and node.fs_stat.type == 'directory' or false
   local basedir = is_folder and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ":h")
   if (node.name == '..' and TreeExplorer ~= nil) then
-    basedir = TreeExplorer.cwd
+    basedir = TreeExplorer.absolute_path
   end
   local opts = {}
   opts.cwd = basedir
