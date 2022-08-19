@@ -55,7 +55,7 @@ function M.launch_telescope(func_name, opts)
   local is_folder = node.fs_stat and node.fs_stat.type == 'directory' or false
   local basedir = is_folder and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ":h")
   if (node.name == '..' and TreeExplorer ~= nil) then
-    basedir = TreeExplorer.cwd
+    basedir = TreeExplorer.absolute_path
   end
   opts = opts or {}
   opts.cwd = basedir
@@ -81,7 +81,7 @@ function M.toggle_term()
   local is_folder = node.fs_stat and node.fs_stat.type == 'directory' or false
   local basedir = is_folder and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ":h")
   if (node.name == '..' and TreeExplorer ~= nil) then
-    basedir = TreeExplorer.cwd
+    basedir = TreeExplorer.absolute_path
   end
   -- print(basedir)
   -- terminal.Terminal:new():toggle(10, "horizontal")
