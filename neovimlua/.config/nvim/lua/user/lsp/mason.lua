@@ -73,6 +73,10 @@ mason_lspconfig.setup_handlers {
     local opts = vim.tbl_deep_extend("force", pyright_opts, common_opts)
     lspconfig["pyright"].setup(opts)
   end,
+  ["clangd"] = function()
+    local opts = vim.tbl_deep_extend("force", {}, common_opts)
+    lspconfig["clangd"].setup(opts)
+  end,
   ["rust_analyzer"] = function()
     local rust_opts = require "user.lsp.settings.rust"
     local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
