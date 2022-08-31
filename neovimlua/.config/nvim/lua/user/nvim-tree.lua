@@ -101,6 +101,7 @@ nvim_tree.setup {
         { key = "<c-g>", cb = custom_callback "launch_live_grep" },
         { key = "<c-d>", cb = custom_callback "launch_live_grep_args" },
         { key = "T", cb = custom_callback "toggle_term" },
+        { key = "<c-t>", cb = custom_callback "toggle_term" },
       },
     },
     number = false,
