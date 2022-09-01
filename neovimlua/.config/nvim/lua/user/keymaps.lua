@@ -35,7 +35,7 @@ keymap("n", "<A-l>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>r", 'ciw<C-r>0<ESC>', opts)
+keymap("n", "<leader>r", 'viwP', opts)
 -- keymap("v", "<leader>r", '"_diwP', opts)
 keymap("n", "gE", 'g_', opts) -- go end
 keymap("n", "gB", '_', opts) -- go begin
