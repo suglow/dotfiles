@@ -8,6 +8,7 @@ local actions = require "telescope.actions"
 telescope.setup {
   defaults = {
     layout_config = { height = 0.98, width = 0.97 , preview_width = 0.6},
+    initial_mode = "normal",
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -126,6 +127,5 @@ telescope.setup {
 telescope.load_extension('fzf')
 telescope.load_extension('dap')
 -- telescope.load_extension('changed_files')
-telescope.load_extension('neoclip')
 telescope.load_extension('notify')
-
+telescope.load_extension("yank_history")
