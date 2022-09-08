@@ -72,6 +72,11 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- zen mode --
 keymap("n", "<A-z>", "<cmd>TZFocus<cr>", opts)
 keymap("n", "<A-w>", ":call WindowSwap#EasyWindowSwap()<cr>", opts)
+
+vim.cmd [[
+    noremap  <Down>   <Down>zz
+    noremap  <Up>   <UP>zz
+]]
 -- Terminal --
 keymap('t', '<Esc>', '<C-\\><C-n>', term_opts)
 -- Better terminal navigation
