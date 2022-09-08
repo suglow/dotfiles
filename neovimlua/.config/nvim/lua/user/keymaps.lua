@@ -76,6 +76,8 @@ keymap("n", "<A-w>", ":call WindowSwap#EasyWindowSwap()<cr>", opts)
 vim.cmd [[
     noremap  <Down>   <Down>zz
     noremap  <Up>   <UP>zz
+    noremap  <C-d>   <C-d>zz
+    noremap  <C-u>   <C-u>zz
 ]]
 -- Terminal --
 keymap('t', '<Esc>', '<C-\\><C-n>', term_opts)
