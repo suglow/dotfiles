@@ -119,7 +119,8 @@ return packer.startup(function(use)
   -- rust
   -- use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
   use "Saecki/crates.nvim"
-  use {'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite"}
+  --[[ use {'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite"} ]]
+  use {'simrat39/rust-tools.nvim', branch = "master"}
   --[[ use {'suglow/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" } ]]
   -- Lua
   use "folke/lua-dev.nvim"
