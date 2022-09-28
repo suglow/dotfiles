@@ -102,7 +102,11 @@ return packer.startup(function(use)
   use "nvim-lua/lsp_extensions.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "b0o/SchemaStore.nvim"
-  use "simrat39/symbols-outline.nvim" -- for outline
+  use {"simrat39/symbols-outline.nvim",
+    config = function()
+      require("symbols-outline").setup()
+    end,
+  } -- for outline
   use "ray-x/lsp_signature.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
   use({
