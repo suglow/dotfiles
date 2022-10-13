@@ -25,6 +25,9 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 # 自动建议
 zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
+# zsh-fzf-history-search
+# zinit ice lucid wait'0'
+# zinit light joshskidmore/zsh-fzf-history-search
 # 补全
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
@@ -57,6 +60,9 @@ zinit snippet OMZ::plugins/per-directory-history/per-directory-history.zsh
 
 zinit ice silent wait"0" pick"zsh-history-substring-search.zsh"
 zinit load "zsh-users/zsh-history-substring-search"
+
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 ##
 # Configuration
