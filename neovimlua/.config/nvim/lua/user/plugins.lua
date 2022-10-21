@@ -127,7 +127,7 @@ return packer.startup(function(use)
   use {'simrat39/rust-tools.nvim', branch = "master"}
   --[[ use {'suglow/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" } ]]
   -- Lua
-  use "folke/lua-dev.nvim"
+  use "folke/neodev.nvim"
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
