@@ -58,7 +58,7 @@ mason_lspconfig.setup_handlers {
     lspconfig["jsonls"].setup(opts)
   end,
   ["sumneko_lua"] = function()
-    local _, lua_dev = pcall(require, "lua-dev")
+    local _, lua_dev = pcall(require, "neodev")
     local luadev = lua_dev.setup {
       lspconfig = {
         on_attach = common_opts.on_attach,
