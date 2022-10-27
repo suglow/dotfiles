@@ -221,7 +221,7 @@ local mappings = {
       "<cmd>lua require 'lsp_lines'.toggle()<cr>",
       "Toggle lsp_lines",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     n = {
