@@ -7,7 +7,7 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-    layout_config = { height = 0.98, width = 0.97 , preview_width = 0.6},
+    layout_config = { height = 0.98, width = 0.97, preview_width = 0.6 },
     initial_mode = "normal",
     prompt_prefix = " ",
     selection_caret = " ",
@@ -23,12 +23,12 @@ telescope.setup {
       "--hidden"
     },
     file_ignore_patterns = {
-        "node_modules",
-        ".work/.*",
-        ".cache/.*",
-        ".idea/.*",
-        "dist/.*",
-        ".git/.*"
+      "node_modules",
+      ".work/.*",
+      ".cache/.*",
+      ".idea/.*",
+      "dist/.*",
+      ".git/.*"
     },
     mappings = {
       i = {
@@ -106,19 +106,24 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
     find_files = {
-      find_command = {"fd", "--type", "f"},
+      find_command = { "fd", "--type", "f" },
       hidden = true,
       no_ignore = false
     }
   },
   extensions = {
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    },
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
     }
+
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -126,7 +131,9 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
-telescope.load_extension('fzf')
+--[[ telescope.load_extension('fzf') ]]
+
+telescope.load_extension('fzy_native')
 telescope.load_extension('dap')
 -- telescope.load_extension('changed_files')
 telescope.load_extension('notify')

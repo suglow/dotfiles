@@ -135,7 +135,8 @@ return packer.startup(function(use)
       { "nvim-telescope/telescope-live-grep-args.nvim" }
     }
   }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  --[[ use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } ]]
+  use { 'nvim-telescope/telescope-fzy-native.nvim'}
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
