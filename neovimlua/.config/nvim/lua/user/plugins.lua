@@ -196,6 +196,7 @@ return packer.startup(function(use)
   use { 'ray-x/go.nvim'}
   use 'ray-x/guihua.lua'
   use { "gbprod/yanky.nvim"}
+  use { 'ibhagwan/smartyank.nvim' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
