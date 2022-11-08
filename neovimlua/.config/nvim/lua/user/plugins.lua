@@ -103,7 +103,11 @@ return packer.startup(function(use)
   use "nvim-lua/lsp_extensions.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "b0o/SchemaStore.nvim"
-  use "simrat39/symbols-outline.nvim" -- for outline
+  use {"simrat39/symbols-outline.nvim",
+    config = function()
+      require("symbols-outline").setup()
+    end,
+  } -- for outline
   use "ray-x/lsp_signature.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
   use({
@@ -120,10 +124,11 @@ return packer.startup(function(use)
   -- rust
   -- use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
   use "Saecki/crates.nvim"
-  use {'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite"}
+  --[[ use {'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite"} ]]
+  use {'simrat39/rust-tools.nvim', branch = "master"}
   --[[ use {'suglow/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" } ]]
   -- Lua
-  use "folke/lua-dev.nvim"
+  use "folke/neodev.nvim"
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
@@ -131,7 +136,8 @@ return packer.startup(function(use)
       { "nvim-telescope/telescope-live-grep-args.nvim" }
     }
   }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  --[[ use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } ]]
+  use { 'nvim-telescope/telescope-fzy-native.nvim'}
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -191,6 +197,7 @@ return packer.startup(function(use)
   use { 'ray-x/go.nvim'}
   use 'ray-x/guihua.lua'
   use { "gbprod/yanky.nvim"}
+  use { 'ibhagwan/smartyank.nvim' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

@@ -44,3 +44,5 @@
 	defaultBranch = main
 [mergetool "vimdiff"]
 	path = nvim
+[credential]
+	helper = store

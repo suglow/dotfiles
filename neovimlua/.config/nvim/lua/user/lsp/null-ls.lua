@@ -54,4 +54,4 @@ local unwrap = {
   },
 }
 
-null_ls.register(unwrap)
+--[[ null_ls.register(unwrap) ]]
