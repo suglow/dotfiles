@@ -197,6 +197,8 @@ return packer.startup(function(use)
   use 'ray-x/guihua.lua'
   use { "gbprod/yanky.nvim"}
   use { 'ibhagwan/smartyank.nvim' }
+  use   {"wsdjeg/vim-fetch"} 
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
