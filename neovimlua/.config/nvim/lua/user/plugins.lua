@@ -71,9 +71,25 @@ return packer.startup(function(use)
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
-  use {
-    "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" }
-  }
+  --[[ use { ]]
+  --[[   "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } ]]
+  --[[ } ]]
+
+  use({
+    "sainnhe/gruvbox-material",
+    config = function()
+      vim.o.termguicolors = true
+      vim.o.cursorline = true
+      vim.g.gruvbox_material_background = 'soft'
+      vim.g.gruvbox_material_better_performance = 1
+      vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+      vim.g.gruvbox_material_diagnostic_text_highlight = 1
+      vim.g.gruvbox_material_diagnostic_line_highlight = 1
+      vim.g.gruvbox_material_ui_contrast = "high"
+      vim.cmd("colorscheme gruvbox-material")
+    end,
+  })
+
   -- UI
   use "rcarriga/nvim-notify"
   use "stevearc/dressing.nvim"
@@ -85,7 +101,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  use {"j-hui/fidget.nvim",
+  use { "j-hui/fidget.nvim",
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require 'fidget'.setup {}
@@ -97,12 +113,12 @@ return packer.startup(function(use)
 
   -- LSP
   use "williamboman/mason.nvim"
-  use"williamboman/mason-lspconfig.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig"
   use "nvim-lua/lsp_extensions.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "b0o/SchemaStore.nvim"
-  use {"simrat39/symbols-outline.nvim",
+  use { "simrat39/symbols-outline.nvim",
     config = function()
       require("symbols-outline").setup()
     end,
@@ -124,7 +140,7 @@ return packer.startup(function(use)
   -- use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
   use "Saecki/crates.nvim"
   --[[ use {'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite"} ]]
-  use {'simrat39/rust-tools.nvim', branch = "master"}
+  use { 'simrat39/rust-tools.nvim', branch = "master" }
   --[[ use {'suglow/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" } ]]
   -- Lua
   use "folke/neodev.nvim"
@@ -136,7 +152,7 @@ return packer.startup(function(use)
     }
   }
   --[[ use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } ]]
-  use { 'nvim-telescope/telescope-fzy-native.nvim'}
+  use { 'nvim-telescope/telescope-fzy-native.nvim' }
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -153,7 +169,7 @@ return packer.startup(function(use)
   use {
     "ur4ltz/surround.nvim",
     config = function()
-      require"surround".setup {mappings_style = "surround"}
+      require "surround".setup { mappings_style = "surround" }
     end
   }
   use {
@@ -193,9 +209,9 @@ return packer.startup(function(use)
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
-  use { 'ray-x/go.nvim'}
+  use { 'ray-x/go.nvim' }
   use 'ray-x/guihua.lua'
-  use { "gbprod/yanky.nvim"}
+  use { "gbprod/yanky.nvim" }
   use { 'ibhagwan/smartyank.nvim' }
   use   {"wsdjeg/vim-fetch"} 
 

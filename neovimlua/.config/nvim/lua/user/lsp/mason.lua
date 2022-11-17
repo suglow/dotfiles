@@ -63,7 +63,6 @@ mason_lspconfig.setup_handlers {
       lspconfig = {
         on_attach = common_opts.on_attach,
         capabilities = common_opts.capabilities,
-        --   -- settings = opts.settings,
       },
     }
     lspconfig["sumneko_lua"].setup(luadev)
