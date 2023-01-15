@@ -278,7 +278,6 @@ local mappings_v = {
     name = "Terminal",
     l = { "<cmd>'<,'>ToggleTermSendVisualLines<cr>", "send select line" },
   },
-  w = { "zy<cmd>exec 'Telescope grep_string default_text=' . escape(@z, ' ')<cr>", "search work" },
 }
 which_key.setup(setup)
 which_key.register(mappings, opts)
