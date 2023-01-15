@@ -39,6 +39,8 @@ keymap("n", "<leader>r", 'viwP', opts)
 -- keymap("v", "<leader>r", '"_diwP', opts)
 keymap("n", "gE", 'g_', opts) -- go end
 keymap("n", "gB", '_', opts) -- go begin
+keymap("n", "<C-b>", '_', opts) -- go end
+keymap("n", "<C-e>", 'g_', opts) -- go begin
 keymap("v", "gE", 'g_', opts) -- go end
 keymap("v", "gB", '_', opts) -- go begin
 -- Move text up and down

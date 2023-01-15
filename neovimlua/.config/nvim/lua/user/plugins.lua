@@ -58,6 +58,7 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+  use "mattn/emmet-vim"
   -- use { "axkirillov/telescope-changed-files" }
   -- DAP
   use("mfussenegger/nvim-dap")
@@ -205,6 +206,7 @@ return packer.startup(function(use)
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
 
+  use 'ZSaberLv0/ZFVimJob'
   use 'ZSaberLv0/ZFVimDirDiff'
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
