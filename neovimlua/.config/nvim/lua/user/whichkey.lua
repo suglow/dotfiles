@@ -116,7 +116,6 @@ local mappings = {
     "Buffers",
   },
   ["<tab>"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   -- ["r"] = { "<cmd>Normal ciw<C-r>0<ESC>", "Close Buffer" },
   ["R"] = { "<cmd>Telescope oldfiles<CR>", "resent files" },
@@ -125,7 +124,12 @@ local mappings = {
   -- ["F"] = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["W"] = { "<cmd>Telescope grep_string<cr>", "Find word" },
+
   -- ["M"] = { "<cmd>Telescope marks<cr>", "Show marks" },
+  w = {
+    name = "misc",
+    s = { "<cmd>w!<CR>", "Save" },
+  },
   x = {
     name = "Exit",
     x = { "<cmd>q<CR>", "Quit" },
@@ -141,12 +145,14 @@ local mappings = {
   },
   f = {
     name = "find",
-    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden = true, no_ignore = true})<cr>", "Find files" },
+    f = { "<cmd>lua require('telescope.builtin').find_files({previewer = false, hidden = true, no_ignore = true})<cr>",
+      "Find files" },
     l = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     d = { "<cmd>lua telescope_live_grep_in_path()<cr>", "Find Dir" },
     g = { "<cmd>lua telescope_live_grep_in_path(vim.fn.systemlist('git rev-parse --show-toplevel')[1])<cr>",
       "live grep in git proj" },
     r = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Find raw grep" },
+    h = { "<cmd>Telescope resume<cr>", "find resume" }
   },
   m = {
     name = "mark",
@@ -271,7 +277,8 @@ local mappings_v = {
   t = {
     name = "Terminal",
     l = { "<cmd>'<,'>ToggleTermSendVisualLines<cr>", "send select line" },
-  }
+  },
+  w = { "zy<cmd>exec 'Telescope grep_string default_text=' . escape(@z, ' ')<cr>", "search work" },
 }
 which_key.setup(setup)
 which_key.register(mappings, opts)
