@@ -59,6 +59,7 @@ keymap("c", "jk", "<C-C>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "<A-y>", ":OSCYank<CR>", opts)
+keymap("v", "<C-s>","zy<cmd>exec 'Telescope grep_string default_text=' . escape(@z, ' ')<cr>", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
