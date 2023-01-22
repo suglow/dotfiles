@@ -39,6 +39,8 @@ keymap("n", "<leader>r", 'viwP', opts)
 -- keymap("v", "<leader>r", '"_diwP', opts)
 keymap("n", "gE", 'g_', opts) -- go end
 keymap("n", "gB", '_', opts) -- go begin
+keymap("n", "<C-b>", '_', opts) -- go end
+keymap("n", "<C-e>", 'g_', opts) -- go begin
 keymap("v", "gE", 'g_', opts) -- go end
 keymap("v", "gB", '_', opts) -- go begin
 -- Move text up and down
@@ -57,6 +59,7 @@ keymap("c", "jk", "<C-C>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 keymap("v", "<A-y>", ":OSCYank<CR>", opts)
+keymap("v", "<C-s>","zy<cmd>exec 'Telescope grep_string default_text=' . escape(@z, ' ')<cr>", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)

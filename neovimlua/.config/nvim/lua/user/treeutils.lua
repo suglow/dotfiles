@@ -58,6 +58,9 @@ function M.launch_telescope(func_name, opts)
     basedir = TreeExplorer.absolute_path
   end
   opts = opts or {}
+  if func_name == 'find_files' then
+    opts.previewer = false
+  end
   opts.cwd = basedir
   opts.search_dirs = { basedir }
   -- opts.attach_mappings = view_selection
