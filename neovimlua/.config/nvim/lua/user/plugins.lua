@@ -216,7 +216,21 @@ return packer.startup(function(use)
   use { "gbprod/yanky.nvim" }
   use { 'ibhagwan/smartyank.nvim' }
   use { "wsdjeg/vim-fetch" }
-  use { "github/copilot.vim" }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
