@@ -42,7 +42,7 @@ function M.launch_live_grep_args()
   -- opts.attach_mappings = view_selection
   opts.hiden = true
   opts.no_ignore = true
-  vim.notify('basedir is '..basedir)
+  vim.notify('basedir is ' .. basedir)
   require("telescope").extensions.live_grep_args.live_grep_args(opts)
 end
 
@@ -66,7 +66,7 @@ function M.launch_telescope(func_name, opts)
   -- opts.attach_mappings = view_selection
   opts.hiden = true
   opts.no_ignore = true
-  vim.notify('basedir is '..basedir)
+  vim.notify('basedir is ' .. basedir)
   return require("telescope.builtin")[func_name](opts)
 end
 
@@ -89,9 +89,14 @@ function M.toggle_term()
   -- print(basedir)
   -- terminal.Terminal:new():toggle(10, "horizontal")
   -- toggleterm.exec_command('cmd="cd '.. basedir ..'"')
+  if vim.env.TMUX ~= nil then
+    pcall(vim.cmd, "silent !tmux split-window -c" .. basedir)
+    return
+  end
+
   local term, created = terminal.get_or_create_term(terminal.get_toggled_id(), basedir, "horizontal")
-  if not term:is_open() then term:open(15, "horizontal" ,created) end
-  if not created  then term:change_dir(basedir) end
+  if not term:is_open() then term:open(15, "horizontal", created) end
+  if not created then term:change_dir(basedir) end
 end
 
 return M
