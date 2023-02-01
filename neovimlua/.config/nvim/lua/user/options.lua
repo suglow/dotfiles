@@ -36,6 +36,8 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
+-- Enable true color
+vim.opt.termguicolors = true
 
 for k, v in pairs(options) do
   vim.opt[k] = v
