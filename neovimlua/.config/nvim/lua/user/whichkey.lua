@@ -129,6 +129,7 @@ local mappings = {
   w = {
     name = "misc",
     s = { "<cmd>w!<CR>", "Save" },
+    c = {"<cmd>CccHighlighterToggle<CR>", "Color Toggle"}
   },
   x = {
     name = "Exit",
