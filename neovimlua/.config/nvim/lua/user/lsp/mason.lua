@@ -10,7 +10,7 @@ end
 
 local servers = {
   "jsonls",
-  "sumneko_lua",
+  "lua_ls",
   "pyright",
   "yamlls",
   "bashls",
@@ -57,7 +57,7 @@ mason_lspconfig.setup_handlers {
     local opts = vim.tbl_deep_extend("force", jsonls_opts, common_opts)
     lspconfig["jsonls"].setup(opts)
   end,
-  ["sumneko_lua"] = function()
+  ["lua_ls"] = function()
     local _, lua_dev = pcall(require, "neodev")
     local luadev = lua_dev.setup {
       lspconfig = {
@@ -65,7 +65,7 @@ mason_lspconfig.setup_handlers {
         capabilities = common_opts.capabilities,
       },
     }
-    lspconfig["sumneko_lua"].setup(luadev)
+    lspconfig["lua_ls"].setup(luadev)
   end,
   ["pyright"] = function()
     local pyright_opts = require "user.lsp.settings.pyright"
