@@ -31,7 +31,7 @@ vim.cmd [[
   
   augroup _yank_oscyank
     autocmd!
-    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
   augroup end
 
   augroup _hold_cursor

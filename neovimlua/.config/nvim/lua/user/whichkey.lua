@@ -162,9 +162,9 @@ local mappings = {
   },
   y = {
     name = "Yank",
-    y = { "<cmd>OSCYankReg \"<CR>", 'yank \" to OSC' },
-    p = { "<cmd>let @\" = expand('%:p') | let @* = @\" | OSCYankReg \"<CR>", 'yank full path' },
-    l = { "<cmd>let @\" = expand('%:p')..':'..line('.') | let @* = @\" | OSCYankReg \"<CR>", 'yank path line' },
+    y = { "<cmd>OSCYankRegister \"<CR>", 'yank \" to OSC' },
+    p = { "<cmd>let @\" = expand('%:p') | let @* = @\" | OSCYankRegister \"<CR>", 'yank full path' },
+    l = { "<cmd>let @\" = expand('%:p')..':'..line('.') | let @* = @\" | OSCYankRegister \"<CR>", 'yank path line' },
     s = { "<cmd>let @x=@\" | let @\"=@a | let @a=@b | let @b=@c | let @c=@x | reg \"abc<cr>", "swap reg" },
     h = { "<cmd>Telescope yank_history<CR>", 'yank history' },
   },
