@@ -275,10 +275,12 @@ local mappings = {
   },
 }
 local mappings_v = {
-  t = {
+  s = {
     name = "Terminal",
     l = { "<cmd>'<,'>ToggleTermSendVisualLines<cr>", "send select line" },
   },
+  j = { "<cmd>HopChar1<CR>", "Hop Word" },
+  t = { "<cmd>HopWord<CR>", "Hop Word" },
 }
 which_key.setup(setup)
 which_key.register(mappings, opts)
