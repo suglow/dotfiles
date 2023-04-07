@@ -50,7 +50,17 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use { 'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons' }
   use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim"
+  --[[ use {"nvim-lualine/lualine.nvim", ]]
+  --[[   config = function() ]]
+  --[[     require 'lualine'.setup {} ]]
+  --[[   end ]]
+  --[[ } ]]
+  use {"rebelot/heirline.nvim",
+    config = function()
+        require("user.heirline")
+    end
+  }
+  
   use { "akinsho/toggleterm.nvim", branch = 'main' }
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
@@ -104,7 +114,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use { "j-hui/fidget.nvim",
     config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
       require 'fidget'.setup {}
     end
   }
@@ -166,7 +175,7 @@ return packer.startup(function(use)
   use "f-person/git-blame.nvim"
   use "ruifm/gitlinker.nvim"
   use "https://github.com/rhysd/conflict-marker.vim"
-  use "RRethy/vim-illuminate"
+  --[[ use "RRethy/vim-illuminate" ]]
   use {
     "ur4ltz/surround.nvim",
     config = function()
@@ -189,10 +198,24 @@ return packer.startup(function(use)
   -- hop
   use {
     'phaazon/hop.nvim',
-    branch = 'v1', -- optional but strongly recommended
+    branch = 'v2', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran', multi_windows = true }
+      local hop = require('hop')
+      local directions = require('hop.hint').HintDirection
+      vim.keymap.set('', 'f', function()
+        hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+      end, {remap=true})
+      vim.keymap.set('', 'F', function()
+        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+      end, {remap=true})
+      vim.keymap.set('', 't', function()
+        hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+      end, {remap=true})
+      vim.keymap.set('', 'T', function()
+        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+      end, {remap=true})
     end
   }
   use { "p00f/nvim-ts-rainbow" }
