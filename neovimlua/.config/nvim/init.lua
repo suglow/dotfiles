@@ -1,7 +1,6 @@
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
-require "user.colorscheme"
 require "user.cmp"
 require "user.navic"
 require "user.lsp"
@@ -35,4 +34,4 @@ require "user.dressing"
 require "user.notify"
 require "user.neogit"
 require "user.hydra"
-
+require "user.colorscheme"

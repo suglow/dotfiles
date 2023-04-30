@@ -70,6 +70,8 @@ return lazy.setup({
 
   {
     "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
     config = function()
       vim.o.termguicolors = true
       vim.o.cursorline = true
@@ -244,4 +246,6 @@ return lazy.setup({
   },
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
+},{
+  install = { colorscheme = { "gruvbox-material" } },
 })
