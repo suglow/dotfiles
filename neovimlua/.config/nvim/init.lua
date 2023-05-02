@@ -34,4 +34,4 @@ require "user.dressing"
 require "user.notify"
 require "user.neogit"
 require "user.hydra"
-require "user.colorscheme"
+--[[ require "user.colorscheme" ]]
