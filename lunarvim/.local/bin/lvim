@@ -11,12 +11,15 @@ declare -xr LV_BRANCH='release-1.3/neovim-0.9'
 declare -xr LV_REMOTE="lunarvim/lunarvim.git"
 
 if [ ! -e $LUNARVIM_BASE_DIR/init.lua ]; then
-  msg "Cloning LunarVim configuration"
+  echo "Cloning LunarVim configuration"
   if ! git clone --branch "$LV_BRANCH" \
     "https://github.com/${LV_REMOTE}" "$LUNARVIM_BASE_DIR"; then
     echo "Failed to clone repository. Installation failed."
     exit 1
   fi
+  echo "Preparing Lazy setup"
+  "$NVIM_APPNAME" --headless -c 'quitall'
+  echo "Lazy setup complete"
 fi
 
 exec -a "$NVIM_APPNAME" nvim -u "$LUNARVIM_BASE_DIR/init.lua" "$@"
