@@ -81,6 +81,7 @@ stow neovimlua
 stow git
 stow tmux
 stow lazynv
+stow lunarvim
 stow lazygitconf
 
 if [[ ! -d ~/.fzf ]]; then
