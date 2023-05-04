@@ -2,7 +2,6 @@
  THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
  `lvim` is the global options object
 ]]
-
 -- vim options
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -23,9 +22,10 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
+lvim.builtin.which_key.mappings["<tab>"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
 -- -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
@@ -101,12 +101,17 @@ lvim.builtin.treesitter.auto_install = true
 -- }
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
--- lvim.plugins = {
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+lvim.plugins = {
+  "max397574/better-escape.nvim",
+  config = function()
+    require("better_escape").setup {
+      mappings = { "jk" },
+      timeout = 300,
+      clear_empty_lines = false,
+      keys = "<C-[>"
+    }
+  end,
+}
 
 -- -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
 -- vim.api.nvim_create_autocmd("FileType", {
