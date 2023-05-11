@@ -67,9 +67,9 @@ return {
       },
       filesystem = {
         filtered_items = {
-          hide_dotfiles = true,
+          hide_dotfiles = false,
           hide_hidden = true,
-          follow_current_file = true,
+          -- follow_current_file = true,
         },
       },
     },
