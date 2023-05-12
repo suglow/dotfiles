@@ -5,6 +5,8 @@ return {
       defaults = {
         ["<leader><tab>"] = vim.NIL,
         ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
+        ["<leader>l"] = vim.NIL,
+        ["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
         ["yo"] = {
           w = { "<cmd>set wrap!<cr>", "Toggle wrap" },
           c = { "<cmd>set cursorline!<cr>", "Toggle cursorline" },
