@@ -1,3 +1,4 @@
+local Util = require("lazyvim.util")
 local function getTelescopeOpts(state, path)
   return {
     cwd = path,
@@ -32,6 +33,7 @@ return {
           ["<C-f>"] = "telescope_find",
           ["<C-g>"] = "telescope_grep",
           ["<C-d>"] = "telescope_grep_args",
+          ["/"] = "telescope_find_file",
         },
       },
       commands = {
@@ -64,12 +66,17 @@ return {
           local path = node:get_id()
           require("telescope").extensions.live_grep_args.live_grep_args(getTelescopeOpts(state, path))
         end,
+        telescope_find_file = function(state)
+          local path = require("lazyvim.util").get_root()
+          require("telescope.builtin").find_files(getTelescopeOpts(state, path))
+        end,
       },
       filesystem = {
+        follow_current_file = true,
+        bind_to_cwd = false,
         filtered_items = {
           hide_dotfiles = false,
           hide_hidden = true,
-          -- follow_current_file = true,
         },
       },
     },

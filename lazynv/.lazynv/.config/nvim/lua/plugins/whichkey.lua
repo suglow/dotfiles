@@ -4,6 +4,7 @@ return {
     opts = {
       defaults = {
         ["<leader><tab>"] = vim.NIL,
+        ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
       },
     },
   },
