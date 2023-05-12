@@ -3,7 +3,7 @@ return {
     "folke/which-key.nvim",
     opts = {
       defaults = {
-        ["<leader><tab>"] = vim.NIL,
+        ["<leader><tab>"] = { "<leader>fE", "Explorer NeoTree (cwd)", remap = true },
         ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
         ["<leader>l"] = vim.NIL,
         ["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
