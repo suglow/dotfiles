@@ -21,3 +21,9 @@ vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", { noremap = true, desc = "move l
 
 vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, desc = "move select down" })
 vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, desc = "move select up" })
+
+-- Resize with arrows
+vim.keymap.set("n", "<A-j>", ":resize -2<CR>", { noremap = true, desc = "resize up" })
+vim.keymap.set("n", "<A-k>", ":resize +2<CR>", { noremap = true, desc = "resize down" })
+vim.keymap.set("n", "<A-h>", ":vertical resize -2<CR>", { noremap = true, desc = "resize left" })
+vim.keymap.set("n", "<A-l>", ":vertical resize +2<CR>", { noremap = true, desc = "resize right" })
