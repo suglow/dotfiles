@@ -73,15 +73,15 @@ return {
       },
       filesystem = {
         follow_current_file = true,
-        bind_to_cwd = false,
+        bind_to_cwd = true,
         filtered_items = {
           hide_dotfiles = false,
-          hide_hidden = true,
+          hide_gitignored = false,
+          hide_hidden = false,
         },
       },
     },
     keys = {
-      { "<leader><tab>", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
       { "<leader><tab>", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
     },
   },
