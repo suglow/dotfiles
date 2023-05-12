@@ -80,6 +80,9 @@ return {
           hide_hidden = false,
         },
       },
+      buffers = {
+        follow_current_file = true,
+      },
     },
     keys = {
       { "<leader><tab>", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
