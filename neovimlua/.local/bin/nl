@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+export APPNAME="nvimlua"
+export XDG_CONFIG_HOME="$HOME/.nvimlua/.config"
+export XDG_DATA_HOME="$HOME/.nvimlua/.local/share"
+export XDG_RUNTIME_DIR="$HOME/.nvimlua/.local/share/nvimlua"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-"$HOME/.nvimlua/.local/state"}"
+export XDG_CACHE_HOME="$HOME/.nvimlua/.cache"
+# export MYVIMRC="$HOME/.nvimlua/.config/nvim/init.lua"
+
+exec -a "$APPNAME" nvim -u "$XDG_CONFIG_HOME/nvimlua/init.lua" "$@"
