@@ -12,7 +12,11 @@ local view_selection = function(prompt_bufnr, map)
     if (filename == nil) then
       filename = selection[1]
     end
-    openfile.fn('preview', filename)
+    local row = selection.row or selection.lnum
+    local col = selection.col
+    openfile.fn('edit', filename)
+
+    vim.api.nvim_win_set_cursor(0, { row, col })
   end)
   return true
 end
@@ -39,7 +43,7 @@ function M.launch_live_grep_args()
   local opts = {}
   opts.cwd = basedir
   opts.search_dirs = { basedir }
-  -- opts.attach_mappings = view_selection
+  opts.attach_mappings = view_selection
   opts.hiden = true
   opts.no_ignore = true
   vim.notify('basedir is ' .. basedir)
@@ -63,7 +67,7 @@ function M.launch_telescope(func_name, opts)
   end
   opts.cwd = basedir
   opts.search_dirs = { basedir }
-  -- opts.attach_mappings = view_selection
+  opts.attach_mappings = view_selection
   opts.hiden = true
   opts.no_ignore = true
   vim.notify('basedir is ' .. basedir)
