@@ -7,6 +7,7 @@ return {
         ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
         ["<leader>l"] = vim.NIL,
         ["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
+        ["<leader>sj"] = { "<cmd>Telescope jumplist<cr>", "Jump list" },
         ["yo"] = {
           w = { "<cmd>set wrap!<cr>", "Toggle wrap" },
           c = { "<cmd>set cursorline!<cr>", "Toggle cursorline" },
