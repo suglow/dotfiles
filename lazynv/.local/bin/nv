@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-declare -xr APPNAME="lazynv"
+declare -xr NVIM_APPNAME="lazynv"
 
 export XDG_CONFIG_HOME="$HOME/.lazynv/.config"
 export XDG_DATA_HOME="$HOME/.lazynv/.local/share"
 export XDG_RUNTIME_DIR="$HOME/.lazynv/.local/share/lazynv"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-"$HOME/.lazynv/.local/state"}"
 export XDG_CACHE_HOME="$HOME/.lazynv/.cache"
-export MYVIMRC="$HOME/.lazynv/.config/nvim/init.lua"
+export MYVIMRC="$XDG_CONFIG_HOME/$NVIM_APPNAME/init.lua"
 
-exec -a "$APPNAME" nvim -u "$XDG_CONFIG_HOME/nvim/init.lua" "$@"
+exec -a "$NVIM_APPNAME" nvim -u "$XDG_CONFIG_HOME/$NVIM_APPNAME/init.lua" "$@"
