@@ -65,7 +65,8 @@ return {
           ["<C-f>"] = "telescope_find",
           ["<C-g>"] = "telescope_grep",
           ["<C-d>"] = "telescope_grep_args",
-          ["/"] = nil,
+          ["/"] = "noop",
+          ["f"] = "noop",
         },
       },
       commands = {
