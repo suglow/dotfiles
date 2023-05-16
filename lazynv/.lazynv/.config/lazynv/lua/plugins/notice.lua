@@ -16,6 +16,9 @@ return {
             width = 150,
             height = "auto",
           },
+          win_options = {
+            wrap = true,
+          },
         },
       },
     },
