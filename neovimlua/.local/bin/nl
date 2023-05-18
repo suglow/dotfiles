@@ -6,6 +6,6 @@ export XDG_DATA_HOME="$HOME/.nvimlua/.local/share"
 export XDG_RUNTIME_DIR="$HOME/.nvimlua/.local/share/nvimlua"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-"$HOME/.nvimlua/.local/state"}"
 export XDG_CACHE_HOME="$HOME/.nvimlua/.cache"
-# export MYVIMRC="$HOME/.nvimlua/.config/nvim/init.lua"
+export MYVIMRC="$XDG_CONFIG_HOME/$NVIM_APPNAME/init.lua"
 
 exec -a "$NVIM_APPNAME" nvim -u "$XDG_CONFIG_HOME/$NVIM_APPNAME/init.lua" "$@"
