@@ -6,6 +6,9 @@ return {
       -- cmdline = {
       -- view = "cmdline",
       -- },
+      presets = {
+        bottom_search = true,
+      },
       views = {
         cmdline_popup = {
           position = {
