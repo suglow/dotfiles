@@ -130,3 +130,8 @@ vim.keymap.set(
   "<CMD>SearchReplaceMultiBufferCFile<CR>",
   { noremap = true, desc = "MultiBufferCFile" }
 )
+
+vim.keymap.set("n", "<Down>", "<Down>zz", { noremap = true })
+vim.keymap.set("n", "<Up>", "<Up>zz", { noremap = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
