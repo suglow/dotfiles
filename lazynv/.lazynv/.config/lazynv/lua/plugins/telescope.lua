@@ -110,6 +110,10 @@ return {
         },
       },
     },
+    config = function(opts)
+      require("telescope").setup(opts)
+      require("telescope").load_extension("bookmarks")
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -127,6 +131,12 @@ return {
       config = function()
         require("telescope").load_extension("live_grep_args")
       end,
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "bookmarks.nvim",
     },
   },
 }
