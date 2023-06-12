@@ -53,6 +53,11 @@ local function getTelescopeOpts(state, path)
   }
 end
 
+local function copy_to_clipboard(content)
+  vim.fn.setreg("+", content)
+  vim.fn.setreg('"', content)
+end
+
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -65,6 +70,7 @@ return {
           ["<C-f>"] = "telescope_find",
           ["<C-g>"] = "telescope_grep",
           ["<C-d>"] = "telescope_grep_args",
+          ["gy"] = "copy_node_name",
           ["/"] = "noop",
           ["f"] = "noop",
         },
@@ -102,6 +108,12 @@ return {
         telescope_find_file = function(state)
           local path = require("lazyvim.util").get_root()
           require("telescope.builtin").find_files(getTelescopeOpts(state, path))
+        end,
+        copy_node_name = function(state)
+          local node = state.tree:get_node()
+          local path = node:get_id()
+          copy_to_clipboard(path)
+          vim.notify(path)
         end,
       },
       filesystem = {
