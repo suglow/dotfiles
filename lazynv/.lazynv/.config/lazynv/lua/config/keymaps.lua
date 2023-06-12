@@ -12,7 +12,7 @@ vim.keymap.del("n", "<leader><tab>[")
 vim.keymap.del("n", "s")
 vim.keymap.del("n", "S")
 vim.keymap.del("x", "s")
-vim.keymap.del("x", "S")
+-- vim.keymap.del("x", "S")
 
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", { noremap = true, desc = "window move right" })
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", { noremap = true, desc = "window move left" })
