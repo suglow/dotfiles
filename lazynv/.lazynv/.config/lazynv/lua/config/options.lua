@@ -12,3 +12,4 @@ opt.listchars = {
   nbsp = "␣",
 }
 vim.opt.list = false
+opt.inccommand = "split"
