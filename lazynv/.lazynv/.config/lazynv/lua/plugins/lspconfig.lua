@@ -28,6 +28,9 @@ return {
           require("rust-tools").setup(opts)
           return true
         end,
+        clangd = function(_, opts)
+          opts.capabilities.offsetEncoding = { "utf-16" }
+        end,
       },
     },
   },
