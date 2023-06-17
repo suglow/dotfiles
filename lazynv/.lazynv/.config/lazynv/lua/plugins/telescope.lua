@@ -6,7 +6,41 @@ return {
     -- change some options
     opts = {
       defaults = {
-        layout_config = { height = 0.98, width = 0.97, preview_width = 0.6 },
+        layout_config = {
+          horizontal = {
+            width = 0.98,
+            height = 0.95,
+            prompt_position = "bottom",
+            preview_cutoff = 120,
+          },
+
+          vertical = {
+            width = 0.8,
+            height = 0.6,
+            prompt_position = "bottom",
+            preview_cutoff = 40,
+          },
+
+          center = {
+            width = 0.8,
+            height = 0.6,
+            preview_cutoff = 40,
+            prompt_position = "top",
+          },
+
+          cursor = {
+            width = 0.8,
+            height = 0.9,
+            preview_cutoff = 40,
+          },
+
+          bottom_pane = {
+            height = 25,
+            prompt_position = "top",
+            preview_cutoff = 120,
+          },
+        },
+        --
         initial_mode = "normal",
         prompt_prefix = " ",
         selection_caret = " ",
