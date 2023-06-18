@@ -14,5 +14,12 @@ return {
         key_breakpoint = "<f9>",
       }
     end,
+    keys = {
+      { "\\dd", ":GdbStart gdb -q ", desc = "start gdb" },
+      { "\\dl", ":GdbStartLLDB lldb ", desc = "start lldb" },
+      { "\\dp", ":GdbStartPDB python -m pdb ", desc = "python gdb" },
+      { "\\db", ":GdbStartBashDB bashdb ", desc = "start bashdb" },
+      { "\\dr", ":GdbStartRR ", desc = "start bashdb" },
+    },
   },
 }
