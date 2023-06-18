@@ -4,6 +4,10 @@ return {
     build = ":!./install.sh",
     init = function()
       vim.g.nvimgdb_disable_start_keymaps = true
+      vim.g.nvimgdb_termwin_command = "belowright vnew"
+      vim.g.nvimgdb_codewin_command = "vnew"
+      vim.g.nvimgdb_use_find_executables = false
+      vim.g.nvimgdb_use_cmake_to_find_executables = false
 
       vim.g.nvimgdb_config_override = {
         key_next = "<f10>",
@@ -20,6 +24,8 @@ return {
       { "\\dp", ":GdbStartPDB python -m pdb ", desc = "python gdb" },
       { "\\db", ":GdbStartBashDB bashdb ", desc = "start bashdb" },
       { "\\dr", ":GdbStartRR ", desc = "start bashdb" },
+      { "\\da", ":packadd termdebug<cr>", desc = "add termdebug" },
+      { "\\dg", ':let termdebugger="rust-gdb"', desc = "set debugger" },
     },
   },
 }
