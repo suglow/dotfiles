@@ -100,6 +100,7 @@ return lazy.setup({
   "hrsh7th/cmp-nvim-lsp",
   {
     "j-hui/fidget.nvim",
+    tag = 'legacy',
     config = function()
       require 'fidget'.setup {}
     end
