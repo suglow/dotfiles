@@ -366,15 +366,15 @@ local DapMessages = {
     return {fg = hl.DapMessages.fg, bg = utils.get_highlight("StatusLine").bg, bold = true }
   end,
 }
-
+local myicons = require "user.icons"
 local Diagnostics = {
   condition = conditions.has_diagnostics,
   static = {
     -- error_icon = '󰂭 ',
-    error_icon = fn.sign_getdefined('DiagnosticSignError')[1].text,
-    warn_icon  = fn.sign_getdefined('DiagnosticSignWarn')[1].text,
-    info_icon  = fn.sign_getdefined('DiagnosticSignInfo')[1].text,
-    hint_icon  = fn.sign_getdefined('DiagnosticSignHint')[1].text,
+    error_icon = myicons.diagnostics.Error,
+    warn_icon  = myicons.diagnostics.Warning,
+    info_icon  = myicons.diagnostics.Hint,
+    hint_icon  = myicons.diagnostics.Information,
   },
   init = function(self)
     self.errors   = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
