@@ -82,10 +82,12 @@ return {
           local parent = node:get_parent_id()
           local util = require("neo-tree.utils")
           local fs = require("neo-tree.sources.filesystem.commands")
+          local loc = require("neo-tree.sources.filesystem")
           if parent == nil then
             path = util.path_join(path, "/../")
             path = vim.fn.resolve(path)
             fs.navigate_up(state)
+            loc.navigate(state, path, path)
           else
             fs.open(state)
           end
