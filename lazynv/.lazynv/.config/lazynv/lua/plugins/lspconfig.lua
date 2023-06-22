@@ -56,6 +56,7 @@ return {
           },
         },
         clangd = {},
+        gopls = {},
       },
       setup = {
         rust_analyzer = function(_, opts)
@@ -78,6 +79,14 @@ return {
         clangd = function(_, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }
         end,
+        gopls = function(_, _)
+          local go_opts = {
+            lsp_cfg = true,
+            luasnip = true,
+          }
+          require("go").setup(go_opts)
+          return true
+        end,
       },
     },
   },
@@ -87,5 +96,16 @@ return {
       "nvim-lspconfig",
       "nvim-dap",
     },
+  },
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 }
