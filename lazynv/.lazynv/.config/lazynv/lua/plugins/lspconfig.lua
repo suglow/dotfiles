@@ -79,9 +79,9 @@ return {
         clangd = function(_, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }
         end,
-        gopls = function(_, _)
+        gopls = function(_, opts)
           local go_opts = {
-            lsp_cfg = true,
+            lsp_cfg = opts,
             luasnip = true,
           }
           require("go").setup(go_opts)
