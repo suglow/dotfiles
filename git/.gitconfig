@@ -49,3 +49,5 @@
     cmd = "nv -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 [alias]
 	l = log --oneline --decorate --graph --all
+[credential]
+	helper = store
