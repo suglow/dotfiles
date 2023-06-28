@@ -5,4 +5,4 @@ lazy-lock.json
 **/.local/share/
 **/.local/state/
 **/*.old/
-
+**/state.yml
