@@ -4,6 +4,7 @@
 [core]
     safecrlf = true
     autocrlf = false
+    editor = nv
 [color]
     ui = auto
 
@@ -46,3 +47,5 @@
     path = nvim
 [mergetool "nvim"]
     cmd = "nv -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[alias]
+	l = log --oneline --decorate --graph --all

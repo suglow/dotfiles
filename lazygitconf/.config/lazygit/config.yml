@@ -1,5 +1,7 @@
 os:
-  editCommand: "nv"
+  edit: "nv {{filename}}"
+  editAtLine: "nv +{{line}} {{filename}}"
+  editInTerminal: true
 
 keybinding:
   universal:
