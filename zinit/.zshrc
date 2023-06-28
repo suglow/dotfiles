@@ -13,7 +13,7 @@ fi
 export NVM_DIR=${HOME}/.nvm
 export NVM_COMPLETION=true
 export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
-export EDITOR=nvim
+export EDITOR=nv
 # load zinit
 source ~/.zinit/bin/zinit.zsh
 # 快速目录跳转
@@ -170,3 +170,4 @@ alias vim='nvim'
 alias tmux='tmux -u'
 # cat -> bat
 alias cat='bat'
+alias lg='lazygit'
