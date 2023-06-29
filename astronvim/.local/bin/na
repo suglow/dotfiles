@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+declare -xr NVIM_APPNAME="astronvim"
+
+export XDG_CONFIG_HOME="$HOME/.astronvim/.config"
+export XDG_DATA_HOME="$HOME/.astronvim/.local/share"
+export XDG_RUNTIME_DIR="$HOME/.astronvim/.local/share/nvchad"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-"$HOME/.astronvim/.local/state"}"
+export XDG_CACHE_HOME="$HOME/.astronvim/.cache"
+export MYVIMRC="$XDG_CONFIG_HOME/$NVIM_APPNAME/init.lua"
+
+declare -xr AV_BRANCH='main'
+declare -xr AV_REMOTE="AstroNvim/AstroNvim"
+
+if [ ! -e $MYVIMRC ]; then
+	echo "Cloning AstroNvim Config"
+	if ! git clone --branch "$AV_BRANCH" \
+		"https://github.com/${AV_REMOTE}" "$XDG_CONFIG_HOME/$NVIM_APPNAME"; then
+		echo "Failed to clone repository. Installation failed."
+		exit 1
+	fi
+	echo "link to custom"
+	SCRIPT_PATH=$(readlink -f "$0")
+	SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
+	CUSTOM_DIR=$(readlink -f "$SCRIPT_DIR/../../.astronvim/user")
+	ln -s "$CUSTOM_DIR" "$XDG_CONFIG_HOME/$NVIM_APPNAME/lua"
+
+	na --headless -c 'quitall'
+	echo "Lazy setup complete"
+fi
+
+exec -a "$NVIM_APPNAME" nvim -u "$MYVIMRC" "$@"
