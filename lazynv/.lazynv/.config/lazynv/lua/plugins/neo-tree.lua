@@ -70,6 +70,7 @@ return {
           ["<C-f>"] = "telescope_find",
           ["<C-g>"] = "telescope_grep",
           ["<C-d>"] = "telescope_grep_args",
+          ["<C-t>"] = "open_term",
           ["gy"] = "copy_node_name",
           ["/"] = "noop",
           ["f"] = "noop",
@@ -116,6 +117,15 @@ return {
           local path = node:get_id()
           copy_to_clipboard(path)
           vim.notify(path)
+        end,
+        open_term = function(state)
+          local node = state.tree:get_node()
+          local path = node:get_id()
+          local basedir = path
+          if vim.env.TMUX ~= nil then
+            pcall(vim.cmd, "silent !tmux split-window -c" .. basedir)
+            return
+          end
         end,
       },
       filesystem = {
