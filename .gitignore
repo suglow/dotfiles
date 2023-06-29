@@ -6,3 +6,4 @@ lazy-lock.json
 **/.local/state/
 **/*.old/
 **/state.yml
+nvchad/.nvchad/.config/nvchad
