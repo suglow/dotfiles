@@ -23,7 +23,7 @@ if [ ! -e $MYVIMRC ]; then
 	SCRIPT_PATH=$(readlink -f "$0")
 	SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
 	CUSTOM_DIR=$(readlink -f "$SCRIPT_DIR/../../.nvchad/custom")
-	ln -s "$SCRIPT_DIR/../../custom" "$XDG_CONFIG_HOME/$NVIM_APPNAME/lua"
+	ln -s "$CUSTOM_DIR" "$XDG_CONFIG_HOME/$NVIM_APPNAME/lua"
 
 	nc --headless -c 'quitall'
 	echo "Lazy setup complete"
