@@ -135,3 +135,5 @@ vim.keymap.set("n", "<Down>", "<Down>zz", { noremap = true })
 vim.keymap.set("n", "<Up>", "<Up>zz", { noremap = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
+
+vim.keymap.set("n", "<leader>bx", "<cmd>q!<cr>", { noremap = true, desc = "quit buffer" })
