@@ -7,3 +7,4 @@ lazy-lock.json
 **/*.old/
 **/state.yml
 nvchad/.nvchad/.config/nvchad
+astronvim/.astronvim/.config/astronvim
