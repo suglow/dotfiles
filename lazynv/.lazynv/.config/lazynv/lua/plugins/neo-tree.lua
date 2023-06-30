@@ -121,6 +121,10 @@ return {
         open_term = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
+          if node.type ~= "directory" then
+            local util = require("neo-tree.utils")
+            path, _ = util.split_path(path)
+          end
           local basedir = path
           if vim.env.TMUX ~= nil then
             pcall(vim.cmd, "silent !tmux split-window -c" .. basedir)
