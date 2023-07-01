@@ -7,7 +7,7 @@ return {
     opts = {},
     keys = {
       {
-        "\\s",
+        "<A-s>",
         mode = { "n", "o", "x" },
         function()
           require("flash").treesitter()
