@@ -9,9 +9,9 @@ vim.keymap.del("n", "<leader><tab><tab>")
 vim.keymap.del("n", "<leader><tab>]")
 vim.keymap.del("n", "<leader><tab>d")
 vim.keymap.del("n", "<leader><tab>[")
-vim.keymap.del("n", "s")
-vim.keymap.del("n", "S")
-vim.keymap.del("x", "s")
+-- vim.keymap.del("n", "s")
+-- vim.keymap.del("n", "S")
+-- vim.keymap.del("x", "s")
 -- vim.keymap.del("x", "S")
 
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", { noremap = true, desc = "window move right" })
@@ -31,10 +31,10 @@ vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, desc = "mo
 vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, desc = "move select up" })
 
 -- Resize with arrows
-vim.keymap.set("n", "<A-j>", ":resize -2<CR>", { noremap = true, desc = "resize up" })
-vim.keymap.set("n", "<A-k>", ":resize +2<CR>", { noremap = true, desc = "resize down" })
-vim.keymap.set("n", "<A-h>", ":vertical resize -2<CR>", { noremap = true, desc = "resize left" })
-vim.keymap.set("n", "<A-l>", ":vertical resize +2<CR>", { noremap = true, desc = "resize right" })
+vim.keymap.set("n", "<A-j>", "<cmd>resize -2<CR>", { noremap = true, desc = "resize up" })
+vim.keymap.set("n", "<A-k>", "<cmd>resize +2<CR>", { noremap = true, desc = "resize down" })
+vim.keymap.set("n", "<A-h>", "<cmd>vertical resize -2<CR>", { noremap = true, desc = "resize left" })
+vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>", { noremap = true, desc = "resize right" })
 
 -- Alt Substitue
 -- prefill commandline with Substitution Syntax
@@ -135,5 +135,3 @@ vim.keymap.set("n", "<Down>", "<Down>zz", { noremap = true })
 vim.keymap.set("n", "<Up>", "<Up>zz", { noremap = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
-
-vim.keymap.set("n", "<leader>bx", "<cmd>q!<cr>", { noremap = true, desc = "quit buffer" })

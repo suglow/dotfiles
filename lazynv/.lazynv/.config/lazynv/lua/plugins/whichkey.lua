@@ -7,6 +7,12 @@ return {
         ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
         ["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
         ["<leader>sj"] = { "<cmd>Telescope jumplist<cr>", "Jump list" },
+        ["<leader>sJ"] = { "<cmd>Telescope tagstack<cr>", "search tagstack" },
+        ["<leader>b"] = {
+          x = { "<cmd>q!<cr>", "quit buffer" },
+          l = { "<cmd>Telescope buffers<cr>", "list buffers" },
+          t = { "<cmd>tabnext<cr>", "next tab" },
+        },
         ["yo"] = {
           w = { "<cmd>set wrap!<cr>", "Toggle wrap" },
           c = { "<cmd>set cursorline!<cr>", "Toggle cursorline" },
