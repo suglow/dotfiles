@@ -6,7 +6,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.visual_mode["<A-j>"] = ":m .+1<CR>=="
 lvim.keys.visual_mode["<A-k>"] = ":m .-2<CR>=="
 
-lvim.keys.normal_mode["<leader>r"] = "viwP"
+lvim.keys.normal_mode["<leader>rr"] = "viwP"
 -- Visual Block --
 -- Move text up and down
 lvim.keys.visual_block_mode["K"] = ":move '<-2<CR>gv-gv"
@@ -33,8 +33,8 @@ lvim.keys.normal_mode["<A-l>"] = ":vertical resize +2<CR>"
 lvim.keys.normal_mode["yow"] = ":set wrap!<cr>"
 lvim.keys.normal_mode["yoc"] = ":set cursorline!<cr>"
 lvim.keys.normal_mode["yoh"] = ":set hlsearch!<cr>"
-lvim.keys.normal_mode["yoi"] = ":set ignorecase!<cr>"
 lvim.keys.normal_mode["yol"] = ":set list!<cr>"
+lvim.keys.normal_mode["yoi"] = ":set ignorecase!<cr>"
 lvim.keys.normal_mode["yon"] = ":set number!<cr>"
 lvim.keys.normal_mode["yor"] = ":set relativenumber!<cr>"
 lvim.keys.normal_mode["yos"] = ":set spell!<cr>"

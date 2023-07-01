@@ -5,11 +5,11 @@ return {
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
-      modes = {
+      modes =    {
         char = {
           enabled = false,
-        },
-      },
+        }
+      }
     },
     keys = {
       {
@@ -23,3 +23,4 @@ return {
     },
   },
 }
+
