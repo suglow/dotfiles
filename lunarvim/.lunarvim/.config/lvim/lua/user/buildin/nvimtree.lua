@@ -53,8 +53,11 @@ local setup = {
   open_on_tab = false,
   hijack_cursor = true,
   update_cwd = false,
+  prefer_startup_root = false,
+  sync_root_with_cwd = false,
+  respect_buf_cwd = false,
   hijack_directories = {
-    enable = true,
+    enable = false,
     auto_open = false,
   },
   diagnostics = {
@@ -69,6 +72,7 @@ local setup = {
   update_focused_file = {
     enable = true,
     update_cwd = false,
+    update_root = false,
     ignore_list = {},
   },
   system_open = {
@@ -105,6 +109,8 @@ local setup = {
   },
   git = {
     enable = true,
+    show_on_dirs = false,
+    show_on_open_dirs = false,
     ignore = true,
     timeout = 500,
   },
@@ -157,4 +163,3 @@ local setup = {
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup = vim.tbl_deep_extend("force", lvim.builtin.nvimtree.setup, setup)
-

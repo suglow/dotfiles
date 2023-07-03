@@ -1,6 +1,5 @@
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
-require("user.plugins")
 require("user.options")
 require("user.keymaps")
 -- -- Use which-key to add extra bindings with the leader-key prefix
@@ -15,10 +14,11 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 
-require("user.nvimtree")
+require("user.buildin.nvimtree")
+require("user.plugins")
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
-
+lvim.builtin.project.active = false
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
 
 -- -- always installed on startup, useful for parsers without a strict filetype
