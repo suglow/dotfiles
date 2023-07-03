@@ -6,6 +6,7 @@ vim.list_extend(lvim.plugins, require("user.plugins.flash"))
 vim.list_extend(lvim.plugins, require("user.plugins.leap"))
 vim.list_extend(lvim.plugins, require("user.plugins.nvim-alt-substitute"))
 vim.list_extend(lvim.plugins, require("user.plugins.search-replace"))
+vim.list_extend(lvim.plugins, require("user.plugins.symbols-outline"))
 vim.list_extend(lvim.plugins, require("user.plugins.nvim-bqf"))
 vim.list_extend(lvim.plugins, require("user.plugins.nvim-gdb"))
 vim.list_extend(lvim.plugins, require("user.plugins.nvim-surround"))
@@ -13,5 +14,3 @@ vim.list_extend(lvim.plugins, require("user.plugins.telescope"))
 vim.list_extend(lvim.plugins, require("user.plugins.treesitter"))
 vim.list_extend(lvim.plugins, require("user.plugins.yank"))
 vim.list_extend(lvim.plugins, require("user.plugins.zen-mode"))
-
-
