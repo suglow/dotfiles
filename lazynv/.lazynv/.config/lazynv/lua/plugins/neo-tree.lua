@@ -146,7 +146,8 @@ return {
       },
     },
     keys = {
-      { "<leader><tab>", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+      -- { "<leader><tab>", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+      { "<leader><tab>", "<cmd>Neotree toggle<cr>", desc = "Explorer NeoTree" },
     },
   },
   -- dependencies = { "nvim-telescope/telescope.nvim" },

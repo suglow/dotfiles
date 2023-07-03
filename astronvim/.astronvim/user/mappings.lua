@@ -52,10 +52,8 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     ["<leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "Find history" },
     ["<leader><tab>"] = {
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-      end,
-      desc = "Explorer NeoTree (cwd)",
+      "<cmd>Neotree toggle<cr>",
+      desc = "Explorer NeoTree ",
     },
     ["yo"] = {
       w = { "<cmd>set wrap!<cr>", "Toggle wrap" },
