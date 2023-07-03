@@ -119,6 +119,7 @@ return {
             ["<Up>"] = actions.move_selection_previous,
             ["gg"] = actions.move_to_top,
             ["G"] = actions.move_to_bottom,
+            ["g"] = actions.close,
 
             ["<C-u>"] = actions.preview_scrolling_up,
             ["<C-d>"] = actions.preview_scrolling_down,
@@ -144,10 +145,6 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      require("telescope").setup(opts)
-      require("telescope").load_extension("bookmarks")
-    end,
   },
   {
     "nvim-telescope/telescope.nvim",

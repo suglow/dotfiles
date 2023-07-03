@@ -6,7 +6,6 @@ require("user.keymaps")
 -- lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
-lvim.builtin.which_key.mappings["<tab>"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
 -- -- Change theme settings
 -- lvim.colorscheme = "lunar"
 
@@ -15,6 +14,8 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 
 require("user.buildin.nvimtree")
+require("user.buildin.which_key")
+require("user.buildin.telescope")
 require("user.plugins")
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true

@@ -13,9 +13,19 @@ return {
         show_desc = "mk", -- show bookmark desc
       },
     },
+    config = function(_, opts)
+      require("bookmarks").setup(opts)
+      require("telescope").load_extension("bookmarks")
+    end,
 
     keys = {
       { "mb", "<cmd>Telescope bookmarks<cr>", desc = "Bookmarks" },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "crusj/bookmarks.nvim",
     },
   },
 }

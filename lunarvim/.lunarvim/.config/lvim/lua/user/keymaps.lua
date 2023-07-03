@@ -30,6 +30,7 @@ lvim.keys.normal_mode["<A-j>"] = ":resize -2<CR>"
 lvim.keys.normal_mode["<A-k>"] = ":resize +2<CR>"
 lvim.keys.normal_mode["<A-h>"] = ":vertical resize -2<CR>"
 lvim.keys.normal_mode["<A-l>"] = ":vertical resize +2<CR>"
+
 lvim.keys.normal_mode["yow"] = ":set wrap!<cr>"
 lvim.keys.normal_mode["yoc"] = ":set cursorline!<cr>"
 lvim.keys.normal_mode["yoh"] = ":set hlsearch!<cr>"
