@@ -16,7 +16,7 @@ lvim.builtin.terminal.active = true
 require("user.buildin.nvimtree")
 require("user.buildin.which_key")
 require("user.buildin.telescope")
-require("user.plugins")
+require("user.plugin")
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.project.active = false
