@@ -86,6 +86,7 @@ return {
 					custom = {},
 				},
 				renderer = {
+          root_folder_label = ":~:s?$?/..?",
 					icons = {
 						glyphs = {
 							default = "",
@@ -113,8 +114,8 @@ return {
 					enable = true,
 					show_on_dirs = false,
 					show_on_open_dirs = false,
-					ignore = true,
-					timeout = 500,
+					ignore = false,
+					timeout = 300,
 				},
 				view = {
 					width = 45,

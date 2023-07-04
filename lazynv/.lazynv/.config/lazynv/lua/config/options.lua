@@ -11,7 +11,7 @@ opt.listchars = {
   tab = "→\\ ",
   nbsp = "␣",
 }
-vim.opt.list = false
+opt.list = false
 opt.inccommand = "split"
 
 vim.g.termdebug_wide = 1
