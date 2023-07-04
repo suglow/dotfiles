@@ -111,7 +111,7 @@ local setup = {
     enable = true,
     show_on_dirs = false,
     show_on_open_dirs = false,
-    ignore = true,
+    ignore = false,
     timeout = 500,
   },
   view = {
