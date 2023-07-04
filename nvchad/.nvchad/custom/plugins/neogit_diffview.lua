@@ -1,7 +1,7 @@
 return {
 	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{
-		"TimUntersberger/neogit",
+		"NeogitOrg/neogit",
 		opts = {
 			disable_commit_confirmation = true,
 			integrations = {

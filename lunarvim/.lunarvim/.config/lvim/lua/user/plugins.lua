@@ -1,7 +1,7 @@
 vim.list_extend(lvim.plugins, require("user.plugins.better_escape"))
 vim.list_extend(lvim.plugins, require("user.plugins.telescope"))
 vim.list_extend(lvim.plugins, require("user.plugins.bookmarks"))
-vim.list_extend(lvim.plugins, require("user.plugins.diffview"))
+vim.list_extend(lvim.plugins, require("user.plugins.neogit_diffview"))
 vim.list_extend(lvim.plugins, require("user.plugins.flash"))
 vim.list_extend(lvim.plugins, require("user.plugins.leap"))
 vim.list_extend(lvim.plugins, require("user.plugins.nvim-alt-substitute"))
