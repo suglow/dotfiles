@@ -1,15 +1,43 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
+
+
 -- stylua: ignore
-if true then return {} end
+--
 return {
-  { "sainnhe/gruvbox-material" },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox-material",
-    },
-  },
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "catppuccin",
+		},
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		opts = {
+      flavour = "mocha",
+			term_colors = true,
+			transparent_background = false,
+			-- color_overrides = {
+			-- 	mocha = {
+			-- 		base = "#000000",
+			-- 		mantle = "#000000",
+			-- 		crust = "#000000",
+			-- 	},
+			-- },
+		},
+	}
 }
+
+-- if true then return {} end
+-- return {
+--   { "sainnhe/gruvbox-material" },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "gruvbox-material",
+--     },
+--   },
+-- }
 -- every spec file under config.plugins will be loaded automatically by lazy.nvim
 --
 -- In your plugin files, you can:
