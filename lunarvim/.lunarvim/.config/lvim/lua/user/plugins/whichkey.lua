@@ -1,73 +1,82 @@
 return {
-	-- {
-	-- 	"folke/which-key.nvim",
-	-- 	event = "VeryLazy",
-	-- 	opts = {
-	-- 		plugins = { spelling = true },
-	-- 		defaults = {
-	-- 			["<leader><tab>"] = { "<cmd>Neotree toggle<cr>", "Explorer NeoTree (cwd)", remap = true },
-	-- 			["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	-- 			["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
-	-- 			["<leader>sj"] = { "<cmd>Telescope jumplist<cr>", "Jump list" },
-	-- 			["<leader>sJ"] = { "<cmd>Telescope tagstack<cr>", "search tagstack" },
-	-- 			["<leader>b"] = {
-	-- 				x = { "<cmd>q!<cr>", "quit buffer" },
-	-- 				l = { "<cmd>Telescope buffers<cr>", "list buffers" },
-	-- 				t = { "<cmd>tabnext<cr>", "next tab" },
-	-- 			},
-	-- 			["yo"] = {
-	-- 				w = { "<cmd>set wrap!<cr>", "Toggle wrap" },
-	-- 				c = { "<cmd>set cursorline!<cr>", "Toggle cursorline" },
-	-- 				h = { "<cmd>set hlsearch!<cr>", "Toggle hlsearch" },
-	-- 				i = { "<cmd>set ignorecase!<cr>", "Toggle ignorecase" },
-	-- 				l = { "<cmd>set list!<cr>", "Toggle list" },
-	-- 				n = { "<cmd>set number!<cr>", "Toggle number" },
-	-- 				r = { "<cmd>set relativenumber!<cr>", "Toggle relativenumber" },
-	-- 				s = { "<cmd>set spell!<cr>", "Toggle spell" },
-	-- 				u = { "<cmd>set cursorcolumn!<cr>", "Toggle cursorcolumn" },
-	-- 				v = { "<cmd>set virtualedit!<cr>", "Toggle virtualedit" },
-	-- 			},
-	-- 			["<leader>l"] = {
-	-- 				name = "LSP",
-	-- 				a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-	-- 				d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-	-- 				w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-	-- 				f = { "<cmd>lua require('lvim.lsp.utils').format()<cr>", "Format" },
-	-- 				i = { "<cmd>LspInfo<cr>", "Info" },
-	-- 				I = { "<cmd>Mason<cr>", "Mason Info" },
-	-- 				j = {
-	-- 					"<cmd>lua vim.diagnostic.goto_next()<cr>",
-	-- 					"Next Diagnostic",
-	-- 				},
-	-- 				k = {
-	-- 					"<cmd>lua vim.diagnostic.goto_prev()<cr>",
-	-- 					"Prev Diagnostic",
-	-- 				},
-	-- 				l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-	-- 				q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-	-- 				r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-	-- 				s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-	-- 				S = {
-	-- 					"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-	-- 					"Workspace Symbols",
-	-- 				},
-	-- 				e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
-	-- 			},
-	-- 		},
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		local wk = require("which-key")
-	-- 		wk.setup(opts)
-	-- 		wk.register(opts.defaults)
-	-- 	end,
-	-- },
 	{
 		"folke/which-key.nvim",
-		config = function()
-			require("lvim.core.which-key").setup()
-		end,
-		cmd = "WhichKey",
-		event = "VeryLazy",
-		enabled = lvim.builtin.which_key.active,
+		opts = {
+			defaults = {
+				["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
+				["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
+				["<leader>b"] = {
+					name = "buffer",
+				},
+				["<leader>l"] = {
+					name = "LSP",
+				},
+			},
+		},
+		keys = {
+			-- shot cut
+			{ "yow", "<cmd>set wrap!<cr>", desc = "Toggle wrap" },
+			{ "yoc", "<cmd>set cursorline!<cr>", desc = "Toggle cursorline" },
+			{ "yoh", "<cmd>set hlsearch!<cr>", desc = "Toggle hlsearch" },
+			{ "yoi", "<cmd>set ignorecase!<cr>", desc = "Toggle ignorecase" },
+			{ "yol", "<cmd>set list!<cr>", desc = "Toggle list" },
+			{ "yon", "<cmd>set number!<cr>", desc = "Toggle number" },
+			{ "yor", "<cmd>set relativenumber!<cr>", desc = "Toggle relativenumber" },
+			{ "yos", "<cmd>set spell!<cr>", desc = "Toggle spell" },
+			{ "you", "<cmd>set cursorcolumn!<cr>", desc = "Toggle cursorcolumn" },
+			{ "yov", "<cmd>set virtualedit!<cr>", desc = "Toggle virtualedit" },
+			-- find
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+			-- git
+			{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+			-- search
+			{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+			{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+			{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+			{ "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
+			{ "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
+			{ "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
+			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+			{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+			{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+			{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+			{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+			{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+			{ "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Word" },
+			-- search
+			{ "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jump list" },
+			{ "<leader>sJ", "<cmd>Telescope tagstack<cr>", desc = "search tagstack" },
+			-- lsp
+			{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+			{ "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", desc = "Buffer Diagnostics" },
+			{ "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
+			{ "<leader>lf", "<cmd>lua require('lvim.lsp.utils').format()<cr>", desc = "Format" },
+			{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
+			{ "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info" },
+			{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
+			{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
+			{ "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>desc = ", desc = "CodeLens Action" },
+			{ "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
+			{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
+			{ "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
+			{ "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
+			{ "<leader>le", "<cmd>Telescope quickfix<cr>", desc = "Telescope Quickfix" },
+			-- buffer
+			{ "<leader>bx", "<cmd>q!<cr>", desc = "quit buffer" },
+			{ "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "list buffers" },
+			{ "<leader>bt", "<cmd>tabnext<cr>", desc = "next tab" },
+			-- window
+			{ "<leader>ww", "<C-W>p", desc = "Other window", remap = true },
+			{ "<leader>wd", "<C-W>c", desc = "Delete window", remap = true },
+			{ "<leader>w-", "<C-W>s", desc = "Split window below", remap = true },
+			{ "<leader>w|", "<C-W>v", desc = "Split window right", remap = true },
+			{ "<leader>-", "<C-W>s", desc = "Split window below", remap = true },
+			{ "<leader>|", "<C-W>v", desc = "Split window right", remap = true },
+		},
 	},
 }
