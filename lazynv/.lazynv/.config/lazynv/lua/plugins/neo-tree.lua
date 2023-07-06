@@ -67,6 +67,7 @@ return {
           ["o"] = "custem_open",
           ["<C-]>"] = "set_root",
           ["<space>"] = vim.NIL,
+          ["D"] = "dir_mark",
           ["<C-f>"] = "telescope_find",
           ["<C-g>"] = "telescope_grep",
           ["<C-d>"] = "telescope_grep_args",
@@ -130,6 +131,16 @@ return {
             pcall(vim.cmd, "silent !tmux split-window -c" .. basedir)
             return
           end
+        end,
+        dir_mark = function(state)
+          local node = state.tree:get_node()
+          local path = node:get_id()
+          if node.type ~= "directory" then
+            local util = require("neo-tree.utils")
+            path, _ = util.split_path(path)
+          end
+          local basedir = path
+          vim.cmd("ZFDirDiffMark " .. basedir)
         end,
       },
       filesystem = {
