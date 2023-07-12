@@ -169,5 +169,4 @@ alias vim='nvim'
 # utf-8 tmux
 alias tmux='tmux -u'
 # cat -> bat
-alias cat='bat'
 alias lg='lazygit'
