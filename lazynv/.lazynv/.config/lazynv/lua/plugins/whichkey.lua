@@ -60,7 +60,7 @@ return {
       { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info" },
       { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
       { "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
-      { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>desc = ", desc = "CodeLens Action" },
+      { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>",  desc  = "CodeLens Action" },
       { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
       { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
       { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
