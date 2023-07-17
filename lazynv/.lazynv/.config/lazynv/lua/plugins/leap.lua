@@ -1,5 +1,6 @@
 return {
   {
+    enabled = false,
     "ggandor/leap.nvim",
     opts = {
       safe_labels = {
