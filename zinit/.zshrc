@@ -173,3 +173,5 @@ alias vim='nvim'
 alias tmux='tmux -u'
 # cat -> bat
 alias lg='lazygit'
+alias k='kubectl'
+
