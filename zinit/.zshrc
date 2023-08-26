@@ -174,4 +174,16 @@ alias tmux='tmux -u'
 # cat -> bat
 alias lg='lazygit'
 alias k='kubectl'
+#--- a few journalctl(1) aliases
+# jlog: current (from most recent) boot only, everything
+alias jlog='/bin/journalctl -b --all --catalog --no-pager'
+# jlogr: current (from most recent) boot only, everything,
+#  in *reverse* chronological order
+alias jlogr='/bin/journalctl -b --all --catalog --no-pager --reverse'
+# jlogall: *everything*, all time; --merge => _all_ logs merged
+alias jlogall='/bin/journalctl --all --catalog --merge --no-pager'
+# jlogf: *watch* log, akin to 'tail -f' mode;
+#  very useful to 'watch live' logs
+alias jlogf='/bin/journalctl -f'
 
+export RPI_STG=~/rpi_work
