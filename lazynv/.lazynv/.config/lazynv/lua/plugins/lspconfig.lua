@@ -3,6 +3,12 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       autoformat = false,
+      diagnostics = {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = false,
+        severity_sort = true,
+      },
       servers = {
         rust_analyzer = {
           tools = {
@@ -88,6 +94,19 @@ return {
           require("go").setup(go_opts)
           return true
         end,
+      },
+    },
+    keys = {
+      {
+        "<leader>lD",
+        function()
+          if vim.diagnostic.is_disabled() then
+            vim.diagnostic.enable()
+          else
+            vim.diagnostic.disable()
+          end
+        end,
+        desc = "trogger lsp",
       },
     },
   },
