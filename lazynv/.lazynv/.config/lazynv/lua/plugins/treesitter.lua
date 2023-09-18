@@ -9,6 +9,7 @@ return {
         "json",
         "toml",
         "llvm",
+        "lua",
       },
       incremental_selection = {
         enable = true,
