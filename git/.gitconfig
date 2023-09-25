@@ -35,7 +35,7 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 [merge]
-    tool = "nvim"
+    tool = "diffview"
 [mergetool]
     prompt = false
     keepBackup = false
@@ -47,7 +47,8 @@
     path = nvim
 [mergetool "nvim"]
     cmd = "nv -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[mergetool "diffview"]
+    cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+    
 [alias]
-	l = log --oneline --decorate --graph --all
-[credential]
-	helper = store
+    l = log --oneline --decorate --graph --all
