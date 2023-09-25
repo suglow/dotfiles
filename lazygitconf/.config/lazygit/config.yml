@@ -10,6 +10,8 @@ keybinding:
     quit: "<c-c>"
 
 gui:
+  sidePanelWidth: 0.2
+  language: auto
   theme:
     selectedLineBgColor:
       - underline
