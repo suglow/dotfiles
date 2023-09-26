@@ -35,12 +35,14 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 [merge]
-    tool = "diffview"
+    tool = diffview
 [mergetool]
     prompt = false
     keepBackup = false
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nv -d -c \"$LOCAL\" \"$REMOTE\""
 [init]
     defaultBranch = main
 [mergetool "vimdiff"]
@@ -48,7 +50,7 @@
 [mergetool "nvim"]
     cmd = "nv -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 [mergetool "diffview"]
-    cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+    cmd = nv -n -c "DiffviewOpen" "$MERGE"
     
 [alias]
     l = log --oneline --decorate --graph --all

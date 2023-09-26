@@ -22,3 +22,11 @@ git:
   paging:
     colorArg: never
     pager: delta --dark --paging=never
+
+customCommands:
+  - key: '<c-f>'
+    command: "nv -n -c \"DiffviewOpen {{.SelectedLocalCommit.Sha}}~1..{{.SelectedLocalCommit.Sha}}\""
+    context: 'commits'
+    subprocess: true
+    description: 'Compare (difftool) with local copy'
+    
