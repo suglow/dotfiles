@@ -74,6 +74,7 @@ return {
           ["<C-d>"] = "telescope_grep_args",
           ["<C-t>"] = "open_term",
           ["gy"] = "copy_node_name",
+          ["gu"] = "navigate_up_dir",
           ["/"] = "noop",
           ["f"] = "noop",
         },
@@ -119,6 +120,19 @@ return {
           local path = node:get_id()
           copy_to_clipboard(path)
           vim.notify(path)
+        end,
+        navigate_up_dir = function (state)
+          local node = state.tree:get_node()
+          local parent = node:get_parent_id()
+          local util = require("neo-tree.utils")
+          local loc = require("neo-tree.sources.filesystem")
+          if parent ~= nil then
+            local parent_path, _ = util.split_path(node:get_id())
+            if parent_path == nil then
+              return
+            end
+            loc.navigate(state, nil, parent_path)
+          end
         end,
         open_term = function(state)
           local node = state.tree:get_node()
