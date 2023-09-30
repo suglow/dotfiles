@@ -145,6 +145,11 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>ff", false },
+      { "<leader>sg", false },
+      { "<leader>/", false },
+    },
   },
   {
     "nvim-telescope/telescope.nvim",

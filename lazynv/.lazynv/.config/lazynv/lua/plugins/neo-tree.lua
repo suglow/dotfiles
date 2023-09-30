@@ -1,4 +1,7 @@
-local Util = require("lazyvim.util")
+local M = {
+  resentGrepFolder = nil,
+}
+
 local function getGrepTelescopeOpts(state, path)
   return {
     cwd = path,
@@ -99,20 +102,24 @@ return {
         telescope_find = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
+          M.resentGrepFolder = path
           require("telescope.builtin").find_files(getTelescopeOpts(state, path))
         end,
         telescope_grep = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
+          M.resentGrepFolder = path
           require("telescope.builtin").live_grep(getGrepTelescopeOpts(state, path))
         end,
         telescope_grep_args = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
+          M.resentGrepFolder = path
           require("telescope").extensions.live_grep_args.live_grep_args(getGrepTelescopeOpts(state, path))
         end,
         telescope_find_file = function(state)
           local path = require("lazyvim.util").get_root()
+          M.resentGrepFolder = path
           require("telescope.builtin").find_files(getTelescopeOpts(state, path))
         end,
         copy_node_name = function(state)
@@ -121,7 +128,7 @@ return {
           copy_to_clipboard(path)
           vim.notify(path)
         end,
-        navigate_up_dir = function (state)
+        navigate_up_dir = function(state)
           local node = state.tree:get_node()
           local parent = node:get_parent_id()
           local util = require("neo-tree.utils")
@@ -206,7 +213,34 @@ return {
     keys = {
       -- { "<leader><tab>", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
       { "<leader><tab>", "<cmd>Neotree toggle<cr>", desc = "Explorer NeoTree" },
+      { "<leader>/", "<leader>sg", desc = "live_grep resent", remap = true },
+      {
+        "<leader>sg",
+        function()
+          local cwd = M.resentGrepFolder
+          local opt = {}
+          if cwd ~= nil then
+            opt = vim.tbl_deep_extend("force", opt, { cwd = cwd })
+            vim.notify("grep in:" .. opt.cwd)
+          end
+          require("telescope.builtin").live_grep(opt)
+        end,
+        desc = "grep in resent folder",
+      },
+      {
+        "<leader>ff",
+        function()
+          local cwd = M.resentGrepFolder
+          local opt = {}
+          if cwd ~= nil then
+            opt = vim.tbl_deep_extend("force", opt, { cwd = cwd })
+            vim.notify("find file in:" .. opt.cwd)
+          end
+          require("telescope.builtin").find_files(opt)
+        end,
+        desc = "find file in resent folder",
+      },
     },
   },
-  -- dependencies = { "nvim-telescope/telescope.nvim" },
+  -- dependencies = { "telescope.nvim" },
 }

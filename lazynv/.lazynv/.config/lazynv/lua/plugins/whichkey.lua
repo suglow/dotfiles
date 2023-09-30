@@ -27,7 +27,8 @@ return {
       { "yov", "<cmd>set virtualedit!<cr>", desc = "Toggle virtualedit" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>\\", "<cmd>Telescope resume<cr>", desc = "telescope resume" },
+      -- { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       -- git
       { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
@@ -39,7 +40,7 @@ return {
       { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
       { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
       { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
-      { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
+      -- { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
       { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
       { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
       { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
@@ -48,6 +49,7 @@ return {
       { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
       { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
       { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Word" },
+      { "<leader>/", "<leader>sw", mode = "v",  desc = "Grep Word", remap = true },
       -- search
       { "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jump list" },
       { "<leader>sJ", "<cmd>Telescope tagstack<cr>", desc = "search tagstack" },
