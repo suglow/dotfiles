@@ -149,6 +149,7 @@ return {
       { "<leader>ff", false },
       { "<leader>sg", false },
       { "<leader>/", false },
+      { "<leader><space>", false },
     },
   },
   {

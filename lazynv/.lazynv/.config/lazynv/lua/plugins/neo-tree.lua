@@ -214,6 +214,7 @@ return {
       -- { "<leader><tab>", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
       { "<leader><tab>", "<cmd>Neotree toggle<cr>", desc = "Explorer NeoTree" },
       { "<leader>/", "<leader>sg", desc = "live_grep resent", remap = true },
+      { "<leader><space>", "<leader>ff", desc = "find file resent", remap = true},
       {
         "<leader>sg",
         function()
