@@ -1,15 +1,8 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
-local function custom_callback(callback_name)
-  return string.format("<cmd>lua require('user.treeutils').%s()<CR>", callback_name)
-end
+-- local function custom_callback(callback_name)
+--   return string.format("<cmd>lua require('user.treeutils').%s()<CR>", callback_name)
+-- end
 
 local function on_attach(bufnr)
   local api = require("nvim-tree.api")
@@ -118,19 +111,6 @@ local setup = {
     width = 45,
     hide_root_folder = false,
     side = "left",
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = { "<CR>", "o" }, cb = tree_cb("edit") },
-        -- { key = "h", cb = tree_cb "close_node" },
-        { key = "v",             cb = tree_cb("vsplit") },
-        { key = "<c-f>",         cb = custom_callback("launch_find_files") },
-        { key = "<c-g>",         cb = custom_callback("launch_live_grep") },
-        { key = "<c-d>",         cb = custom_callback("launch_live_grep_args") },
-        { key = "T",             cb = custom_callback("toggle_term") },
-        { key = "<c-t>",         cb = custom_callback("toggle_term") },
-      },
-    },
     number = false,
     relativenumber = false,
   },
