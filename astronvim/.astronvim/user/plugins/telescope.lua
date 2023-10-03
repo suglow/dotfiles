@@ -145,6 +145,12 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>ff", false },
+      { "<leader>sg", false },
+      { "<leader>/", false },
+      { "<leader><space>", "<cmd>Telescope oldfiles<cr>", desc = "rescent files" },
+    },
   },
   {
     "nvim-telescope/telescope.nvim",

@@ -1,6 +1,5 @@
 return {
   "Pocco81/true-zen.nvim",
-  enabled = false,
   opts = {
     ui = {
       bottom = {

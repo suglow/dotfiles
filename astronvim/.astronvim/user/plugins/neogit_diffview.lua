@@ -9,7 +9,7 @@ return {
       },
       mappings = {
         status = {
-          ["<tab>"] = "",
+          ["<tab>"] = false,
           ["o"] = "Toggle",
         },
       },

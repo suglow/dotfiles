@@ -4,13 +4,13 @@ return {
     branch = "main",
     opts = {
       keymap = {
-        toggle = "m<tab>",     -- Toggle bookmarks
-        add = "mm",            -- Add bookmarks
-        jump = "<CR>",         -- Jump from bookmarks
-        delete = "md",         -- Delete bookmarks
-        order = "m<space>",    -- Order bookmarks by frequency or updated_time
+        toggle = "m<tab>", -- Toggle bookmarks
+        add = "mm", -- Add bookmarks
+        jump = "<CR>", -- Jump from bookmarks
+        delete = "md", -- Delete bookmarks
+        order = "m<space>", -- Order bookmarks by frequency or updated_time
         delete_on_virt = "mr", -- Delete bookmark at virt text line
-        show_desc = "mk",      -- show bookmark desc
+        show_desc = "mk", -- show bookmark desc
       },
     },
     config = function(_, opts)
