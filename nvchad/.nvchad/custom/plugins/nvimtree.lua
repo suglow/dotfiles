@@ -36,6 +36,9 @@ return {
 				vim.keymap.set("n", "<c-t>", function()
 					require("custom.treeutils").toggle_term()
 				end, opts("Toggle Term"))
+				vim.keymap.set("n", "D", function()
+					require("custom.treeutils").dir_mark()
+				end, opts("Dir mark"))
 			end
 
 			local setup = {

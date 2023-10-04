@@ -103,4 +103,12 @@ function M.toggle_term()
   if not created then term:change_dir(basedir) end
 end
 
+function M.dir_mark()
+  local node = lib.get_node_at_cursor()
+  local is_folder = node.fs_stat and node.fs_stat.type == 'directory' or false
+  local basedir = is_folder and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ":h")
+  vim.cmd("ZFDirDiffMark " .. basedir)
+end
+
+
 return M

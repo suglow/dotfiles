@@ -24,7 +24,13 @@ M.disabled = {
     -- close buffer + hide terminal buffer
     ["<leader>x"] = "",
     ["<leader>b"] = "",
+    ["<leader>/"] = "",
+    ["<leader>pt"] = "",
+    ["<leader>ph"] = "",
   },
+  v = {
+    ["<leader>/"] = "",
+  }
 }
 M.general = {
 	n = {
@@ -42,16 +48,16 @@ M.general = {
       end,
       "Goto prev buffer",
     },
-    ["yow"] = { "<cmd>set wrap!<cr>", "Toggle wrap" },
-    ["yoc"] = { "<cmd>set cursorline!<cr>", "Toggle cursorline" },
-    ["yoh"] = { "<cmd>set hlsearch!<cr>", "Toggle hlsearch" },
-    ["yoi"] = { "<cmd>set ignorecase!<cr>", "Toggle ignorecase" },
-    ["yol"] = { "<cmd>set list!<cr>", "Toggle list" },
-    ["yon"] = { "<cmd>set number!<cr>", "Toggle number" },
-    ["yor"] = { "<cmd>set relativenumber!<cr>", "Toggle relativenumber" },
-    ["yos"] = { "<cmd>set spell!<cr>", "Toggle spell" },
-    ["you"] = { "<cmd>set cursorcolumn!<cr>", "Toggle cursorcolumn" },
-    ["yov"] = { "<cmd>set virtualedit!<cr>", "Toggle virtualedit" },
+    -- ["yow"] = { "<cmd>set wrap!<cr>", "Toggle wrap" },
+    -- ["yoc"] = { "<cmd>set cursorline!<cr>", "Toggle cursorline" },
+    -- ["yoh"] = { "<cmd>set hlsearch!<cr>", "Toggle hlsearch" },
+    -- ["yoi"] = { "<cmd>set ignorecase!<cr>", "Toggle ignorecase" },
+    -- ["yol"] = { "<cmd>set list!<cr>", "Toggle list" },
+    -- ["yon"] = { "<cmd>set number!<cr>", "Toggle number" },
+    -- ["yor"] = { "<cmd>set relativenumber!<cr>", "Toggle relativenumber" },
+    -- ["yos"] = { "<cmd>set spell!<cr>", "Toggle spell" },
+    -- ["you"] = { "<cmd>set cursorcolumn!<cr>", "Toggle cursorcolumn" },
+    -- ["yov"] = { "<cmd>set virtualedit!<cr>", "Toggle virtualedit" },
 	},
 }
 

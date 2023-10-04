@@ -19,7 +19,9 @@ return {
       }
     },
     keys = {
+      {"<leader>p" , "<cmd>Lazy<cr>", desc = "Lazy" },
       -- shot cut
+
       { "yow", "<cmd>set wrap!<cr>", desc = "Toggle wrap" },
       { "yoc", "<cmd>set cursorline!<cr>", desc = "Toggle cursorline" },
       { "yoh", "<cmd>set hlsearch!<cr>", desc = "Toggle hlsearch" },
