@@ -1,6 +1,7 @@
 return {
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     opts = {
       defaults = {
         ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
@@ -12,6 +13,10 @@ return {
           name = "LSP",
         },
       },
+      disable = {
+        buftypes = {},
+        filetypes = {'NvimTree'}
+      }
     },
     keys = {
       -- shot cut
