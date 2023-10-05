@@ -2,7 +2,9 @@ local lib = require 'nvim-tree.lib'
 local openfile = require 'nvim-tree.actions.node.open-file'
 local actions = require 'telescope.actions'
 local action_state = require 'telescope.actions.state'
-local M = {}
+local M = {
+  diff_source = nil
+}
 
 local view_selection = function(prompt_bufnr, map)
   actions.select_default:replace(function()
@@ -110,5 +112,19 @@ function M.dir_mark()
   vim.cmd("ZFDirDiffMark " .. basedir)
 end
 
-
+function M.diff_files()
+  local node = lib.get_node_at_cursor()
+  local is_folder = node.fs_stat and node.fs_stat.type == 'directory' or false
+  if is_folder then
+    return
+  end
+  if M.diff_source == nil then
+    M.diff_source = node.absolute_path
+    vim.notify("diff source:" .. node.absolute_path)
+  else
+    openfile.fn('edit', M.diff_source)
+    M.diff_source = nil
+    vim.cmd("vert diffs " .. node.absolute_path)
+  end
+end
 return M

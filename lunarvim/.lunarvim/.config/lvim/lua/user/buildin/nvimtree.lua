@@ -19,6 +19,7 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
   vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
   vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+  vim.keymap.set('n', "gu", api.node.navigate.parent,opts('Parent Directory'))
 
   --[[ { key = "<c-f>", cb = custom_callback "launch_find_files" }, ]]
   --[[ { key = "<c-g>", cb = custom_callback "launch_live_grep" }, ]]
@@ -37,6 +38,12 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "<c-t>", function()
     require("user.treeutils").toggle_term()
   end, opts("Toggle Term"))
+  vim.keymap.set("n", "D", function()
+    require("user.treeutils").dir_mark()
+  end, opts("Dir mark"))
+  vim.keymap.set("n", "B", function()
+    require("user.treeutils").diff_files()
+  end, opts("diff files"))
 end
 
 local setup = {
