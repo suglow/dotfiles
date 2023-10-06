@@ -1,6 +1,7 @@
 return {
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     opts = {
       defaults = {
         ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
@@ -14,7 +15,9 @@ return {
       },
     },
     keys = {
+      {"<leader>p" , "<cmd>Lazy<cr>", desc = "Lazy" },
       -- shot cut
+
       { "yow", "<cmd>set wrap!<cr>", desc = "Toggle wrap" },
       { "yoc", "<cmd>set cursorline!<cr>", desc = "Toggle cursorline" },
       { "yoh", "<cmd>set hlsearch!<cr>", desc = "Toggle hlsearch" },

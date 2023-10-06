@@ -45,6 +45,7 @@ return {
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "truncate" },
+        sorting_strategy = "descending",
         vimgrep_arguments = {
           "rg",
           "--color=never",

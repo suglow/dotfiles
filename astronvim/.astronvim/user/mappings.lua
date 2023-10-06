@@ -32,6 +32,9 @@ vim.keymap.set("n", "<Up>", "<Up>zz", { noremap = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 
+vim.keymap.set("n","L",function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,{desc = "Next buffer"})
+vim.keymap.set("n","H",function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,{desc = "Previous buffer"})
+
 return {
   -- first key is the mode
   n = {
