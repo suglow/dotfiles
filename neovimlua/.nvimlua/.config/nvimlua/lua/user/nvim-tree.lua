@@ -6,12 +6,12 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
+-- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+-- if not config_status_ok then
+--   return
+-- end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+-- local tree_cb = nvim_tree_config.nvim_tree_callback
 
 local function custom_callback(callback_name)
   return string.format("<cmd>lua require('user.treeutils').%s()<CR>", callback_name)
@@ -28,10 +28,11 @@ local function on_attach(bufnr)
 
   -- Mappings migrated from view.mappings.list
   --
-  -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-  vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
-  vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+				-- You will need to insert "your code goes here" for any mappings with a custom action_cb
+				vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
+				vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
+				vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+        vim.keymap.set('n', "gu", api.node.navigate.parent,opts('Parent Directory'))
 
   --[[ { key = "<c-f>", cb = custom_callback "launch_find_files" }, ]]
   --[[ { key = "<c-g>", cb = custom_callback "launch_live_grep" }, ]]
@@ -50,6 +51,12 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '<c-t>', function()
     require('user.treeutils').toggle_term()
   end, opts('Toggle Term'))
+  vim.keymap.set("n", "D", function()
+    require("custom.treeutils").dir_mark()
+  end, opts("Dir mark"))
+  vim.keymap.set("n", "B", function()
+    require("custom.treeutils").diff_files()
+  end, opts("diff files"))
 end
 
 
@@ -119,19 +126,6 @@ nvim_tree.setup {
     width = 45,
     hide_root_folder = false,
     side = "left",
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = { "<CR>", "o" }, cb = tree_cb "edit" },
-        -- { key = "h", cb = tree_cb "close_node" },
-        { key = "v",             cb = tree_cb "vsplit" },
-        { key = "<c-f>",         cb = custom_callback "launch_find_files" },
-        { key = "<c-g>",         cb = custom_callback "launch_live_grep" },
-        { key = "<c-d>",         cb = custom_callback "launch_live_grep_args" },
-        { key = "T",             cb = custom_callback "toggle_term" },
-        { key = "<c-t>",         cb = custom_callback "toggle_term" },
-      },
-    },
     number = false,
     relativenumber = false,
   },

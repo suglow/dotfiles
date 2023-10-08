@@ -51,7 +51,7 @@ return lazy.setup({
 	{ "akinsho/toggleterm.nvim", branch = "main" },
 	"ahmedkhalf/project.nvim",
 	"lewis6991/impatient.nvim",
-	"lukas-reineke/indent-blankline.nvim",
+	{"lukas-reineke/indent-blankline.nvim", main = "ibl"},
 	"goolord/alpha-nvim",
 	"antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
 	"folke/which-key.nvim",
