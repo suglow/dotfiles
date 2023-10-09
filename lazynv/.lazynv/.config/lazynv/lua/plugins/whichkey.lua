@@ -58,6 +58,7 @@ return {
       { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", desc = "Buffer Diagnostics" },
       { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
       { "<leader>lf", "<cmd>lua require('lazyvim.plugins.lsp.format').format({ force = true })<cr>", desc = "Format" },
+      { "<leader>lf", "<cmd>lua require('lazyvim.plugins.lsp.format').format({ force = true })<cr>", mode="v", desc = "Format" },
       { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
       { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info" },
       { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
