@@ -24,8 +24,6 @@ lvim.keys.normal_mode["<A-l>"] = ":vertical resize +2<CR>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
-lvim.builtin.which_key.mappings["<tab>"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
-
 lvim.keys.normal_mode["<A-j>"] = ":resize -2<CR>"
 lvim.keys.normal_mode["<A-k>"] = ":resize +2<CR>"
 lvim.keys.normal_mode["<A-h>"] = ":vertical resize -2<CR>"

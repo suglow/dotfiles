@@ -1,4 +1,3 @@
-Util = require("user.treeutils")
 return {
   {
     "folke/which-key.nvim",
@@ -31,7 +30,6 @@ return {
       { "<leader>\\", "<cmd>Telescope resume<cr>", desc = "telescope resume" },
       -- { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "<leader>ff", Util.launch_resent_find_files, desc = "Find Recent Files" },
       -- { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
       -- { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
       -- { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
@@ -42,8 +40,6 @@ return {
       -- search
       { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
       { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-      { "<leader>sg", Util.launch_resent_live_grep, desc = "Live_grep Resent" },
-      { "<leader>/", "<leader>sg", desc = "Live_grep Resent", remap = true },
       { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
       { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },

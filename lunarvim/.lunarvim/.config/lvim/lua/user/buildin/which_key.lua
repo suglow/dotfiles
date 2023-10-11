@@ -26,7 +26,6 @@ lvim.builtin.which_key.setup = vim.tbl_deep_extend("force", lvim.builtin.which_k
 
 lvim.builtin.which_key.mappings = {
 	["a"] = { "<cmd>Alpha<CR>", "Dashboard" },
-	["<tab>"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
 	b = {
 		name = "Buffers",
 		b = { "<cmd>e #<cr>", "Switch to Other Buffer" },
