@@ -1,6 +1,88 @@
+local LRUCacheStack = {}
+LRUCacheStack.__index = LRUCacheStack
+
+function LRUCacheStack:new()
+  local stack = {
+    stack = {},
+    nodes = {},
+  }
+  setmetatable(stack, self)
+  return stack
+end
+
+-- 向栈中添加一个元素
+function LRUCacheStack:push(value)
+  if self.nodes[value] then
+    self:move_to_top(value)
+  else
+    table.insert(self.stack, 1, value)
+    self.nodes[value] = 1
+  end
+end
+
+-- 将一个节点移动到栈顶
+function LRUCacheStack:move_to_top(value)
+  for i = 1, #self.stack do
+    if self.stack[i] == value then
+      table.remove(self.stack, i)
+      break
+    end
+  end
+  table.insert(self.stack, 1, value)
+end
+
+-- 从栈中删除一个元素
+function LRUCacheStack:pop()
+  if #self.stack > 0 then
+    local value = table.remove(self.stack, 1)
+    self.nodes[value] = nil
+    return value
+  else
+    return nil
+  end
+end
+
+-- 获取栈顶元素
+function LRUCacheStack:top()
+  if #self.stack > 0 then
+    return self.stack[1]
+  else
+    return nil
+  end
+end
+
+-- 打印栈中所有元素
+function LRUCacheStack:print()
+  for i = 1, #self.stack do
+    print(self.stack[i])
+  end
+end
+
+function LRUCacheStack:get_all()
+  local all = {}
+  for i = 1, #self.stack do
+    table.insert(all, self.stack[i])
+  end
+  return all
+end
+
 local M = {
-  resentGrepFolder = nil,
+  resentFolders = LRUCacheStack:new(),
 }
+
+function DirSelect(on_select)
+  local folders = M.resentFolders:get_all()
+  if #folders == 0 then
+    on_select(true)
+  else
+    vim.ui.select(folders, {
+      prompt = "resent Dirs",
+      -- telescope = require("telescope.themes").get_cursor(),
+    }, function(selected)
+      on_select(selected)
+    end)
+  end
+end
 
 local function getGrepTelescopeOpts(state, path)
   return {
@@ -102,24 +184,28 @@ return {
         telescope_find = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
-          M.resentGrepFolder = path
+          M.resentFolders:push(path)
+          -- vim.notify(vim.inspect(M.resentFolders:get_all()))
           require("telescope.builtin").find_files(getTelescopeOpts(state, path))
         end,
         telescope_grep = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
-          M.resentGrepFolder = path
+          M.resentFolders:push(path)
+          -- vim.notify(vim.inspect(M.resentFolders:get_all()))
           require("telescope.builtin").live_grep(getGrepTelescopeOpts(state, path))
         end,
         telescope_grep_args = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
-          M.resentGrepFolder = path
+          M.resentFolders:push(path)
+          -- vim.notify(vim.inspect(M.resentFolders:get_all()))
           require("telescope").extensions.live_grep_args.live_grep_args(getGrepTelescopeOpts(state, path))
         end,
         telescope_find_file = function(state)
           local path = require("lazyvim.util").get_root()
-          M.resentGrepFolder = path
+          M.resentFolders:push(path)
+          -- vim.notify(vim.inspect(M.resentFolders:get_all()))
           require("telescope.builtin").find_files(getTelescopeOpts(state, path))
         end,
         copy_node_name = function(state)
@@ -218,30 +304,38 @@ return {
       {
         "<leader>sg",
         function()
-          local cwd = M.resentGrepFolder
           local opt = {}
-          if cwd ~= nil then
-            opt = vim.tbl_deep_extend("force", opt, { cwd = cwd })
-            vim.notify("grep in:" .. opt.cwd)
-          end
-          require("telescope.builtin").live_grep(opt)
+          DirSelect(function(selected)
+            if selected == nil then
+              return
+            end
+            if selected ~= true then
+              opt = vim.tbl_deep_extend("force", opt, { cwd = selected })
+              vim.notify("grep in:" .. opt.cwd)
+            end
+            require("telescope.builtin").live_grep(opt)
+          end)
         end,
         desc = "grep in resent folder",
       },
       {
         "<leader>ff",
         function()
-          local cwd = M.resentGrepFolder
           local opt = {}
-          if cwd ~= nil then
-            opt = vim.tbl_deep_extend("force", opt, { cwd = cwd })
-            vim.notify("find file in:" .. opt.cwd)
-          end
-          require("telescope.builtin").find_files(opt)
+          DirSelect(function(selected)
+            if selected == nil then
+              return
+            end
+            if selected ~= true then
+              opt = vim.tbl_deep_extend("force", opt, { cwd = selected })
+              vim.notify("grep in:" .. opt.cwd)
+            end
+            require("telescope.builtin").find_files(opt)
+          end)
         end,
         desc = "find file in resent folder",
       },
     },
   },
-  -- dependencies = { "telescope.nvim" },
+  -- dependencies = { "dressing.nvim" },
 }
