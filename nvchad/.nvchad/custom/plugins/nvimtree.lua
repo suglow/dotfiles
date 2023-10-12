@@ -1,3 +1,4 @@
+local Util = require("custom.treeutils")
 return {
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -150,6 +151,9 @@ return {
 		end,
 		keys = {
 			{ "<leader><tab>", "<cmd>NvimTreeToggle<CR>", desc = "Explorer NeoTree" },
+      { "<leader>ff", Util.launch_resent_find_files, desc = "Find Recent Files" },
+      { "<leader>sg", Util.launch_resent_live_grep, desc = "Live_grep Resent" },
+      { "<leader>/", "<leader>sg", desc = "Live_grep Resent", remap = true },
 		},
 	},
 }

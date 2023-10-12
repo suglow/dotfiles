@@ -45,6 +45,7 @@ return {
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "truncate" },
+        sorting_strategy = "descending",
         vimgrep_arguments = {
           "rg",
           "--color=never",
@@ -149,7 +150,7 @@ return {
       { "<leader>ff", false },
       { "<leader>sg", false },
       { "<leader>/", false },
-      { "<leader><space>", false},
+      { "<leader><space>", false },
     },
   },
   {

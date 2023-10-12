@@ -5,7 +5,7 @@ return {
     vscode = true,
     ---@type Flash.Config
     opts = {
-      labels="asfghjklqwertuiopzcvbnm",
+      labels="asfghjklqwertuiozcvbnm",
       modes = {
         char = {
           jump_labels = true,
