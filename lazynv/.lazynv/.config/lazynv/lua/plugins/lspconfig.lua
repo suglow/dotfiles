@@ -1,8 +1,11 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    init = function ()
+      vim.g.autoformat = false
+    end,
     opts = {
-      autoformat = false,
+      -- autoformat = false,
       diagnostics = {
         underline = true,
         update_in_insert = false,
