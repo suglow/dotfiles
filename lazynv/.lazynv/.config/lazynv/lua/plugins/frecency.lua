@@ -5,7 +5,7 @@ return {
       require("telescope").load_extension("frecency")
     end,
     keys = {
-      { "<leader><space>", "<cmd>Telescope frecency<cr>", desc = "rescent files" },
+      { "<leader>F", "<cmd>Telescope frecency<cr>", desc = "rescent files" },
     },
   },
 }
