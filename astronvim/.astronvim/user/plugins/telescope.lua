@@ -156,6 +156,18 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
+      "suglow/telescope_jumpbuf.nvim",
+      config = function()
+        require("telescope").load_extension("jumpbuf")
+      end,
+      keys = {
+        { "<leader><space>", "<cmd>Telescope jumpbuf<cr>", desc = "rescent jumpbuf" },
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
       "nvim-telescope/telescope-fzy-native.nvim",
       config = function()
         require("telescope").load_extension("fzy_native")

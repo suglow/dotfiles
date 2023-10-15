@@ -17,7 +17,7 @@ return {
         desc = "SingleBufferVisualSelection",
       },
       {
-        "<leader>rs",
+        "<leader>rr",
         "<CMD>SearchReplaceWithinVisualSelection<CR>",
         mode = "v",
         noremap = true,

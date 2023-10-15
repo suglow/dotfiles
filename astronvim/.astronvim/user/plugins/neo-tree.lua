@@ -304,7 +304,23 @@ return {
       {
         "<leader>sg",
         function()
-          local opt = {}
+          local buf_vtext = function()
+            local mode = vim.fn.mode()
+            if mode ~= "v" then
+              return ""
+            end
+            local a_orig = vim.fn.getreg("a")
+            vim.cmd([[silent! normal! "aygv]])
+            local text = vim.fn.getreg("a")
+            vim.fn.setreg("a", a_orig)
+            return text
+          end
+
+          -- local mode = vim.fn.mode()
+          local cword = buf_vtext()
+          local opt = {
+            default_text = cword,
+          }
           DirSelect(function(selected)
             if selected == nil then
               return
@@ -316,6 +332,7 @@ return {
             require("telescope.builtin").live_grep(opt)
           end)
         end,
+        mode = { "n", "v" },
         desc = "grep in resent folder",
       },
       {

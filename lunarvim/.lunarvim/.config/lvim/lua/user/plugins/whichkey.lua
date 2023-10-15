@@ -30,10 +30,6 @@ return {
       { "<leader>\\", "<cmd>Telescope resume<cr>", desc = "telescope resume" },
       -- { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      -- { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
-      -- { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-      -- { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      -- { "<leader>fR", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
       -- git
       { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
       { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
@@ -53,9 +49,9 @@ return {
       { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
       { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
       { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Word" },
-      { "<leader>/", "<leader>sw", mode = "v",  desc = "Grep Word", remap = true },
+      -- { "<leader>/", "<leader>sw", mode = "v", desc = "Grep Word", remap = true },
       -- search
-      { "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jump list" },
+      { "<leader>sj", "<cmd>Telescope jumplist show_line=false<cr>", desc = "Jump list" },
       { "<leader>sJ", "<cmd>Telescope tagstack<cr>", desc = "search tagstack" },
       -- lsp
       { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
@@ -71,7 +67,7 @@ return {
       { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info" },
       { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
       { "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
-      { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>",  desc  = "CodeLens Action" },
+      { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
       { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
       { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
       { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },

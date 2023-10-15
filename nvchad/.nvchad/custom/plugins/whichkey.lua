@@ -56,9 +56,9 @@ return {
       { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
       { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
       { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Word" },
-      { "<leader>/", "<leader>sw", mode = "v",  desc = "Grep Word", remap = true },
+      -- { "<leader>/", "<leader>sw", mode = "v", desc = "Grep Word", remap = true },
       -- search
-      { "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jump list" },
+      { "<leader>sj", "<cmd>Telescope jumplist show_line=false<cr>", desc = "Jump list" },
       { "<leader>sJ", "<cmd>Telescope tagstack<cr>", desc = "search tagstack" },
       -- lsp
       { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
