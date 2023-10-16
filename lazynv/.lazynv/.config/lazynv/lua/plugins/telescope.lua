@@ -1,11 +1,16 @@
 local actions = require("telescope.actions")
-
+local os_sep = require("plenary.path").path.sep
 return {
   {
     "nvim-telescope/telescope.nvim",
     -- change some options
     opts = {
       defaults = {
+        history = {
+
+          path = vim.fn.stdpath("data") .. os_sep .. "telescope_history.sqlite3",
+          limit = 100,
+        },
         layout_config = {
           horizontal = {
             width = 0.98,
@@ -163,6 +168,16 @@ return {
       keys = {
         { "<leader><space>", "<cmd>Telescope jumpbuf<cr>", desc = "rescent jumpbuf" },
       },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "suglow/telescope-smart-history.nvim",
+      config = function()
+        require("telescope").load_extension("smart_history")
+      end,
+      dependencies = { "kkharji/sqlite.lua" },
     },
   },
   {
