@@ -3,7 +3,6 @@ return {
     "folke/which-key.nvim",
     opts = {
       defaults = {
-        ["<leader>a"] = { "<cmd>Alpha<cr>", "Alpha" },
         ["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
         ["<leader>b"] = {
           name = "buffer",
