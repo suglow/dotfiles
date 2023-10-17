@@ -178,6 +178,9 @@ return {
         require("telescope").load_extension("smart_history")
       end,
       dependencies = { "kkharji/sqlite.lua" },
+      keys = {
+        { "<leader>H", "<cmd>Telescope smart_history<cr>", desc = "rescent live grep history" },
+      },
     },
   },
   {
