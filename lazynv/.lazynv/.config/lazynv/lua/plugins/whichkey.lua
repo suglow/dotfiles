@@ -58,7 +58,7 @@ return {
       { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
       {
         "<leader>lf",
-        "<cmd>lua require('lazyvim.plugins.lsp.format').format({ force = true })<cr>",
+        "<cmd>lua require('lazyvim.util').format({ force = true })<cr>",
         mode = { "n", "v" },
         desc = "Format",
       },
