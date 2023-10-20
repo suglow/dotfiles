@@ -1,5 +1,6 @@
 return {
   { "ibhagwan/smartyank.nvim" },
+  event = "VeryLazy",
   {
     "gbprod/yanky.nvim",
     opts = function(_, opts)

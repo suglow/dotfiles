@@ -1,5 +1,6 @@
 return {
   "Pocco81/true-zen.nvim",
+  event = "VeryLazy",
   opts = {
     ui = {
       bottom = {
