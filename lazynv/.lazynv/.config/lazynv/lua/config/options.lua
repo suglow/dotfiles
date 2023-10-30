@@ -14,4 +14,9 @@ opt.listchars = {
 opt.list = false
 opt.inccommand = "split"
 
+-- debug rust
 vim.g.termdebug_wide = 1
+vim.g.termdebugger="rust-gdb"
+vim.cmd [[
+  packadd termdebug
+]]

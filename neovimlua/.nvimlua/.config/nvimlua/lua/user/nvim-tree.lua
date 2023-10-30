@@ -124,7 +124,7 @@ nvim_tree.setup {
   },
   view = {
     width = 45,
-    hide_root_folder = false,
+    --[[ hide_root_folder = false, ]]
     side = "left",
     number = false,
     relativenumber = false,

@@ -83,6 +83,8 @@ return {
       { "<leader>w|", "<C-W>v", desc = "Split window right", remap = true },
       { "<leader>-", "<C-W>s", desc = "Split window below", remap = true },
       { "<leader>|", "<C-W>v", desc = "Split window right", remap = true },
+    -- debug  
+      { "<leader>ddb", "<cmd>Break<cr>", desc = "Breakpoint"},
     },
   },
 }
