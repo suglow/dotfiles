@@ -70,6 +70,6 @@ return {
     },
   },
   keys = {
-    { "<A-z>", "<cmd>TZFocus<cr>", desc = "Focus Mode" },
+    { "<leader>Z", "<cmd>TZFocus<cr>", desc = "Focus Mode" },
   },
 }
