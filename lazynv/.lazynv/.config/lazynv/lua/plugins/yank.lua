@@ -1,8 +1,8 @@
 return {
   { "ibhagwan/smartyank.nvim" },
-  event = "VeryLazy",
   {
     "gbprod/yanky.nvim",
+    event = "VeryLazy",
     opts = function(_, opts)
       local utils = require("yanky.utils")
       local mapping = require("yanky.telescope.mapping")
