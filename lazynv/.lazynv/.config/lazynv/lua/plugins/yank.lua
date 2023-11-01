@@ -49,7 +49,6 @@ return {
       })
     end,
     config = function(_, opts)
-      vim.notify(vim.inspect(opts))
       require("yanky").setup(opts)
       require("telescope").load_extension("yank_history")
     end,
