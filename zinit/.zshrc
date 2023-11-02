@@ -190,3 +190,9 @@ export RPI_STG=~/rpi_work
 source $HOME/.cargo/env
 
 [[ -s "/home/suglow/.gvm/scripts/gvm" ]] && source "/home/suglow/.gvm/scripts/gvm"
+
+if command -v atuin &> /dev/null; then
+  export ATUIN_NOBIND="true"
+  eval "$(atuin init zsh)"
+  alias hist='atuin search -i'
+fi
