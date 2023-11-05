@@ -71,6 +71,15 @@ elif [ `so` = "mac" ]; then
     xargs brew install < "$DOTFILES_FOLDER/brew.pkglist"
 fi
 
+# tmux config
+if [ -x "$(command -v tic)" ]; then
+  pushd ~
+  wget --no-check-certificate -c -qO- https://github.com/suglow/picgo/raw/main/terminfo.src.gz | gunzip -
+  tic -xe tmux-256color terminfo.src
+  rm -rf terminfo.src
+  popd
+fi
+
 #
 # Install shell configuration
 # ==============================================================================================================================
