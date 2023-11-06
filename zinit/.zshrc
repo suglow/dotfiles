@@ -142,6 +142,9 @@ export BAT_THEME="gruvbox-dark"
 # autoload -z edit-command-line
 # zle -N edit-command-line
 # bindkey "^X^E" edit-command-line
+# remove keybind execute-named-cmd
+bindkey -e -r '^[x'
+bindkey -a -r ':'
 
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
