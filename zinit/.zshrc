@@ -31,6 +31,10 @@ zinit light zsh-users/zsh-autosuggestions
 # 补全
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
+
+zinit ice lucid wait='0'
+zinit light lljbash/zsh-renew-tmux-env
+
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 # 加载 OMZ 框架及部分插件
