@@ -82,4 +82,7 @@ return {
       { "<A-,>", desc = "Decrement selection", mode = "x" },
     },
   },
+  {
+    "nvim-treesitter/playground",
+  }
 }
