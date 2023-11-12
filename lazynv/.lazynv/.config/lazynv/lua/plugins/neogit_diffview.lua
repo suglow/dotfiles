@@ -2,6 +2,11 @@ return {
   {
     "sindrets/diffview.nvim",
     opts = {
+      view = {
+        merge_tool = {
+          layout = "diff4_mixed",
+        },
+      },
       hooks = {
         diff_buf_win_enter = function(bufnr, winid, ctx)
           if ctx.layout_name:match("^diff2") then
