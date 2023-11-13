@@ -29,4 +29,15 @@ customCommands:
     context: 'commits'
     subprocess: true
     description: 'Compare (difftool) with local copy'
+      
+  - key: 'F'
+    command: "nv -n -c \"DiffviewOpen {{.SelectedLocalCommit.Sha}}\""
+    context: 'commits'
+    subprocess: true
+    description: 'Compare (difftool) with worktree'
     
+  - key: '<c-f>'
+    command: "nv -n -c \"DiffviewOpen {{.SelectedLocalCommit.Sha}}~1..{{.SelectedLocalCommit.Sha}} -- {{.SelectedCommitFile.Name}}\""
+    context: 'commitFiles'
+    subprocess: true
+    description: 'Compare (difftool) with local copy'
