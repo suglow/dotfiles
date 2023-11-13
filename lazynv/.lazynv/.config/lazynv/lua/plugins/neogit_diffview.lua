@@ -25,6 +25,21 @@ return {
       },
     },
     dependencies = "nvim-lua/plenary.nvim",
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", mode = { "n" }, desc = "Repo Diffview", nowait = true },
+      { "<leader>gf", "<cmd>DiffviewFileHistory --follow %<cr>", mode = { "n" }, desc = "File history" },
+      {
+        "<leader>gl",
+        function()
+          local current_line = vim.fn.line(".")
+          local file = vim.fn.expand("%")
+          -- DiffviewFileHistory --follow -L{current_line},{current_line}:{file}
+          local cmd = string.format("DiffviewFileHistory --follow -L%s,%s:%s", current_line, current_line, file)
+          vim.cmd(cmd)
+        end,
+        desc = "Line history",
+      },
+    },
   },
   {
     "NeogitOrg/neogit",
