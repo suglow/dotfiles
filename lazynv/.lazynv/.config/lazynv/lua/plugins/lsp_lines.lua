@@ -6,14 +6,14 @@ return {
       require("lsp_lines").setup()
       vim.diagnostic.config({
         update_in_insert = false,
-        signs = false,
+        signs = true,
         severity_sort = true,
         virtual_text = false, -- Since we're using lsp_lines
-        virtual_lines = false,
-      }, require("lazy.core.config").ns)
+        virtual_lines = true,
+      })
     end,
     keys = {
-      { "<leader>ln", require("lsp_lines").toggle, desc = "Toggle lsp_lines" },
-    },
+      { "<leader>ln", "<cmd>lua require('lsp_lines').toggle()<cr>", desc = "Toggle lsp_lines" },
+    }
   },
 }
