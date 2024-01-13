@@ -23,7 +23,17 @@ return {
       { "yor", "<cmd>set relativenumber!<cr>", desc = "Toggle relativenumber" },
       { "yos", "<cmd>set spell!<cr>", desc = "Toggle spell" },
       { "you", "<cmd>set cursorcolumn!<cr>", desc = "Toggle cursorcolumn" },
-      { "yov", "<cmd>set virtualedit!<cr>", desc = "Toggle virtualedit" },
+      {
+        "yov",
+        function()
+          if vim.o.virtualedit == "" then
+            vim.o.virtualedit = "all"
+          else
+            vim.o.virtualedit = ""
+          end
+        end,
+        desc = "Toggle virtualedit",
+      },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
       { "<leader>\\", "<cmd>Telescope resume<cr>", desc = "telescope resume" },
@@ -83,8 +93,8 @@ return {
       { "<leader>w|", "<C-W>v", desc = "Split window right", remap = true },
       { "<leader>-", "<C-W>s", desc = "Split window below", remap = true },
       { "<leader>|", "<C-W>v", desc = "Split window right", remap = true },
-    -- debug  
-      { "<leader>ddb", "<cmd>Break<cr>", desc = "Breakpoint"},
+      -- debug
+      { "<leader>ddb", "<cmd>Break<cr>", desc = "Breakpoint" },
     },
   },
 }
