@@ -1,6 +1,6 @@
 return {
   {
-    "aserowy/tmux.nvim",
+    "suglow/tmux.nvim",
     config = function()
       return require("tmux").setup({
         copy_sync = {
@@ -9,6 +9,7 @@ return {
           sync_registers = true,
         },
         navigation = {
+          persist_zoom = true,
           enable_default_keybindings = false,
         },
         resize = {
