@@ -4,12 +4,13 @@ return {
     config = function()
       return require("tmux").setup({
         copy_sync = {
-          enable = true,
+          enable = false,
           sync_clipboard = false,
-          sync_registers = true,
+          sync_registers = false,
         },
         navigation = {
           persist_zoom = true,
+          cycle_navigation = false,
           enable_default_keybindings = false,
         },
         resize = {
