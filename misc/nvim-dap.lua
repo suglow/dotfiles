@@ -51,4 +51,43 @@ dap.configurations.c = {
 	},
 }
 
+dap.configurations.cpp  = {
+  {
+    name = "start gdb",
+    type = "cppdbg",
+    request = "launch",
+    program = "${workspaceFolder}/build/bin/clang",
+    args = {"-cc1", "-analyze", "-analyzer-checker=alpha.unix.SimpleStream", "/workspace/test/test.c"},
+    stopAtEntry = false,
+    cwd = "${workspaceFolder}",
+    environment = {},
+    externalConsole = false,
+    MIMode = "gdb",
+    setupCommands = {
+      {
+          description = "为 gdb 启用整齐打印",
+          text = "-enable-pretty-printing",
+          ignoreFailures = true
+      },
+      {
+          description = "将反汇编风格设置为 Intel",
+          text = "-gdb-set disassembly-flavor intel",
+          ignoreFailures = true
+      },
+      {text = "-gdb-set follow-fork-mode child"},
+      {text = "-gdb-set detach-on-fork off"}
+    }
+  },
+  {
+    name = "debug cpp",
+    type = "codelldb",
+    request = "launch",
+    program = "${workspaceFolder}/build/bin/clang",
+    args = {"-cc1", "-analyze", "-analyzer-checker=alpha.unix.SimpleStream", "/workspace/test/test.c"},
+    cwd = "${workspaceFolder}",
+    stopAtEntry = false,
+  }
+}
+
 -- vim.notify(vim.inspect(require("dap")))
+
