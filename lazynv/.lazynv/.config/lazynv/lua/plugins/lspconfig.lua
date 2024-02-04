@@ -13,6 +13,20 @@ return {
         severity_sort = true,
       },
       servers = {
+        rust_analyzer = {
+          server = {
+            settings = {
+              ["rust-analyzer"] = {
+                lens = {
+                  enable = true,
+                },
+                checkOnSave = {
+                  extraArgs={"--target-dir", "/tmp/rust-analyzer-check"}
+                },
+              },
+            },
+          },
+        },
         -- rust_analyzer = {
         --   tools = {
         --     on_initialized = function()

@@ -1,6 +1,7 @@
 return {
   {
     "suglow/lsp_lines.nvim",
+    enabled = false,
     event = "LspAttach",
     config = function()
       require("lsp_lines").setup()

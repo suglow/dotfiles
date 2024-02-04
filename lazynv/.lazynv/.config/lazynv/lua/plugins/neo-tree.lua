@@ -280,10 +280,10 @@ return {
         end,
       },
       filesystem = {
-        follow_current_file = {
-          enabled = true,
-        },
-        bind_to_cwd = true,
+        -- follow_current_file = {
+        --   enabled = true,
+        -- },
+        -- bind_to_cwd = true,
         filtered_items = {
           hide_dotfiles = false,
           hide_gitignored = false,
