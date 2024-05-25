@@ -12,7 +12,7 @@ fi
 
 export NVM_DIR=${HOME}/.nvm
 export NVM_COMPLETION=true
-export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+export NVM_NODEJS_ORG_MIRROR=https://nodejs.org/dist
 export EDITOR=nv
 # load zinit
 source ~/.zinit/bin/zinit.zsh
