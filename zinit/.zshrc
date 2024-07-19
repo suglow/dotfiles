@@ -203,3 +203,8 @@ if command -v atuin &> /dev/null; then
   eval "$(atuin init zsh)"
   alias hist='atuin search -i'
 fi
+
+autoload -Uz compinit
+compinit
+# Load Angular CLI autocompletion.
+source <(ng completion script)

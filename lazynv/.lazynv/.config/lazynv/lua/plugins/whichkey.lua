@@ -2,7 +2,7 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
+      spec = {
         ["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
         ["<leader>b"] = {
           name = "buffer",
