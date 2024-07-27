@@ -194,7 +194,6 @@ alias jlogall='/bin/journalctl --all --catalog --merge --no-pager'
 alias jlogf='/bin/journalctl -f'
 
 export RPI_STG=~/rpi_work
-source $HOME/.cargo/env
 
 [[ -s "/home/suglow/.gvm/scripts/gvm" ]] && source "/home/suglow/.gvm/scripts/gvm"
 
@@ -206,5 +205,3 @@ fi
 
 autoload -Uz compinit
 compinit
-# Load Angular CLI autocompletion.
-source <(ng completion script)
