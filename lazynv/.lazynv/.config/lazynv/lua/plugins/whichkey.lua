@@ -3,16 +3,17 @@ return {
     "folke/which-key.nvim",
     opts = {
       spec = {
-        ["<leader>p"] = { "<cmd>Lazy<cr>", "Lazy" },
-        ["<leader>b"] = {
-          name = "buffer",
-        },
-        ["<leader>l"] = {
-          name = "LSP",
+        {
+          mode = { "n", "v" },
+          {
+            "<leader>l",
+            group = "LSP",
+          },
         },
       },
     },
     keys = {
+      { "<leader>p", "<cmd>Lazy<cr>", desc = "Lazy" },
       -- shot cut
       { "yow", "<cmd>set wrap!<cr>", desc = "Toggle wrap" },
       { "yoc", "<cmd>set cursorline!<cr>", desc = "Toggle cursorline" },
