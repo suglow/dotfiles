@@ -2,6 +2,7 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
+      preset = "classic",
       spec = {
         {
           mode = { "n", "v" },
