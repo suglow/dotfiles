@@ -24,7 +24,15 @@ return {
       { "\\dp", ":GdbStartPDB python -m pdb ", desc = "python gdb" },
       { "\\db", ":GdbStartBashDB bashdb ", desc = "start bashdb" },
       { "\\dr", ":GdbStartRR ", desc = "start bashdb" },
-      { "\\da", ":packadd termdebug<cr>", desc = "add termdebug" },
+      {
+        "\\da",
+        function()
+          if vim.fn.exists(":Termdebug") == 0 then
+            vim.cmd("packadd termdebug")
+          end
+        end,
+        desc = "add termdebug",
+      },
       { "\\dg", ':let termdebugger="rust-gdb"', desc = "set debugger" },
     },
   },

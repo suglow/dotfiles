@@ -18,5 +18,5 @@ opt.inccommand = "split"
 vim.g.termdebug_wide = 1
 vim.g.termdebugger="rust-gdb"
 vim.cmd [[
-  packadd termdebug
+  packadd! termdebug
 ]]

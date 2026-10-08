@@ -19,6 +19,8 @@ return {
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = "n" , function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      -- Keep visual S for nvim-surround; disable LazyVim's inherited Flash mapping.
+      { "S", false, mode = "x" },
       -- { "S", "vs", desc = "fast visual selection", remap = true},
       -- { "S", false, mode = { "n", "o", "x" }},
       { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
