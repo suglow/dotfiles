@@ -153,9 +153,9 @@ bindkey -a -r ':'
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ ! -x "$(command -v node)" ]; then
-    nvm install v18.19.1
-    nvm use v18.19.1
-    nvm alias default v18.19.1
+    nvm install v22.23.3
+    nvm use v22.23.3
+    nvm alias default v22.23.3
     npm config set registry http://registry.npm.taobao.org
 fi
 
