@@ -1,6 +1,9 @@
 curl
 zsh
 python3-pip
+build-essential
+libreadline-dev
+libncurses-dev
 wget
 git
 tmux

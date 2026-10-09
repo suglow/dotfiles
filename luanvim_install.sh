@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DOTFILES_FOLDER=$(dirname $(readlink -f "$0"))
+failed_packages=()
 
 so() {
     unameOut="$(uname -s)"
@@ -23,7 +24,12 @@ if [ `so` = "linux" ]; then
     elif [ -x "$(command -v apt)" ]; then
         # sudo add-apt-repository ppa:neovim-ppa/stable
         sudo apt-get update
-        xargs -i sh -c "sudo apt-get -y install {} || true" < "$DOTFILES_FOLDER/apt.pkglist"
+        while IFS= read -r package || [[ -n "$package" ]]; do
+            [[ -z "$package" ]] && continue
+            if ! sudo apt-get -y install "$package"; then
+                failed_packages+=("$package")
+            fi
+        done < "$DOTFILES_FOLDER/apt.pkglist"
         mkdir -p ~/.local
         # install neovim 0.6.1
         wget --no-check-certificate -q https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz -O ~/.local/nvim-linux64.tar.gz
@@ -111,3 +117,9 @@ git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 # nvim --headless +PackUpdate +qall
 fi
 # nvim --headless +PackerUpdate +qall
+
+if (( ${#failed_packages[@]} > 0 )); then
+    printf '\nFailed to install the following packages:\n' >&2
+    printf '  %s\n' "${failed_packages[@]}" >&2
+    exit 1
+fi
